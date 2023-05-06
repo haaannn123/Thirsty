@@ -7,7 +7,11 @@ const getProduct = (id) => ({
 
 // THUNK Action creator
 export const fetchProduct = (id) => async (dispatch) => {
-    const response = await fetch(`/api/products/${id}`)
+    const response = await fetch(`/api/products/${id}`, {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
     console.log(response)
     if (response.ok) {
         const product = await response.json()
