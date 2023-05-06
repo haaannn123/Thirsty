@@ -1,0 +1,9 @@
+.all-products-image-container{
+    height: 300px;
+    width: 500px;
+}
+
+.all-products-image{
+    height:inherit;
+    width: inherit;
+}

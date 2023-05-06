@@ -6,6 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import GetSingleProduct from "./components/SingleProduct"
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import GetAllProducts from "./components/Products";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,8 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path="/">
+            <GetAllProducts />
           <Route path="/products/:product_id">
             <GetSingleProduct />
           </Route>
