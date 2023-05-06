@@ -4,15 +4,16 @@ import { useEffect } from 'react'
 import { fetchProduct } from '../../store/single_product'
 
 const GetSingleProduct = () => {
-    const productId = useParams()
+    const {product_id}  = useParams()
+    console.log("PRODUCT ID HERE!!!!!:", product_id)
     const dispatch = useDispatch()
 
-    const product = useSelector((state) => state)
+    const product = useSelector((state) => state.singleProduct.singleProduct)
     console.log('-----SINGLE PRODUCT IN COMPONENT----', product)
 
     useEffect(() => {
-        dispatch(fetchProduct(productId))
-    }, [dispatch, productId])
+        dispatch(fetchProduct(product_id))
+    }, [dispatch, product_id])
 
 
     return (
