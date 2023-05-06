@@ -7,12 +7,9 @@ const getProduct = (id) => ({
 
 // THUNK Action creator
 export const fetchProduct = (id) => async (dispatch) => {
-    console.log('yooo this is hitting')
     const response = await fetch(`/api/products/${id}`)
-    console.log("----RESPONSE", response)
     if (response.ok) {
         const product = await response.json()
-        console.log('-----PRODUCT----', product)
         dispatch(getProduct(product))
         return product
     }
