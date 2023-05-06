@@ -23,6 +23,7 @@ const GetSingleProduct = () => {
             <text>{product.description}</text>
             <button>Buy it now</button>
             <button>Add to cart</button>
+            <h1>Hello</h1>
         </div>
     )
 }
