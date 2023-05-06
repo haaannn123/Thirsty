@@ -7,15 +7,9 @@ const getProduct = (id) => ({
 
 // THUNK Action creator
 export const fetchProduct = (id) => async (dispatch) => {
-    const response = await fetch(`/api/products/${id}`, {
-        headers: {
-            "Content-Type": "application/json",
-        },
-    })
-    console.log(response)
+    const response = await fetch(`/api/products/${id}`)
     if (response.ok) {
         const product = await response.json()
-        console.log('-----PRODUCT----', product)
         dispatch(getProduct(product))
         return product
     }
@@ -24,7 +18,7 @@ export const fetchProduct = (id) => async (dispatch) => {
 
 const initialState = { singleProduct: {} }
 
-const singleProductReducer = (state = initialState, action) => {
+export default function singleProductReducer(state = initialState, action){
     let newState;
     switch (action.type) {
         case GET_PRODUCT:
@@ -37,5 +31,3 @@ const singleProductReducer = (state = initialState, action) => {
             return state
     }
 }
-
-export default singleProductReducer

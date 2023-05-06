@@ -4,22 +4,28 @@ import { useEffect } from 'react'
 import { fetchProduct } from '../../store/single_product'
 
 const GetSingleProduct = () => {
-    const productId = useParams()
+    const {product_id}  = useParams()
     const dispatch = useDispatch()
 
-    const product = useSelector((state) => state)
+    const product = useSelector((state) => state.singleProduct.singleProduct)
     console.log('-----SINGLE PRODUCT IN COMPONENT----', product)
 
     useEffect(() => {
-        dispatch(fetchProduct(productId))
-    }, [dispatch, productId])
+        dispatch(fetchProduct(product_id))
+    }, [dispatch, product_id])
 
 
     return (
-        <div>{product.name}</div>
+        <div>
+            <h1>{product.name}</h1>
+            <img src={product.preview_img} alt="this is a drink!"/>
+            <h2>{product.price}</h2>
+            <text>{product.description}</text>
+            <button>Buy it now</button>
+            <button>Add to cart</button>
+            <h1>Hello</h1>
+        </div>
     )
-
-
 }
 
 export default GetSingleProduct
