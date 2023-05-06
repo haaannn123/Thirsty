@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { thunkGetAllProducts } from '../../store/products';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import './Products.css'
+import './products.css'
 
 
 const GetAllProducts = () => {

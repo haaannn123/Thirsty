@@ -26,10 +26,11 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route exact path="/products/:product_id">
+            <GetSingleProduct />
+          </Route>
           <Route path="/">
             <GetAllProducts />
-          <Route path="/products/:product_id">
-            <GetSingleProduct />
           </Route>
         </Switch>
       )}
