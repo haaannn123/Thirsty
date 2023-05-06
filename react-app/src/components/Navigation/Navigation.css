@@ -5,3 +5,34 @@
 .hidden {
   display: none;
 }
+
+.home-link{
+  text-decoration: none;
+  font-family: 'Darumadrop One', cursive;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 50px;
+  color: rgb(44, 138, 232)
+}
+
+.navbar-container{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.navbar-top-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar-bottom-row{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%
+}
+
+.signin-button{
+  color: blue
+}
