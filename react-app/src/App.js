@@ -7,6 +7,7 @@ import GetSingleProduct from "./components/SingleProduct"
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import GetAllProducts from "./components/Products";
+import CreateNewProduct from "./components/CreateNewProduct";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +23,9 @@ function App() {
         <Switch>
           <Route path="/login" >
             <LoginFormPage />
+          </Route>
+          <Route path="/products/new">
+            <CreateNewProduct />
           </Route>
           <Route path="/signup">
             <SignupFormPage />

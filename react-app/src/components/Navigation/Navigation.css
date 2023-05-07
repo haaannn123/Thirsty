@@ -18,14 +18,14 @@
 .navbar-container{
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  padding: 1rem 3.2rem
+  justify-content: space-between;
 }
 
-.navbar-icons{
+.navbar-bottom-row{
   display: flex;
-  gap: 1.5rem
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%
 }
 
 button.sign-in-button {
@@ -37,4 +37,35 @@ button.sign-in-button {
   font-size: 16px;
   cursor: pointer;
   margin-left: 10px;
+}
+
+/* @media (max-width: 900px) {
+  .navbar-container{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+  /* }
+  .navbar-top-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  } */
+
+  /* .navbar-bottom-row{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%
+  }
+} */
+
+
+@media (min-width: 901px) {
+  .navbar-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 1rem 3.2rem
+  }
 }
