@@ -28,7 +28,7 @@ def get_product_by_id(id):
 
 @product_routes.route('/', methods=['POST'])
 @login_required
-def create_new_product():
+def post_new_product():
     form = ProductForm()
     owner_id = session.get('user_id')
     form['csrf_token'].data = request.cookies["csrf_token"]
