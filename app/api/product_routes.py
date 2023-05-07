@@ -27,22 +27,21 @@ def get_product_by_id(id):
     return product
 
 
-@product_routes.route('/new', methods=['POST'])
+
+product_routes.route('/new', methods=['POST'])
 # @login_required
 def post_new_product():
     form = ProductForm()
-    data = request.get_json()
-    print('DATA:', data)
     # print('FORM DATA:',form.data)
     owner_id = session.get('user_id')
     form['csrf_token'].data = request.cookies["csrf_token"]
     if form.validate_on_submit():
         new_product = Product(
             owner_id = owner_id,
-            name = data['name'],
-            description = data['description'],
-            price = data['price'],
-            preview_img = data['preview_img'],
+            name = form.data['name'],
+            description = form.data['description'],
+            price = form.data['price'],
+            preview_img = form.data['preview_img'],
             created_at = date.today(),
             updated_at = date.today()
         )
