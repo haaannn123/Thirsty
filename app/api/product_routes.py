@@ -23,3 +23,8 @@ def get_product_by_id(id):
     one_product = Product.query.get(id)
     product = one_product.to_dict()
     return product
+
+# --------------------------
+# TIMESTAMP FOR ASH
+# 31:32
+# --------------------------
