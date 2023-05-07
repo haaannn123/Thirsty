@@ -39,7 +39,7 @@ const GetAllProducts = () => {
         // <h1>All Products Page</h1>
 
         <div className='all-products-container'>
-            <h1>ALL PRODUCTS</h1>
+
             {allProducts.map(product =>
                 {
                     return (
@@ -50,6 +50,11 @@ const GetAllProducts = () => {
                                 className='all-products-image'
                             >
                             </img>
+                            <div class="all-products-price-container">
+                                <div className='all-products-price'>
+                                    ${`${product.price}`}
+                                </div>
+                            </div>
                         </NavLink>
                     )
                 })
