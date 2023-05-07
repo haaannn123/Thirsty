@@ -32,6 +32,7 @@ function App() {
           <Route path="/">
             <GetAllProducts />
           </Route>
+          
         </Switch>
       )}
     </>
