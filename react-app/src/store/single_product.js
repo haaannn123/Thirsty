@@ -1,6 +1,6 @@
 const GET_PRODUCT = "product/GET_PRODUCT"
 
-const getProduct = (id) => ({
+export const getProduct = (id) => ({
     type: GET_PRODUCT,
     id
 });
