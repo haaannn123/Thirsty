@@ -13,7 +13,7 @@ export const createNewProduct = (product) => async dispatch => {
     const response = await fetch ('/api/products/new', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(product)
+        body: product
     })
     if (response.ok) {
         const newProduct = await response.json()
