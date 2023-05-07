@@ -9,13 +9,13 @@ const CreateNewProduct = () => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
-    const [previewImg, setPreviewImg] = useState('');
+    const [preview_img, setPreview_img] = useState('');
     const [errors, setErrors] = useState('');
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Price -->', price)
+        // console.log('Price -->', price)
 
         let allErrors = {}
 
@@ -23,8 +23,8 @@ const CreateNewProduct = () => {
         if (description.length < 30) allErrors.description = 'Description is too short'
         if (description.length > 255) allErrors.description = 'Description is too long'
         if (!price.length) allErrors.price = 'Please enter a valid price'
-        if (!previewImg || previewImg === '') allErrors.previewImg = 'Preview image is required'
-        if (!previewImg.endsWith('.png') && !previewImg.endsWith('.jpg') && !previewImg.endsWith('.jpeg')) allErrors.previewImg = 'Image URL must end in .png, .jpg, or .jpeg'
+        if (!preview_img || preview_img === '') allErrors.preview_img = 'Preview image is required'
+        if (!preview_img.endsWith('.png') && !preview_img.endsWith('.jpg') && !preview_img.endsWith('.jpeg')) allErrors.preview_img = 'Image URL must end in .png, .jpg, or .jpeg'
 
 
         if (Object.keys(allErrors).length) {
@@ -35,7 +35,7 @@ const CreateNewProduct = () => {
             name,
             description,
             price,
-            previewImg
+            preview_img
         }
 
         const createdProduct = await dispatch(createNewProduct(newProduct))
@@ -78,13 +78,13 @@ const CreateNewProduct = () => {
                     name='price'
                 />
                 <label>Preview Image</label>
-                {errors.previewImg ? <p>{errors.previewImg}</p> : null}
+                {errors.preview_img ? <p>{errors.preview_img}</p> : null}
                 <input
                     type='text'
-                    onChange={(e) => setPreviewImg(e.target.value)}
-                    value={previewImg}
+                    onChange={(e) => setPreview_img(e.target.value)}
+                    value={preview_img}
                     placeholder='Preview Image'
-                    name='previewImg'
+                    name='preview_img'
                 />
                 <button type='submit'>Create a New Product</button>
             </form>
