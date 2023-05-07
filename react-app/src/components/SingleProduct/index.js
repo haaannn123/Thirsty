@@ -14,7 +14,6 @@ const GetSingleProduct = () => {
         dispatch(fetchProduct(product_id))
     }, [dispatch, product_id])
 
-
     return (
         <div>
             <h1>{product.name}</h1>

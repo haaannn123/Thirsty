@@ -26,6 +26,7 @@ def get_product_by_id(id):
     product = one_product.to_dict()
     return product
 
+
 @product_routes.route('/new', methods=['POST'])
 # @login_required
 def post_new_product():

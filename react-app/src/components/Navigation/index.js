@@ -1,24 +1,73 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import SearchBar from '../SearchBar';
+import OpenModalButton from '../OpenModalButton';
+import LoginFormModal from '../LoginFormModal';
+
 import './Navigation.css';
 
-function Navigation({ isLoaded }){
-	const sessionUser = useSelector(state => state.session.user);
+function Navigation({ isLoaded }) {
+  const [showMenu, setShowMenu] = useState(false);
+  const sessionUser = useSelector(state => state.session.user);
+  const ulRef = useRef();
 
-	return (
-		<ul>
-			<li>
-				<NavLink exact to="/">Home</NavLink>
-			</li>
-			{isLoaded && (
-				<li>
-					<ProfileButton user={sessionUser} />
-				</li>
-			)}
-		</ul>
-	);
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = (e) => {
+      if (!ulRef.current.contains(e.target)) {
+        setShowMenu(false);
+      }
+    };
+
+    document.addEventListener("click", closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
+
+  const SignInButton = ({ closeMenu }) => {
+    return (
+      <OpenModalButton
+        buttonText="Sign In"
+        onItemClick={closeMenu}
+        modalComponent={<LoginFormModal />}
+      />
+    );
+  };
+
+  const shopButton = () => {
+	if (sessionUser){
+		return (
+			<NavLink to="/">
+				<i className="fa-solid fa-shop"></i>
+			</NavLink>
+		)
+	}
+  }
+
+  return (
+    <div className="navbar-container">
+      <div>
+        <NavLink exact to="/" className="home-link">Thirsty</NavLink>
+      </div>
+      <SearchBar />
+	  {shopButton()}
+      {isLoaded && (
+        <div>
+          {sessionUser ? (
+			<ProfileButton user={sessionUser} />
+          ) : (
+            <SignInButton closeMenu={() => setShowMenu(false)} />
+          )}
+        </div>
+      )}
+	  <NavLink to="/">
+      	<i className="fa-solid fa-cart-shopping"></i>
+	  </NavLink>
+    </div>
+  );
 }
 
 export default Navigation;
