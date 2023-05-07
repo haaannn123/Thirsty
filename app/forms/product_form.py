@@ -13,3 +13,4 @@ class ProductForm(FlaskForm):
     price = DecimalField('Price', places=2, rounding=None, number_format=3, validators=[DataRequired(), NumberRange(min=1)])
     preview_img = StringField('Preview Image', validators=[DataRequired(), URL(require_tld=True)])
     submit = SubmitField('Submit')
+
