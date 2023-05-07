@@ -38,10 +38,10 @@ const CreateNewProduct = () => {
             previewImg
         }
 
-
         const createdProduct = await dispatch(createNewProduct(newProduct))
         if (createdProduct) {
             history.push(`/products/${createdProduct.id}`)
+            return
         }
     }
 

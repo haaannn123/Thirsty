@@ -9,13 +9,15 @@ const actionCreateNewProduct = (product) => ({
 
 //THUNK Action Creator
 export const createNewProduct = (product) => async dispatch => {
-    const response = await fetch ('/api/products', {
+    console.log('PRODUCT-->:', product)
+    const response = await fetch ('/api/products/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(product)
     })
     if (response.ok) {
         const newProduct = await response.json()
+        console.log('NEW PRODUCT-->', newProduct)
         dispatch(actionCreateNewProduct(newProduct))
         return newProduct
     }
@@ -28,6 +30,8 @@ export default function newProductReducer(state = initialState, action){
     switch(action.type) {
         case CREATE_NEW_PRODUCT:
             newState = { ...state, newProduct: {} }
+            console.log('action ->', action)
+            console.log('NEWSTATE-->', newState)
             newState.newProduct = action.product
             return newState
         default:

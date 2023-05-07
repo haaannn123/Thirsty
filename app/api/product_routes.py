@@ -27,7 +27,7 @@ def get_product_by_id(id):
     return product
 
 @product_routes.route('/', methods=['POST'])
-@login_required
+# @login_required
 def post_new_product():
     form = ProductForm()
     owner_id = session.get('user_id')
