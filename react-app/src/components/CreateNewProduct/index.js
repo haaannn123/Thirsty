@@ -48,7 +48,7 @@ const CreateNewProduct = () => {
     return (
         <div>
             <h2>Create a New Product</h2>
-            <form onSubmit={handleSubmit}>
+            <form method='POST' encType="multipart/form-data" onSubmit={handleSubmit}>
                 <label>Name</label>
                 {errors.name ? <p>{errors.name}</p> : null}
                 <input
@@ -80,7 +80,8 @@ const CreateNewProduct = () => {
                 <label>Preview Image</label>
                 {errors.preview_img ? <p>{errors.preview_img}</p> : null}
                 <input
-                    type='text'
+                    type='file'
+                    accept=".jpg, .jpeg, .png"
                     onChange={(e) => setPreview_img(e.target.value)}
                     value={preview_img}
                     placeholder='Preview Image'

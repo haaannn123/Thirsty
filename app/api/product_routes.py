@@ -3,6 +3,7 @@ from flask_login import login_required
 from app.models import Product, db
 from app.forms import ProductForm
 from datetime import date
+from .aws_helpers import get_unique_filename, upload_file_to_s3
 
 product_routes = Blueprint('products', __name__)
 
@@ -35,13 +36,21 @@ def post_new_product():
     # print('FORM DATA:',form.data)
     owner_id = session.get('user_id')
     form['csrf_token'].data = request.cookies["csrf_token"]
+
+    image = form.data['preview_img']
+    image.filename = get_unique_filename(image.filename)
+    upload = upload_file_to_s3(image)
+
+    if 'url' not in upload:
+        return jsonify({'error': 'Fix the damn upload'})
+
     if form.validate_on_submit():
         new_product = Product(
             owner_id = owner_id,
             name = form.data['name'],
             description = form.data['description'],
             price = form.data['price'],
-            preview_img = form.data['preview_img'],
+            preview_img = upload['url'],
             created_at = date.today(),
             updated_at = date.today()
         )

@@ -5,7 +5,7 @@ import uuid
 
 BUCKET_NAME = os.environ.get("S3_BUCKET")
 S3_LOCATION = f"https://{BUCKET_NAME}.s3.amazonaws.com/"
-ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif"}
+ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
 
 s3 = boto3.client(
    "s3",
@@ -51,4 +51,3 @@ def remove_file_from_s3(image_url):
     except Exception as e:
         return { "errors": str(e) }
     return True
-
