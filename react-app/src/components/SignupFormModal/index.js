@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState , useEffect, useRef} from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
+import OpenModalButton from "../OpenModalButton";
 import "./SignupForm.css";
 
 function SignupFormModal() {
@@ -11,7 +12,10 @@ function SignupFormModal() {
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
+	const [showMenu, setShowMenu] = useState(false);
 	const { closeModal } = useModal();
+	const ulRef = useRef();
+
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -29,9 +33,30 @@ function SignupFormModal() {
 		}
 	};
 
+	useEffect(() => {
+		if (!showMenu) return;
+
+		const closeMenu = (e) => {
+		  if (!ulRef.current.contains(e.target)) {
+			setShowMenu(false);
+		  }
+		};
+
+		document.addEventListener("click", closeMenu);
+
+		return () => document.removeEventListener("click", closeMenu);
+	  }, [showMenu]);
+
+  const closeMenu = () => setShowMenu(false);
+
 	return (
 		<>
 			<h1>Sign Up</h1>
+			<OpenModalButton
+              buttonText="Sign Up"
+              onItemClick={closeMenu}
+              modalComponent={<SignupFormModal />}
+            />
 			<form onSubmit={handleSubmit}>
 				<ul>
 					{errors.map((error, idx) => (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { login, logout } from "../../store/session";
+import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import OpenModalButton from "../OpenModalButton";
@@ -21,13 +21,8 @@ function LoginFormModal() {
     if (data) {
       setErrors(data);
     } else {
-      closeModal();
+        closeModal()
     }
-  };
-
-  const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
   };
 
   useEffect(() => {
@@ -44,36 +39,56 @@ function LoginFormModal() {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  const handleLogout = (e) => {
-    e.preventDefault();
-    dispatch(logout());
-  };
-
-  const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
+
+  const demoUser = () => {
+    setEmail("demo@aa.io");
+    setPassword("password");
+    dispatch(login("demo@aa.io", "password"))
+      .then(closeModal)
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) {
+          setErrors(["The provided credentials were invalid."]);
+        }
+      });
+  }
 
   return (
     <>
-      <div className="signin-container">
-        <div className="login">
-          <h1>Sign In</h1>
-          <OpenModalButton buttonText="Sign Up" onItemClick={closeMenu} modalComponent={<SignupFormModal />} />
-        </div>
-        <form onSubmit={handleSubmit}>
-          <ul>
-            {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
-            ))}
-          </ul>
-          <div className="login-child-container">
-            <label>Email</label>
-            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            <label>Password</label>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            <button type="submit">Log In</button>
-          </div>
-        </form>
-      </div>
+      <h1>Log In</h1>
+      <OpenModalButton
+              buttonText="Sign Up"
+              onItemClick={closeMenu}
+              modalComponent={<SignupFormModal />}
+            />
+      <form onSubmit={handleSubmit}>
+        <ul>
+          {errors.map((error, idx) => (
+            <li key={idx}>{error}</li>
+          ))}
+        </ul>
+        <label>
+          Email
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          Password
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </label>
+        <button type="submit">Log In</button>
+        <button className="demo-user-button" onClick={demoUser}>Log in as Demo User</button>
+      </form>
     </>
   );
 }
