@@ -41,7 +41,7 @@ function Navigation({ isLoaded }) {
   const shopButton = () => {
 	if (sessionUser){
 		return (
-			<NavLink to="/">
+			<NavLink to="/shops/current">
 				<i className="fa-solid fa-shop"></i>
 			</NavLink>
 		)
