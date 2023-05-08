@@ -29,15 +29,16 @@ def get_product_by_id(id):
 
 
 
-product_routes.route('/new', methods=['POST'])
+@product_routes.route('/new', methods=['POST'])
 # @login_required
 def post_new_product():
     form = ProductForm()
-    # print('FORM DATA:',form.data)
+    print('FORM DATA:',form.data)
     owner_id = session.get('user_id')
     form['csrf_token'].data = request.cookies["csrf_token"]
 
     image = form.data['preview_img']
+    print('IMAGE HERE!!!', image)
     image.filename = get_unique_filename(image.filename)
     upload = upload_file_to_s3(image)
 
