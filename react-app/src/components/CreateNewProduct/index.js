@@ -39,7 +39,7 @@ const CreateNewProduct = () => {
         newProduct.append('price', price)
         newProduct.append('preview_img', preview_img)
 
-        console.log('HELLLO', newProduct)
+console.log('HELLLO', newProduct)
         const createdProduct = await dispatch(createNewProduct(newProduct))
         console.log('CREATED_PRODUCT->', createdProduct)
         if (createdProduct) {

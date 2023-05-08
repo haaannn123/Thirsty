@@ -9,12 +9,16 @@ const actionCreateNewProduct = (product) => ({
 
 //THUNK Action Creator
 export const createNewProduct = (product) => async dispatch => {
-    console.log('PRODUCT-->:', product)
+    console.log('PRODUCT-->:', JSON.stringify(product))
+
     const response = await fetch ('/api/products/new', {
         method: 'POST',
         body: product
     })
+    console.log("RESPONSE HERE!!!::", response.json())
     if (response.ok) {
+
+        console.log("YOOOO THIS IS HITTING")
         const newProduct = await response.json()
         console.log('NEW PRODUCT-->', newProduct)
         dispatch(actionCreateNewProduct(newProduct))
