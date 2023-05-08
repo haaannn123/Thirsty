@@ -14,43 +14,36 @@
   color: rgb(44, 138, 232)
 }
 
-/* .navbar-top-row{
+
+.navbar-container{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-} */
+}
 
-/* .navbar-bottom-row{
+.navbar-bottom-row{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   width: 100%
-} */
-
-.signin-button{
-  color: blue
 }
 
-/* @media (max-width: 900px) {
-  .navbar-container{
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-between; */
-  /* }
-  .navbar-top-row{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  } */
+.navbar-icons{
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem
+}
 
-  /* .navbar-bottom-row{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 100%
-  }
-} */
-
+.sign-in-button {
+  background-color: #f1f1f1;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+}
 
 @media (min-width: 901px) {
   .navbar-container{

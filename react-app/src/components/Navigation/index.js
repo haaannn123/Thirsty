@@ -29,11 +29,12 @@ function Navigation({ isLoaded }) {
 
   const SignInButton = ({ closeMenu }) => {
     return (
-      <OpenModalButton
-        buttonText="Sign In"
-        onItemClick={closeMenu}
-        modalComponent={<LoginFormModal />}
-      />
+		<OpenModalButton
+		buttonText="Sign In"
+		onItemClick={closeMenu}
+		modalComponent={<LoginFormModal />}
+		className="sign-in-button"
+	  />
     );
   };
 
@@ -53,19 +54,21 @@ function Navigation({ isLoaded }) {
         <NavLink exact to="/" className="home-link">Thirsty</NavLink>
       </div>
       <SearchBar />
-	  {shopButton()}
-      {isLoaded && (
-        <div>
-          {sessionUser ? (
-			<ProfileButton user={sessionUser} />
-          ) : (
-            <SignInButton closeMenu={() => setShowMenu(false)} />
-          )}
-        </div>
-      )}
-	  <NavLink to="/">
-      	<i className="fa-solid fa-cart-shopping"></i>
-	  </NavLink>
+	  <div className="navbar-icons">
+		{shopButton()}
+		{isLoaded && (
+			<div>
+			{sessionUser ? (
+				<ProfileButton user={sessionUser} />
+			) : (
+				<SignInButton closeMenu={() => setShowMenu(false)} className="sign-in-button"/>
+			)}
+			</div>
+		)}
+		<NavLink to="/">
+			<i className="fa-solid fa-cart-shopping"></i>
+		</NavLink>
+	  </div>
     </div>
   );
 }
