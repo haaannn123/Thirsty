@@ -25,7 +25,14 @@ def seed_reviews():
         rating = 1
     )
 
-    all_reviews = [review1, review2, review3]
+    review4 = Review(
+        user_id = 2,
+        product_id = 1,
+        review = 'I think it is a okay purchase !! It tastes average but it is exactly as advertised. I am very whelmed, again.',
+        rating = 3
+    )
+
+    all_reviews = [review1, review2, review3, review4]
     add_reviews = [db.session.add(review) for review in all_reviews]
     db.session.commit()
 
