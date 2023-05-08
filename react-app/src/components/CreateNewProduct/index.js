@@ -24,24 +24,24 @@ const CreateNewProduct = () => {
         if (description.length > 255) allErrors.description = 'Description is too long'
         if (!price.length) allErrors.price = 'Please enter a valid price'
         if (!preview_img || preview_img === '') allErrors.preview_img = 'Preview image is required'
-        if (!preview_img.endsWith('.png') && !preview_img.endsWith('.jpg') && !preview_img.endsWith('.jpeg')) allErrors.preview_img = 'Image URL must end in .png, .jpg, or .jpeg'
+        // if (!preview_img.endsWith('.png') && !preview_img.endsWith('.jpg') && !preview_img.endsWith('.jpeg')) allErrors.preview_img = 'Image URL must end in .png, .jpg, or .jpeg'
 
 
         if (Object.keys(allErrors).length) {
             return setErrors(allErrors)
         }
+        console.log('Preview Image', preview_img)
+        console.log('Name', name)
 
-        const newProduct = {
-            name,
-            description,
-            price,
-            preview_img
-        }
+        const newProduct = new FormData();
+        newProduct.append('name', name)
+        newProduct.append('description', description)
+        newProduct.append('price', price)
+        newProduct.append('preview_img', preview_img)
 
-        console.log('NEW PRODUCT here:::::', newProduct)
-
+console.log('HELLLO', newProduct)
         const createdProduct = await dispatch(createNewProduct(newProduct))
-        console.log('CREATED PRODUCT!!!----->', createdProduct)
+        console.log('CREATED_PRODUCT->', createdProduct)
         if (createdProduct) {
             history.push(`/products/${createdProduct.id}`)
             return
@@ -56,6 +56,7 @@ const CreateNewProduct = () => {
                 {errors.name ? <p>{errors.name}</p> : null}
                 <input
                     type='text'
+
                     onChange={(e) => setName(e.target.value)}
                     value={name}
                     placeholder='Name'
@@ -85,8 +86,7 @@ const CreateNewProduct = () => {
                 <input
                     type='file'
                     accept=".jpg, .jpeg, .png"
-                    onChange={(e) => setPreview_img(e.target.value)}
-                    value={preview_img}
+                    onChange={(e) => setPreview_img(e.target.files[0])}
                     placeholder='Preview Image'
                     name='preview_img'
                 />

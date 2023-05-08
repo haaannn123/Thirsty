@@ -38,12 +38,11 @@ def post_new_product():
     form['csrf_token'].data = request.cookies["csrf_token"]
 
     image = form.data['preview_img']
-    print('IMAGE HERE!!!', image)
     image.filename = get_unique_filename(image.filename)
     upload = upload_file_to_s3(image)
 
     if 'url' not in upload:
-        return jsonify({'error': 'Fix the damn upload'})
+        return {'error': 'Fix the damn upload'}
 
     if form.validate_on_submit():
         new_product = Product(
