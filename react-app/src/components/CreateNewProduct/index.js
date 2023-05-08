@@ -38,7 +38,10 @@ const CreateNewProduct = () => {
             preview_img
         }
 
+        console.log('NEW PRODUCT here:::::', newProduct)
+
         const createdProduct = await dispatch(createNewProduct(newProduct))
+        console.log('CREATED PRODUCT!!!----->', createdProduct)
         if (createdProduct) {
             history.push(`/products/${createdProduct.id}`)
             return
