@@ -30,14 +30,16 @@ const CreateNewProduct = () => {
         if (Object.keys(allErrors).length) {
             return setErrors(allErrors)
         }
+        console.log('Preview Image', preview_img)
+        console.log('Name', name)
 
-        const newProduct = {
-            name,
-            description,
-            price,
-            preview_img
-        }
+        const newProduct = new FormData();
+        newProduct.append('name', name)
+        newProduct.append('description', description)
+        newProduct.append('price', price)
+        newProduct.append('preview_img', preview_img)
 
+        console.log('HELLLO', newProduct)
         const createdProduct = await dispatch(createNewProduct(newProduct))
         if (createdProduct) {
             history.push(`/products/${createdProduct.id}`)

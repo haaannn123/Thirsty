@@ -12,7 +12,6 @@ export const createNewProduct = (product) => async dispatch => {
     console.log('PRODUCT-->:', product)
     const response = await fetch ('/api/products/new', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: product
     })
     if (response.ok) {
@@ -21,6 +20,15 @@ export const createNewProduct = (product) => async dispatch => {
         dispatch(actionCreateNewProduct(newProduct))
         return newProduct
     }
+    // .then(response => {
+    //     // console.log('Form submitted successfully!', response);
+    //     const newProduct = response
+    //     dispatch(actionCreateNewProduct(newProduct))
+    //     console.log('NEW PRODUCT-->', newProduct)
+    //   })
+    //   .catch(error => {
+    //     console.error('Error submitting form:', error);
+    //   });
 }
 
 const initialState = { newProduct: {} }
