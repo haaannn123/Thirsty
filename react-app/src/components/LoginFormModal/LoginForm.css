@@ -1,13 +1,10 @@
-.login{
-    display: flex;
-    justify-content: space-between;
-}
-
-.signin-container{
-    padding: 1.5rem;
-}
-
-.login-child-container{
+.login-container{
     display: flex;
     flex-direction: column;
+}
+
+.login-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

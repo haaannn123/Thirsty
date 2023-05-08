@@ -25,7 +25,7 @@ const normalizingAllProducts = (products) => {
 
 export const thunkGetAllProducts = () => async (dispatch) => {
 
-    const response = await fetch('/api/products');
+    const response = await fetch('/api/products/');
 
     if(response.ok){
         const products = await response.json();
