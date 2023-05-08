@@ -37,6 +37,18 @@ export const thunkGetAllProducts = () => async (dispatch) => {
 
 }
 
+export const thunkGetSearchResultProducts = (search_terms) => async (dispatch) => {
+
+    const response = await fetch (`/api/search/${search_terms}`);
+
+    if (response.ok){
+        const searchResultProducts = await response.json();
+        const normalizedProducts = normalizingAllProducts(searchResultProducts);
+        dispatch(actionGetAllProducts(searchResultProducts));
+        return normalizedProducts;
+    }
+}
+
 
 const initialState = { allProducts: {} };
 
