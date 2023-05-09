@@ -1,6 +1,6 @@
 const GET_ALL_PRODUCTS = "products/GET_ALL_PRODUCTS"
 const GET_USER_PRODUCTS = "products/GET_USER_PRODUCTS"
-
+const EDIT_USER_PRODUCTS = "products/EDIT_USER_PRODUCTS"
 
 //ACTIONS
 export const actionGetAllProducts = (products) => {
@@ -13,6 +13,13 @@ export const actionGetAllProducts = (products) => {
 export const actionGetUserProducts = (products) => {
     return {
         type: GET_USER_PRODUCTS,
+        products
+    }
+}
+
+export const actionEditUserProducts = (products) => {
+    return {
+        type: EDIT_USER_PRODUCTS,
         products
     }
 }
@@ -59,6 +66,18 @@ export const fetchUserProducts = () => async (dispatch) => {
     }
 }
 
+export const editProduct = (product, productId) => async dispatch => {
+    const response = await fetch(`/api/products/${productId}`, {
+        method: 'PUT',
+        body: product
+    })
+    if (response.ok) {
+        const updatedProduct = await response.json()
+        dispatch(actionEditUserProducts(updatedProduct))
+        return updatedProduct
+    }
+}
+
 export const thunkGetSearchResultProducts = (search_terms) => async (dispatch) => {
 
     const response = await fetch (`/api/search/${search_terms}`);
@@ -87,6 +106,11 @@ const allProductsReducer = (state = initialState, action) => {
             const newState = {...state}
             console.log('ACTION:', action)
             newState.userProducts = action.products
+            return newState;
+        }
+        case EDIT_USER_PRODUCTS:{
+            const newState = {...state}
+            newState.allProducts[action.products] = action.products;
             return newState;
         }
         default: return state

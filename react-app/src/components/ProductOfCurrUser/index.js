@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import {fetchUserProducts}  from '../../store/products';
 import OpenModalButton from '../OpenModalButton';
 import DeleteProduct from '../DeleteProduct';
-
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 const ProductOfCurrentUser = () => {
     const dispatch = useDispatch();
 
@@ -26,6 +26,9 @@ const ProductOfCurrentUser = () => {
                         buttonText="Delete"
                         modalComponent={<DeleteProduct productId={product.id} />}
                     />
+                    <NavLink to={`/products/${product.id}/edit`}>
+                        <button>Edit Products</button>
+                    </NavLink>
                     </>
                 )
             })}
