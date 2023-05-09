@@ -4,12 +4,14 @@ import session from './session'
 import singleProductReducer from './single_product';
 import allProductsReducer from './products';
 import newProductReducer from './create_a_product';
+import deleteProductReducer from './delete_a_product';
 
 const rootReducer = combineReducers({
   session,
   products: allProductsReducer,
   singleProduct: singleProductReducer,
-  createNewProduct: newProductReducer
+  createNewProduct: newProductReducer,
+  deleteProduct: deleteProductReducer
 });
 
 

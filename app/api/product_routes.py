@@ -28,9 +28,10 @@ def get_product_by_id(id):
     return product
 
 
+# create a new product
 
 @product_routes.route('/new', methods=['POST'])
-# @login_required
+@login_required
 def post_new_product():
     form = ProductForm()
     print('FORM DATA:',form.data)
@@ -59,3 +60,16 @@ def post_new_product():
         db.session.commit()
         return new_product.to_dict()
     return form.errors
+
+@product_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_product(id):
+    product = Product.query.get(id)
+    print("PRODUCT:", product)
+    if (not product):
+        return ('No Product Found'), 404
+
+    db.session.delete(product)
+    db.session.commit()
+
+    return {'Product Successfully Deleted': id}
