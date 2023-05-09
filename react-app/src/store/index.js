@@ -5,13 +5,17 @@ import singleProductReducer from './single_product';
 import allProductsReducer from './products';
 import newProductReducer from './create_a_product';
 import productReviewsReducer from './reviews';
+import deleteProductReducer from './delete_a_product';
+import allUserShops from './shop';
 
 const rootReducer = combineReducers({
   session,
   products: allProductsReducer,
   singleProduct: singleProductReducer,
   createNewProduct: newProductReducer,
-  productReviews: productReviewsReducer
+  productReviews: productReviewsReducer,
+  deleteProduct: deleteProductReducer,
+  userShops: allUserShops
 });
 
 

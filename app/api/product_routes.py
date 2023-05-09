@@ -28,13 +28,14 @@ def get_product_by_id(id):
     return product
 
 
+# create a new product
 
 @product_routes.route('/new', methods=['POST'])
 @login_required
 def post_new_product():
     form = ProductForm()
     print('FORM DATA:',form.data)
-    owner_id = session.get('user_id')
+    owner_id = session.get('_user_id')
     form['csrf_token'].data = request.cookies["csrf_token"]
 
     image = form.data['preview_img']
@@ -59,3 +60,53 @@ def post_new_product():
         db.session.commit()
         return new_product.to_dict()
     return form.errors
+
+@product_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_product(id):
+    product = Product.query.get(id)
+    print("PRODUCT:", product)
+    if (not product):
+        return ('No Product Found'), 404
+
+    db.session.delete(product)
+    db.session.commit()
+
+    return {'Product Successfully Deleted': id}
+
+@product_routes.route('/current')
+def get_curr_user_shop():
+    """
+    Query for all the products that belong to the current user
+    """
+    owner_id = session.get('_user_id')
+    products = Product.query.filter_by(owner_id=owner_id).all()
+    return {"products": [product.to_dict() for product in products]}
+
+
+
+@product_routes.route('/<int:id>', methods=['PUT'])
+def edit_product(productId):
+    """
+    Update a product.
+    """
+    product = Product.query.get(productId)
+    data = request.get_json()
+    # form['csrf_token'].data = request.cookies["csrf_token"]
+
+    image = data['preview_img']
+    image.filename = get_unique_filename(image.filename)
+    upload = upload_file_to_s3(image)
+
+    if 'url' not in upload:
+        return {'error': 'Fix the damn upload'}
+
+    if product:
+        product.name = data["name"]
+        product.description = data["description"]
+        product.price = data["price"]
+        product.preview_img= upload["url"]
+
+        db.session.commit()
+        return {"message": "UPDATED SUCCESSFULLLY YO"}
+    return {"MESSAGE": "this didnt work yooooooo"}
