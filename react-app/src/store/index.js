@@ -6,6 +6,7 @@ import allProductsReducer from './products';
 import newProductReducer from './create_a_product';
 import deleteProductReducer from './delete_a_product';
 import allUserShops from './shop';
+import cartReducer from './shopping_cart';
 
 const rootReducer = combineReducers({
   session,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   singleProduct: singleProductReducer,
   createNewProduct: newProductReducer,
   deleteProduct: deleteProductReducer,
-  userShops: allUserShops
+  userShops: allUserShops,
+  shoppingCart: cartReducer
 });
 
 

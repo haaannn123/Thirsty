@@ -1,0 +1,18 @@
+.shopping-cart-container {
+    padding: 1rem 3.2rem;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+.cup-image-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10%
+}
+.cup-image {
+    height: 300px;
+    width: 200px;
+    padding: 3rem
+}
