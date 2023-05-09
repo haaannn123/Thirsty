@@ -26,7 +26,7 @@ export const getCartThunk = () => async dispatch => {
     if (response.ok) {
         const cart = await response.json()
         const normalizedCart = normalizeCarts(cart)
-        console.log('CART->', normalizedCart)
+        // console.log('CART->', normalizedCart)
         dispatch(actionGetUserCart(normalizedCart))
         return normalizedCart
     }

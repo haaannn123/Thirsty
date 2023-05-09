@@ -22,11 +22,19 @@ const ShoppingCart = () => {
     return (
         <div className='shopping-cart-container'>
             <h1>Shopping Cart</h1>
-            {user ?
+            {user && userCartArr.length ?
                 <div>
                     {userCartArr.map(item => {
                         const product = productsArr.find(product => item.product_id === product.id);
-                        return product ? <div>{product.name}</div> : null;
+                        return product ?
+                            <div>
+                                <div>{product.name}</div>
+                                <img
+                                    src={product.preview_img}
+                                    alt={`${product.name}'s unavaiable`}
+                                />
+                            </div>
+                        : null;
                     })}
                 </div>
                 : <div className="cup-image-container">
