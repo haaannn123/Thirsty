@@ -1,3 +1,14 @@
+.spot-info-loading{
+    display: flex;
+    color: orange;
+    margin-left: 50%;
+    margin-right: 50%;
+    justify-content: center;
+    margin-top: 200px;
+    font-size: 31px;
+}
+
+
 .all-products-container{
     display: flex;
     box-sizing: border-box;

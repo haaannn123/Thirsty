@@ -1,0 +1,13 @@
+.search-results-header{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(44, 138, 232);
+    padding-left: 23px;
+}
+
+.no-search-results{
+    color: orange;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    font-weight: bold;
+
+}

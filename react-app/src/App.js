@@ -7,7 +7,12 @@ import GetSingleProduct from "./components/SingleProduct"
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import GetAllProducts from "./components/Products";
+
+import SearchResults from "./components/SearchResults";
+
 import CreateNewProduct from "./components/CreateNewProduct";
+import ManageShop from './components/ManageShop'
+
 
 function App() {
   const dispatch = useDispatch();
@@ -24,6 +29,9 @@ function App() {
           <Route path="/login" >
             <LoginFormPage />
           </Route>
+          <Route exact path="/shops/current">
+            <ManageShop />
+          </Route>
           <Route path="/products/new">
             <CreateNewProduct />
           </Route>
@@ -33,10 +41,12 @@ function App() {
           <Route exact path="/products/:product_id">
             <GetSingleProduct />
           </Route>
+          <Route path= "/search/:search_terms">
+            <SearchResults />
+          </Route>
           <Route path="/">
             <GetAllProducts />
           </Route>
-
         </Switch>
       )}
     </>

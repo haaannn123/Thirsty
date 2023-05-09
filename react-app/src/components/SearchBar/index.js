@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import './SearchBar.css'
+import './SearchBar.css';
+import { useHistory } from "react-router-dom"
 
 function SearchBar() {
   const [query, setQuery] = useState('');
+  const history = useHistory();
 
   const handleInputChange = (event) => {
     setQuery(event.target.value);
@@ -11,6 +13,11 @@ function SearchBar() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Perform search functionality with the query variable
+    if(!query){
+      return
+    }
+    setQuery('')
+    history.push(`/search/${query}`)
   }
 
   return (

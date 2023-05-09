@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import React from 'react';
 import { thunkGetAllProducts } from '../../store/products';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import OpenModalButton from '../OpenModalButton';
 import DeleteProduct from '../DeleteProduct';
+import { NavLink } from 'react-router-dom';
 import './products.css'
 
 
@@ -49,7 +50,7 @@ const GetAllProducts = () => {
                         <NavLink to={`/products/${product.id}`} key={product.id} className='all-products-image-container'>
                             <img
                                 src = {product.preview_img}
-                                alt = {`${product.name}'s image unavaiable`}
+                                alt = {`${product.name}'s unavaiable`}
                                 className='all-products-image'
                             >
                             </img>
