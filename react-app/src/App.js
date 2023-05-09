@@ -7,7 +7,7 @@ import GetSingleProduct from "./components/SingleProduct"
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import GetAllProducts from "./components/Products";
-
+import EditProduct from './components/EditProduct'
 import SearchResults from "./components/SearchResults";
 
 import CreateNewProduct from "./components/CreateNewProduct";
@@ -38,6 +38,9 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path="/products/:productId/edit">
+            <EditProduct/>
+          </Route>
           <Route exact path="/products/:product_id">
             <GetSingleProduct />
           </Route>
@@ -47,6 +50,7 @@ function App() {
           <Route path="/">
             <GetAllProducts />
           </Route>
+
         </Switch>
       )}
     </>

@@ -82,3 +82,31 @@ def get_curr_user_shop():
     owner_id = session.get('_user_id')
     products = Product.query.filter_by(owner_id=owner_id).all()
     return {"products": [product.to_dict() for product in products]}
+
+
+
+@product_routes.route('/<int:id>', methods=['PUT'])
+def edit_product(productId):
+    """
+    Update a product.
+    """
+    product = Product.query.get(productId)
+    data = request.get_json()
+    # form['csrf_token'].data = request.cookies["csrf_token"]
+
+    image = data['preview_img']
+    image.filename = get_unique_filename(image.filename)
+    upload = upload_file_to_s3(image)
+
+    if 'url' not in upload:
+        return {'error': 'Fix the damn upload'}
+
+    if product:
+        product.name = data["name"]
+        product.description = data["description"]
+        product.price = data["price"]
+        product.preview_img= upload["url"]
+
+        db.session.commit()
+        return {"message": "UPDATED SUCCESSFULLLY YO"}
+    return {"MESSAGE": "this didnt work yooooooo"}
