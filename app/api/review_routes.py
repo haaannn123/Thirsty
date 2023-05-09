@@ -25,7 +25,7 @@ def get_reviews_by_product_id(product_id):
 def create_review_for_product_by_id(product_id):
     form = ReviewForm()
     owner_id = session.get('_user_id')
-    print('FORM DATA:',owner_id)
+    print('FORM DATA:',form.data, product_id)
     form['csrf_token'].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():

@@ -16,6 +16,7 @@ const GetSingleProduct = () => {
 
     const product = useSelector((state) => state.singleProduct.singleProduct)
     const reviews = Object.values(useSelector(state => state.productReviews.productReviews))
+    // const new_review = useSelector(state => state.productReviews.new_review)
     console.log('-----SINGLE PRODUCT IN COMPONENT----', product, reviews)
 
     useEffect(() => {

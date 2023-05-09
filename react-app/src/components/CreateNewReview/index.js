@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { thunkCreateProductReview } from '../../store/reviews';
 import { useModal } from "../../context/Modal";
 
@@ -13,29 +13,33 @@ const CreateNewReview = (product) => {
     const [rating, setRating] = useState();
     const [errors, setErrors] = useState({});
 
+    // useEffect(() => {
+    //     dispatch()
+    // }, [dispatch])
+
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrors({});
 
-        const userReview = new FormData();
-        userReview.append('review', review)
-        userReview.append('rating', rating)
-
-
-        let newReview = await dispatch(thunkCreateProductReview(product_id, userReview)).catch(
-            async (res) => {
-                const data = await res.json();
-                console.log(data)
-                if (data && data.errors) setErrors(data.errors);
-            }
-        );
-        console.log('--------NEW REVIEW FE-------', newReview)
-        if (newReview) {
-            closeModal()
-            // history.push(`/products/${product_id}`)
+        const userReview = {
+            review,
+            rating
         }
+
+
+        let newReview = await dispatch(thunkCreateProductReview(product_id, userReview))
+            // .catch(
+            //     async (res) => {
+            //         const data = await res.json();
+            //         console.log(data)
+            //         if (data && data.errors) setErrors(data.errors);
+            //     }
+            // );
+        console.log('--------NEW REVIEW FE-------', newReview)
+        closeModal()
+        history.push(`/products/${product_id}`)
     }
 
     return (
