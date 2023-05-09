@@ -36,4 +36,4 @@ def search(search_terms):
 
     # print(search_results_to_dict)
 
-    return {'search_results': search_results_to_dict}
+    return search_results_to_dict
