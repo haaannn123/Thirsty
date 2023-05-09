@@ -47,7 +47,7 @@ function SignupFormModal() {
 		return () => document.removeEventListener("click", closeMenu);
 	  }, [showMenu]);
 
-  const closeMenu = () => setShowMenu(false);
+    const closeMenu = () => setShowMenu(false);
 
 	return (
 		<>

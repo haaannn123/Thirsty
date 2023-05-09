@@ -8,12 +8,15 @@ const ProductOfCurrentUser = () => {
     const dispatch = useDispatch();
 
     const products = useSelector((state) => state.products.userProducts)
+    const allProducts = useSelector((state) => state.products.allProducts)
     const productsArr = Object.values(products)
     console.log('HI PRODUCTS HERE!!!', products)
 
     useEffect(() => {
         dispatch(fetchUserProducts())
-    }, [dispatch])
+    }, [dispatch, allProducts])
+
+
 
     return (
         <div>
