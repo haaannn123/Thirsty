@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {useHistory} from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import './manageshop.css';
-
+import ProductOfCurrentUser from '../ProductsOfCurrentUser/ProductOfCurrUser';
 import { fetchCurrUserShops } from '../../store/shop';
 
 const ManageShop = () => {
@@ -41,10 +41,13 @@ const ManageShop = () => {
       </div>
       <div className="content-panel">
           {selectedMenuItem === 'listing' &&
+        <>
           <div className='content-panel-header'>
             <h1>Products</h1>
-            <button className="create-new-product-button" onClick={createNewProductButton}>Create A New Product</button>
+            <button className="create-new-product-button" onClick={createNewProductButton}>Create New Product</button>
           </div>
+            <ProductOfCurrentUser />
+          </>
           }
           {selectedMenuItem === 'testing' &&
           <h3>Testing</h3>

@@ -18,7 +18,9 @@
 .navbar-container{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 1rem 3.2rem
 }
 
 .navbar-bottom-row{
@@ -46,11 +48,5 @@
 }
 
 @media (min-width: 901px) {
-  .navbar-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    padding: 1rem 3.2rem
-  }
+
 }

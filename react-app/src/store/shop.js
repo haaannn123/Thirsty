@@ -39,7 +39,6 @@ const allUserShops = (state = initialState, action) => {
             newState.shops = action.shops
             return newState;
         }
-
         default: return state
     }
 }

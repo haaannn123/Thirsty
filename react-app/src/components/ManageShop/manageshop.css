@@ -2,17 +2,23 @@
     display: flex;
     flex-direction: row;
     height: 100%;
+    padding: 1rem 3.2rem
 }
 
 .menu-panel{
-    border: 1px solid black;
-    width: 30%;
-    height: 100%
+    border: 1px solid rgb(182, 180, 180);
+    width: 25%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .content-panel{
-    border: 1px solid blue;
-    width: 70%;
+    border: 1px solid rgb(182, 180, 180);
+    width: 75%;
+    padding: 1rem;
 }
 
 .content-panel-header{
