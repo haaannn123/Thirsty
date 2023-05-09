@@ -3,10 +3,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchProduct } from '../../store/single_product'
 import { thunkGetProductReviews } from '../../store/reviews'
+import OpenModalButton from "../OpenModalButton";
+import CreateNewReview from '../CreateNewReview'
+
+
+// import { CreateNewReview}
 
 const GetSingleProduct = () => {
     const {product_id}  = useParams()
     const dispatch = useDispatch()
+
 
     const product = useSelector((state) => state.singleProduct.singleProduct)
     const reviews = Object.values(useSelector(state => state.productReviews.productReviews))
@@ -30,6 +36,12 @@ const GetSingleProduct = () => {
             </div>
             <div>
                 <h2>Reviews</h2>
+                <button>
+                    <OpenModalButton
+                        buttonText="Leave a Review"
+                        modalComponent={<CreateNewReview product={product_id}/>}
+                    />
+                </button>
                 {reviews.map(review =>
                     {
                     return (

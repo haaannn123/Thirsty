@@ -30,7 +30,7 @@ def get_product_by_id(id):
 
 
 @product_routes.route('/new', methods=['POST'])
-# @login_required
+@login_required
 def post_new_product():
     form = ProductForm()
     print('FORM DATA:',form.data)
