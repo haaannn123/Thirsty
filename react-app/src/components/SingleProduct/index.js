@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { fetchProduct } from '../../store/single_product'
+import { fetchProduct } from '../../store/products'
 import { thunkGetProductReviews } from '../../store/reviews'
 import OpenModalButton from "../OpenModalButton";
 import CreateNewReview from '../CreateNewReview'

@@ -1,16 +1,19 @@
-import { useDispatch } from "react-redux";
-import { deleteProduct } from "../../store/delete_a_product";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteProduct } from "../../store/products";
 import { useModal } from '../../context/Modal'
 import './DeleteProduct.css';
+import { useEffect, useState } from "react";
 
 const DeleteProduct = ({ productId }) => {
     const dispatch = useDispatch();
+
     const { closeModal } = useModal();
     // console.log('PRODUCTID', productId)
     const handleSubmit = () => {
         dispatch(deleteProduct(productId))
         closeModal()
     };
+
 
     return (
         <div>

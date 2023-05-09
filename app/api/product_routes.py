@@ -3,7 +3,7 @@ from flask_login import login_required
 from app.models import Product, db
 from app.forms import ProductForm
 from datetime import date
-from .aws_helpers import get_unique_filename, upload_file_to_s3
+from .aws_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
 
 product_routes = Blueprint('products', __name__)
 
@@ -61,18 +61,25 @@ def post_new_product():
         return new_product.to_dict()
     return form.errors
 
+
+
 @product_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_product(id):
     product = Product.query.get(id)
-    print("PRODUCT:", product)
+    print("PRODUCTTTTTTTTTTTTTTTTTTT:", product.to_dict(), product.preview_img)
     if (not product):
         return ('No Product Found'), 404
+
+    remove_file_from_s3(product.preview_img)
 
     db.session.delete(product)
     db.session.commit()
 
     return {'Product Successfully Deleted': id}
+
+
+
 
 @product_routes.route('/current')
 def get_curr_user_shop():
@@ -82,6 +89,7 @@ def get_curr_user_shop():
     owner_id = session.get('_user_id')
     products = Product.query.filter_by(owner_id=owner_id).all()
     return {"products": [product.to_dict() for product in products]}
+
 
 
 

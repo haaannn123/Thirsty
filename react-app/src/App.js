@@ -20,7 +20,7 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
-    // dispatch(thunkGetAllProducts())
+    dispatch(thunkGetAllProducts())
   }, [dispatch]);
 
   return (

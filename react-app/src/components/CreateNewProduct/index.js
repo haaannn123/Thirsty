@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import { createNewProduct } from '../../store/create_a_product'
+import { createNewProduct } from '../../store/products';
 
 const CreateNewProduct = () => {
     const dispatch = useDispatch();

@@ -33,7 +33,7 @@ const SearchResults = () => {
             <div className='all-products-container'>
 
 
-                {searchResultProducts.length == 0 && <div className="no-search-results">There are no products that matched your search</div>}
+                {searchResultProducts.length === 0 && <div className="no-search-results">There are no products that matched your search</div>}
 
                 {searchResultProducts.map(product =>
                     {
