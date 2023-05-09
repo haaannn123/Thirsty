@@ -57,7 +57,6 @@ export const fetchUserProducts = () => async (dispatch) => {
         dispatch(actionGetUserProducts(normalizedProducts))
         return normalizedProducts
     }
-
 }
 
 export const thunkGetSearchResultProducts = (search_terms) => async (dispatch) => {

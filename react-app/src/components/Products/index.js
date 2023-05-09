@@ -2,8 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import React from 'react';
 import { thunkGetAllProducts } from '../../store/products';
-import OpenModalButton from '../OpenModalButton';
-import DeleteProduct from '../DeleteProduct';
 import { NavLink } from 'react-router-dom';
 import './products.css'
 
@@ -59,10 +57,6 @@ const GetAllProducts = () => {
                                 </div>
                             </div>
                         </NavLink>
-                        <OpenModalButton
-                        buttonText="Delete"
-                        modalComponent={<DeleteProduct productId={product.id} />}
-                    />
                     </div>
                     )
                 })
