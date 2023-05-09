@@ -1,0 +1,40 @@
+.manage-shop-container{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    padding: 1rem 3.2rem
+}
+
+.menu-panel{
+    border: 1px solid rgb(182, 180, 180);
+    width: 25%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-panel{
+    border: 1px solid rgb(182, 180, 180);
+    width: 75%;
+    padding: 1rem;
+}
+
+.content-panel-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.shop-title{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem
+}
+
+.create-new-product-button{
+    border-radius: 10%;
+}

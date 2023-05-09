@@ -11,6 +11,7 @@ import GetAllProducts from "./components/Products";
 import SearchResults from "./components/SearchResults";
 
 import CreateNewProduct from "./components/CreateNewProduct";
+import ManageShop from './components/ManageShop'
 
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
           <Route path="/login" >
             <LoginFormPage />
           </Route>
+          <Route exact path="/shops/current">
+            <ManageShop />
+          </Route>
           <Route path="/products/new">
             <CreateNewProduct />
           </Route>
@@ -43,7 +47,6 @@ function App() {
           <Route path="/">
             <GetAllProducts />
           </Route>
-
         </Switch>
       )}
     </>

@@ -47,7 +47,7 @@ const GetAllProducts = () => {
                         <NavLink to={`/products/${product.id}`} key={product.id} className='all-products-image-container'>
                             <img
                                 src = {product.preview_img}
-                                alt = {`${product.name}'s image unavaiable`}
+                                alt = {`${product.name}'s unavaiable`}
                                 className='all-products-image'
                             >
                             </img>
