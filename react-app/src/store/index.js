@@ -4,6 +4,7 @@ import session from './session'
 import singleProductReducer from './single_product';
 import allProductsReducer from './products';
 import newProductReducer from './create_a_product';
+import deleteProductReducer from './delete_a_product';
 import allUserShops from './shop';
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   products: allProductsReducer,
   singleProduct: singleProductReducer,
   createNewProduct: newProductReducer,
+  deleteProduct: deleteProductReducer,
   userShops: allUserShops
 });
 

@@ -5,7 +5,6 @@ import { thunkGetAllProducts } from '../../store/products';
 import { NavLink } from 'react-router-dom';
 import './products.css'
 
-
 const GetAllProducts = () => {
 
     const dispatch = useDispatch()
@@ -44,6 +43,7 @@ const GetAllProducts = () => {
             {allProducts.map(product =>
                 {
                     return (
+                        <div>
                         <NavLink to={`/products/${product.id}`} key={product.id} className='all-products-image-container'>
                             <img
                                 src = {product.preview_img}
@@ -57,6 +57,7 @@ const GetAllProducts = () => {
                                 </div>
                             </div>
                         </NavLink>
+                    </div>
                     )
                 })
             }

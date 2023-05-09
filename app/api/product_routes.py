@@ -28,13 +28,14 @@ def get_product_by_id(id):
     return product
 
 
+# create a new product
 
 @product_routes.route('/new', methods=['POST'])
-# @login_required
+@login_required
 def post_new_product():
     form = ProductForm()
     print('FORM DATA:',form.data)
-    owner_id = session.get('user_id')
+    owner_id = session.get('_user_id')
     form['csrf_token'].data = request.cookies["csrf_token"]
 
     image = form.data['preview_img']
@@ -59,3 +60,25 @@ def post_new_product():
         db.session.commit()
         return new_product.to_dict()
     return form.errors
+
+@product_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_product(id):
+    product = Product.query.get(id)
+    print("PRODUCT:", product)
+    if (not product):
+        return ('No Product Found'), 404
+
+    db.session.delete(product)
+    db.session.commit()
+
+    return {'Product Successfully Deleted': id}
+
+@product_routes.route('/current')
+def get_curr_user_shop():
+    """
+    Query for all the products that belong to the current user
+    """
+    owner_id = session.get('_user_id')
+    products = Product.query.filter_by(owner_id=owner_id).all()
+    return {"products": [product.to_dict() for product in products]}

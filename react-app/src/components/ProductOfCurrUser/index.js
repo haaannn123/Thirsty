@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import  {fetchUserProducts}  from '../../../store/products';
+import {fetchUserProducts}  from '../../store/products';
+import OpenModalButton from '../OpenModalButton';
+import DeleteProduct from '../DeleteProduct';
 
 const ProductOfCurrentUser = () => {
     const dispatch = useDispatch();
@@ -20,6 +22,10 @@ const ProductOfCurrentUser = () => {
                     <>
                     <img src={product.preview_img} alt="this is of a drink!!"/>
                     <h2>{product.name}</h2>
+                    <OpenModalButton
+                        buttonText="Delete"
+                        modalComponent={<DeleteProduct productId={product.id} />}
+                    />
                     </>
                 )
             })}
