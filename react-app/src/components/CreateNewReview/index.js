@@ -39,7 +39,7 @@ const CreateNewReview = (product) => {
             // );
         console.log('--------NEW REVIEW FE-------', newReview)
         closeModal()
-        history.push(`/products/${product_id}`)
+        // history.push(`/products/${product_id}`)
     }
 
     return (

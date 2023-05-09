@@ -12,6 +12,7 @@ import SearchResults from "./components/SearchResults";
 
 import CreateNewProduct from "./components/CreateNewProduct";
 import ManageShop from './components/ManageShop'
+import { thunkGetAllProducts } from "./store/products";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
+    // dispatch(thunkGetAllProducts())
   }, [dispatch]);
 
   return (
