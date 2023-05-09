@@ -7,7 +7,6 @@ import DeleteProduct from '../DeleteProduct';
 import { NavLink } from 'react-router-dom';
 import './products.css'
 
-
 const GetAllProducts = () => {
 
     const dispatch = useDispatch()
