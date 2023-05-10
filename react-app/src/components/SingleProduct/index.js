@@ -22,7 +22,7 @@ const GetSingleProduct = () => {
     useEffect(() => {
         dispatch(fetchProduct(product_id))
         dispatch(thunkGetProductReviews(product_id))
-    }, [dispatch, product_id, new_review])
+    }, [dispatch, product_id, new_review, product])
 
     if (!product || !reviews) return null
     return (
