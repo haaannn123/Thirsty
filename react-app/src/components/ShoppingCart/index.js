@@ -9,15 +9,17 @@ const ShoppingCart = () => {
   const user = useSelector((state) => state.session.user);
   const products = useSelector((state) => state.products.allProducts);
   const productsArr = Object.values(products);
-  console.log("PRODUCTS-->", productsArr);
-  const userCart = useSelector((state) => state.shoppingCart.userCart);
+  // console.log("PRODUCTS-->", products);
+  const userCart = useSelector((state) => state.userCart.userCart);
   const userCartArr = Object.values(userCart);
-  console.log("USER CART-->", userCart);
+  // console.log("USER CART-->", userCart);
 
   useEffect(() => {
     dispatch(getCartThunk());
     dispatch(thunkGetAllProducts());
   }, [dispatch]);
+
+  if (!user || !products) return null;
 
   return (
     <div className="shopping-cart-container">

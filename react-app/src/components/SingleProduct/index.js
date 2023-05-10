@@ -5,7 +5,7 @@ import { fetchProduct } from '../../store/products'
 import { thunkGetProductReviews } from '../../store/reviews'
 import OpenModalButton from "../OpenModalButton";
 import CreateNewReview from '../CreateNewReview'
-
+import AddToCart from '../AddToCart'
 
 // import { CreateNewReview}
 
@@ -33,7 +33,7 @@ const GetSingleProduct = () => {
                 <h2>{product.price}</h2>
                 <text>{product.description}</text>
                 <button>Buy it now</button>
-                <button>Add to cart</button>
+                <AddToCart />
             </div>
             <div>
                 <h2>Reviews</h2>
