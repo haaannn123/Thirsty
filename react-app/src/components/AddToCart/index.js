@@ -18,6 +18,11 @@ const AddToCart = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        if (!user) {
+            window.alert("Please Log in or Sign Up to shop! :)")
+            return
+        }
+
         const product = {
             user_id : user.id,
             product_id: product_id,
