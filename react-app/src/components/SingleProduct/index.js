@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchProduct } from '../../store/single_product'
+import AddToCart from '../AddToCart'
 
 const GetSingleProduct = () => {
     const {product_id}  = useParams()
@@ -21,7 +22,7 @@ const GetSingleProduct = () => {
             <h2>{product.price}</h2>
             <text>{product.description}</text>
             <button>Buy it now</button>
-            <button>Add to cart</button>
+            <AddToCart />
             <h1>Hello</h1>
         </div>
     )
