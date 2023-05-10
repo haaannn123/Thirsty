@@ -65,7 +65,7 @@ function Navigation({ isLoaded }) {
 			)}
 			</div>
 		)}
-		<NavLink to="/">
+		<NavLink to="/cart">
 			<i className="fa-solid fa-cart-shopping"></i>
 		</NavLink>
 	  </div>

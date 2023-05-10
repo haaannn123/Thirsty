@@ -12,6 +12,7 @@ import SearchResults from "./components/SearchResults";
 import CreateNewProduct from "./components/CreateNewProduct";
 import ManageShop from './components/ManageShop'
 import ManageReviews from "./components/ManageReviews";
+import ShoppingCart from "./components/ShoppingCart";
 import { thunkGetAllProducts } from "./store/products";
 
 
@@ -51,6 +52,9 @@ function App() {
           </Route>
           <Route path="/reviews/user/:user_id">
             <ManageReviews />
+          </Route>
+          <Route path="/cart">
+            <ShoppingCart />
           </Route>
           <Route path="/">
             <GetAllProducts />

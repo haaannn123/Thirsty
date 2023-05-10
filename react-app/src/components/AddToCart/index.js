@@ -1,0 +1,33 @@
+import { useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+// import { fetchProduct } from '../../store/single_product'
+import { getCartThunk, thunkAddToCart } from '../../store/shopping_cart'
+
+const AddToCart = () => {
+    const { product_id }  = useParams()
+    const dispatch = useDispatch()
+    const cart = useSelector((state) => state.shoppingCart.userCart)
+    const user = useSelector((state) => state.session.user)
+
+    useEffect(() => {
+        dispatch(getCartThunk())
+    }, [dispatch])
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        const product = {
+            user_id : user.id,
+            product_id: product_id,
+            // quantity: 4,
+        }
+        dispatch(thunkAddToCart(product))
+    }
+
+    return(
+        <button onClick={handleSubmit}>Add to Cart</button>
+    )
+}
+
+export default AddToCart;

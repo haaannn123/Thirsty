@@ -19,7 +19,6 @@ export const actionCreateProductReview = (new_review) => ({
     new_review
 })
 
-
 // NORMALIZE REVIEWS
 const normalizingAllReviews = (reviews) => {
     let normalizedReviews = {};

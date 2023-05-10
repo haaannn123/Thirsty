@@ -4,6 +4,7 @@ import session from './session'
 import allProductsReducer from './products';
 import productReviewsReducer from './reviews';
 import allUserShops from './shop';
+import cartReducer from './shopping_cart';
 
 const rootReducer = combineReducers({
   session,

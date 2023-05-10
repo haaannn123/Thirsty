@@ -1,4 +1,4 @@
-from .db import db, environment, SCHEMA
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
 
 class Shopping_Cart(db.Model):
@@ -8,8 +8,8 @@ class Shopping_Cart(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
+    product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('products.id')))
     quantity = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now)

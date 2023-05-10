@@ -57,6 +57,7 @@ const GetAllProducts = () => {
                                 </div>
                             </div>
                         </NavLink>
+
                     </div>
                     )
                 })
