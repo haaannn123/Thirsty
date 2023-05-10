@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 import GetAllProducts from "./components/Products";
 import EditProduct from './components/EditProduct'
 import SearchResults from "./components/SearchResults";
+import ShoppingCart from "./components/ShoppingCart";
 
 import CreateNewProduct from "./components/CreateNewProduct";
 import ManageShop from './components/ManageShop'
@@ -49,10 +50,12 @@ function App() {
           <Route path= "/search/:search_terms">
             <SearchResults />
           </Route>
+          <Route path="/cart">
+            <ShoppingCart />
+          </Route>
           <Route path="/">
             <GetAllProducts />
           </Route>
-
         </Switch>
       )}
     </>
