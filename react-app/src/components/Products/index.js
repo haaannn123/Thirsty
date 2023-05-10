@@ -43,8 +43,8 @@ const GetAllProducts = () => {
             {allProducts.map(product =>
                 {
                     return (
-                        <div>
-                        <NavLink to={`/products/${product.id}`} key={product.id} className='all-products-image-container'>
+                        <div key={product.id}>
+                        <NavLink to={`/products/${product.id}`} className='all-products-image-container'>
                             <img
                                 src = {product.preview_img}
                                 alt = {`${product.name}'s unavaiable`}
