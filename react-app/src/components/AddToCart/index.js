@@ -5,16 +5,10 @@ import { useEffect } from 'react'
 import { getCartThunk, thunkAddToCart } from '../../store/shopping_cart'
 
 const AddToCart = () => {
-    // get product by id
-    // update shopping cart table with product, user_id, product_id, and quantity
-    // dispatch to backend for shopping cart table
     const { product_id }  = useParams()
     const dispatch = useDispatch()
     const cart = useSelector((state) => state.shoppingCart.userCart)
-    console.log('CART', cart)
-    // console.log('CARTID', cart.id)
-    // const product = useSelector((state) => state.singleProduct.singleProduct)
-    // console.log('-----SINGLE PRODUCT IN COMPONENT----', product)
+    const user = useSelector((state) => state.session.user)
 
     useEffect(() => {
         dispatch(getCartThunk())
@@ -22,7 +16,13 @@ const AddToCart = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        dispatch(thunkAddToCart(product_id, cart.id))
+
+        const product = {
+            user_id : user.id,
+            product_id: product_id,
+            // quantity: 4,
+        }
+        dispatch(thunkAddToCart(product))
     }
 
     return(

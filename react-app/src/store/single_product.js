@@ -22,9 +22,7 @@ export default function singleProductReducer(state = initialState, action){
     let newState;
     switch (action.type) {
         case GET_PRODUCT:
-            console.log('------ACTION-----', action)
             newState = {...state}
-            console.log('-----NEWSTATE---', newState)
             newState.singleProduct = action.id
             return newState
         default:

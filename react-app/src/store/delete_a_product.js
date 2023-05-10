@@ -20,9 +20,7 @@ const initialState = { allProducts: {} }
 const deleteProductReducer = (state = initialState, action) => {
     switch (action.type) {
         case DELETE_PRODUCT:
-            console.log('------ACTION-----', action)
             const newState = { ...state, allProducts: { ...state.allProducts }};
-            console.log('-----NEWSTATE---', newState)
             delete newState.allProducts[action.productId];
             return newState
         default:
