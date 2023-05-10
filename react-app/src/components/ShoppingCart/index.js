@@ -12,7 +12,7 @@ const ShoppingCart = () => {
     // console.log('PRODUCTS-->', productsArr)
     const userCart = useSelector((state) => state.shoppingCart.userCart)
     const userCartArr = Object.values(userCart)
-    console.log('USER CART-->', userCartArr)
+    // console.log('USER CART-->', userCartArr)
 
     useEffect(() => {
         dispatch(getCartThunk());
@@ -37,7 +37,7 @@ const ShoppingCart = () => {
                         : null;
                     })}
                 </div>
-                : <div className="cup-image-container">
+                : <div className="cup-image-contaœiner">
                     <img src='/images/empty-glass-clip-art.png' alt='empty-cup' className='cup-image'/>
                     <h1>Your Cup is Empty 💧</h1>
                 </div>
