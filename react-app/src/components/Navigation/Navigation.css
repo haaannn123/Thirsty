@@ -5,3 +5,48 @@
 .hidden {
   display: none;
 }
+
+.home-link{
+  text-decoration: none;
+  font-family: 'Darumadrop One', cursive;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 50px;
+  color: rgb(44, 138, 232)
+}
+
+
+.navbar-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 1rem 3.2rem
+}
+
+.navbar-bottom-row{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%
+}
+
+.navbar-icons{
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem
+}
+
+.sign-in-button {
+  background-color: #f1f1f1;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+@media (min-width: 901px) {
+
+}

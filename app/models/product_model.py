@@ -1,7 +1,12 @@
-from .db import db
+from .db import db, environment, SCHEMA
+from datetime import datetime
+
 
 class Product(db.Model):
     __tablename__ = 'products'
+
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'))
@@ -9,10 +14,17 @@ class Product(db.Model):
     description = db.Column(db.String(255), nullable=False)
     price = db.Column(db.Float, nullable=False)
     preview_img = db.Column(db.String, nullable=False)
-    created_at = db.Column(db.Date)
-    updated_at = db.Column(db.Date)
+    created_at = db.Column(db.DateTime, default=datetime.now)
+    updated_at = db.Column(db.DateTime, default=datetime.now)
 
     users = db.relationship("User", back_populates="products")
+    shop_product = db.relationship("Shop", back_populates="product_shop")
+    review_product = db.relationship("Review", back_populates="product_review")
+    cart_product = db.relationship("Shopping_Cart", back_populates="product_cart")
+    image_product = db.relationship("Product_Image", back_populates="product_image")
+
+
+
 
     def to_dict(self):
         return {
