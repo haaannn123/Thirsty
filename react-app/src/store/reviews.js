@@ -1,8 +1,13 @@
 const GET_PRODUCT_REVIEWS = "product/GET_PRODUCT_REVIEWS"
 const CREATE_PRODUCT_REVIEW = "product/CREATE_PRODUCT_REVIEW"
+const GET_USER_REVIEWS = "reviews/GET_USER_REVIEWS"
 
 
 // ACTIONS
+export const actionGetUserReviews = (user_reviews) => ({
+    type: GET_USER_REVIEWS,
+    user_reviews
+})
 
 export const actionGetProductReviews = (reviews) => ({
     type: GET_PRODUCT_REVIEWS,
@@ -28,8 +33,20 @@ const normalizingAllReviews = (reviews) => {
 
 // THUNKS
 
+
+export const thunkGetUserReviews = (user_id) => async (dispatch) => {
+    const response = await fetch(`/api/reviews/user/${user_id}`)
+
+    if (response.ok) {
+        const reviews = await response.json()
+        const normalizedReviews = normalizingAllReviews(reviews)
+        console.log('----RESPONSE---', normalizedReviews)
+        dispatch(actionGetUserReviews(normalizedReviews))
+    }
+}
+
 export const thunkGetProductReviews = (product_id) => async (dispatch) => {
-    const response = await fetch(`/api/product/${product_id}/reviews`)
+    const response = await fetch(`/api/reviews/product/${product_id}`)
 
     if (response.ok) {
         const reviews = await response.json()
@@ -43,7 +60,7 @@ export const thunkGetProductReviews = (product_id) => async (dispatch) => {
 
 export const thunkCreateProductReview = (product_id, review) => async (dispatch) => {
     console.log('--------THUNK REVIEW, PRODUCT_ID-------', product_id, review)
-    const response = await fetch(`/api/product/${product_id}/reviews/new`, {
+    const response = await fetch(`/api/reviews/new/product/${product_id}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(review)
@@ -56,7 +73,7 @@ export const thunkCreateProductReview = (product_id, review) => async (dispatch)
     }
 }
 
-const initialState = { productReviews: {}, newReview: {} }
+const initialState = { productReviews: {}, newReview: {}, userReviews: {} }
 
 const productReviewsReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -69,6 +86,11 @@ const productReviewsReducer = (state = initialState, action) => {
             const createReviewState = {...state};
             createReviewState.newReview = action.new_review
             return createReviewState
+
+        case GET_USER_REVIEWS:
+            const userReviewState = { ...state }
+            userReviewState.userReviews = action.user_reviews
+            return userReviewState
 
         default:
             return state
