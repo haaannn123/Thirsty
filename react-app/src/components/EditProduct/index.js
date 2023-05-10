@@ -10,7 +10,7 @@ const EditProduct = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const product = useSelector((state) => state.products.allProducts[productId])
+    const product = useSelector((state) => state.products.singleProduct)
     console.log('PRODUCT HERE PRODUCT HERE!!!!:', product)
 
     const [name, setName] = useState(product.name);
