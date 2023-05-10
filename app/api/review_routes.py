@@ -7,7 +7,17 @@ from app.forms.review_form import ReviewForm
 review_routes = Blueprint('reviews', __name__)
 
 
-@review_routes.route('/<int:product_id>/reviews')
+@review_routes.route('/user/<int:user_id>')
+@login_required
+def get_reviews_by_user_id(user_id):
+    user_reviews = Review.query.filter_by(user_id=user_id).all()
+    print('----------USER REVIEWS---------', user_reviews)
+    reviews = [review.to_dict() for review in user_reviews]
+
+    return reviews
+
+
+@review_routes.route('/product/<int:product_id>')
 def get_reviews_by_product_id(product_id):
     product_reviews = Review.query.filter(Review.product_id.like(product_id)).order_by(Review.created_at.desc()).all()
     reviews = [review.to_dict() for review in product_reviews]
@@ -20,7 +30,7 @@ def get_reviews_by_product_id(product_id):
 
     return reviews
 
-@review_routes.route('/<int:product_id>/reviews/new', methods=['POST'])
+@review_routes.route('/new/product/<int:product_id>', methods=['POST'])
 @login_required
 def create_review_for_product_by_id(product_id):
     form = ReviewForm()
