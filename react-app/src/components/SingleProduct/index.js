@@ -16,19 +16,17 @@ const GetSingleProduct = () => {
     const {product_id}  = useParams()
     const dispatch = useDispatch()
 
-
-    const product = useSelector((state) => state.products.singleProduct)
-    const reviewState = useSelector((state) => state.productReviews.userReviews)
+    const product = useSelector((state) => state.products.allProducts[product_id])
     const reviews = Object.values(useSelector(state => state.productReviews.productReviews))
     const new_review = useSelector(state => state.productReviews.newReview)
     const user = useSelector(state => state.session.user)
-    console.log('-----SINGLE PRODUCT IN COMPONENT----', reviewState)
+    // console.log('-----SINGLE PRODUCT IN COMPONENT----', product, reviews, new_review)
 
     useEffect(() => {
         dispatch(fetchProduct(product_id))
         dispatch(thunkGetProductReviews(product_id))
-        dispatch(thunkGetUserReviews(user.id))
-    }, [dispatch, product_id, new_review])
+        // dispatch(thunkGetUserReviews(user.id))
+    }, [dispatch, product_id, new_review, user])
 
     useEffect(() => {
         dispatch(thunkGetProductReviews(product_id))
@@ -36,14 +34,14 @@ const GetSingleProduct = () => {
 
     if (!product || !reviews) return null
 
-    const userLoggedIn = (review) => {
-        if (review.user_id === user.id) {
-            console.log('review', review)
+    const userLoggedIn = (review, user_id) => {
+        if (review.user_id === user_id) {
+        dispatch(thunkGetUserReviews(user_id))
             return (
                 <div>
                     <OpenModalButton
                         buttonText="Update your review"
-                        modalComponent={<UpdateReview product={product_id} />}
+                        modalComponent={<UpdateReview reviewId={review.id} />}
                     />
                     <OpenModalButton
                         buttonText="Delete Your Review"
@@ -82,7 +80,13 @@ const GetSingleProduct = () => {
                                 <div>{review.User_info.username}</div>
                                 <div>{review.created_at}</div>
                             </div>
-                            {userLoggedIn(review)}
+                            {user ?
+                                <div>
+                                    {userLoggedIn(review, user.id)}
+                                </div>
+                                :
+                                null
+                            }
                         </div>
                     )
                     })}
