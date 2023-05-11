@@ -1,6 +1,7 @@
 const GET_PRODUCT_REVIEWS = "product/GET_PRODUCT_REVIEWS"
 const CREATE_PRODUCT_REVIEW = "product/CREATE_PRODUCT_REVIEW"
 const GET_USER_REVIEWS = "reviews/GET_USER_REVIEWS"
+const UPDATE_USER_REVIEW = "reviews/UPDATE_USER_REVIEW"
 
 
 // ACTIONS
@@ -18,6 +19,13 @@ export const actionCreateProductReview = (new_review) => ({
     type: CREATE_PRODUCT_REVIEW,
     new_review
 })
+
+export const actionUpdateUserReview = (updated_review) => ({
+    type: UPDATE_USER_REVIEW,
+    updated_review
+})
+
+
 
 // NORMALIZE REVIEWS
 const normalizingAllReviews = (reviews) => {
@@ -44,6 +52,7 @@ export const thunkGetUserReviews = (user_id) => async (dispatch) => {
         dispatch(actionGetUserReviews(normalizedReviews))
     }
 }
+
 
 export const thunkGetProductReviews = (product_id) => async (dispatch) => {
     const response = await fetch(`/api/reviews/product/${product_id}`)
@@ -73,6 +82,22 @@ export const thunkCreateProductReview = (product_id, review) => async (dispatch)
     }
 }
 
+
+export const thunkUpdateUserReview = (review_id, newReview) => async (dispatch) => {
+    const response = await fetch(`/api/reviews/${review_id}/update`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newReview)
+    });
+
+    if (response.ok) {
+        const updatedReview = await response.json()
+        dispatch(actionUpdateUserReview(updatedReview))
+    }
+}
+
+
+
 const initialState = { productReviews: {}, newReview: {}, userReviews: {} }
 
 const productReviewsReducer = (state = initialState, action) => {
@@ -84,6 +109,8 @@ const productReviewsReducer = (state = initialState, action) => {
 
         case CREATE_PRODUCT_REVIEW:
             const createReviewState = {...state};
+            createReviewState.productReviews[action.new_review.id] = action.new_review
+            // createReviewState.userReviews[action.new_review.id] = action.new_review
             createReviewState.newReview = action.new_review
             return createReviewState
 
@@ -91,6 +118,14 @@ const productReviewsReducer = (state = initialState, action) => {
             const userReviewState = { ...state }
             userReviewState.userReviews = action.user_reviews
             return userReviewState
+
+        case UPDATE_USER_REVIEW:
+            const updatedUserReviewState = {...state}
+            console.log('UPDATED REVIEW REDUCER', updatedUserReviewState)
+            updatedUserReviewState.productReviews[action.updated_review.id] = action.updated_review
+            updatedUserReviewState.userReviews[action.updated_review.id] = action.updated_review
+            console.log('UPDATED REVIEW REDUCER', updatedUserReviewState)
+            return updatedUserReviewState
 
         default:
             return state
