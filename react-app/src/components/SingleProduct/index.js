@@ -16,7 +16,7 @@ const GetSingleProduct = () => {
     const dispatch = useDispatch()
 
 
-    const product = useSelector((state) => state.products.allProducts[product_id])
+    const product = useSelector((state) => state.products.singleProduct)
     const reviews = Object.values(useSelector(state => state.productReviews.productReviews))
     const new_review = useSelector(state => state.productReviews.newReview)
     const user = useSelector(state => state.session.user)
