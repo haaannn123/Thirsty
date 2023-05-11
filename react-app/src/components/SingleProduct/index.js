@@ -28,10 +28,6 @@ const GetSingleProduct = () => {
         // dispatch(thunkGetUserReviews(user.id))
     }, [dispatch, product_id, new_review, user])
 
-    useEffect(() => {
-        dispatch(thunkGetProductReviews(product_id))
-    }, [reviewState])
-
     if (!product || !reviews) return null
 
     const userLoggedIn = (review, user_id) => {
