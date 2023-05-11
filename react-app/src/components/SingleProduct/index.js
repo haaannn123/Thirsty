@@ -75,6 +75,9 @@ const GetSingleProduct = () => {
             </div>
             <div>
                 <h2>{averageRating(reviews)}
+                <span class="material-symbols-outlined">
+                    water_full
+                </span>
                     {reviews.length ? <div>·</div> : null}
                     {reviews.length && reviews.length === 1 ? reviews.length + ' review' : ''}
                     {reviews.length && reviews.length !== 1 ? reviews.length + ' reviews' : ''}

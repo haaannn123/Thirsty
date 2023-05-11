@@ -23,6 +23,9 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    gap: .5rem;
+    font-size: 50px;
+    color: #2c8ae8;
 }
 
 .cups {
@@ -36,7 +39,7 @@
 }
 
 #review-button-enabled {
-    background-color: red;
+    background-color: rgb(44, 138, 232);
     color: white;
     width: 300px;
     box-shadow: 1px 1px 1px 1px black;
@@ -44,5 +47,15 @@
 
 #review-button-enabled:hover {
     cursor: pointer;
-    background-color: rgb(214, 95, 95);
+    background-color: rgb(44, 138, 232);
+}
+
+.fa-solid.fa-wine-glass-empty {
+    color: #2c8ae8;
+    font-size: 50px
+}
+
+.fa-solid.fa-wine-glass {
+    color: #2c8ae8;
+    font-size: 50px
 }
