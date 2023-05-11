@@ -80,14 +80,14 @@ export const thunkCreateProductReview = (product_id, review) => async (dispatch)
 }
 
 export const thunkDeleteReview = (reviewId) => async dispatch => {
-    
+
     const response = await fetch(`/api/reviews/${reviewId}`, {
         method: 'DELETE'
     })
 
     if (response.ok) {
-        dispatch(actionDeleteReview(response))
-        return response
+        dispatch(actionDeleteReview(reviewId))
+        return reviewId
     }
 }
 
@@ -112,6 +112,8 @@ const productReviewsReducer = (state = initialState, action) => {
         case DELETE_REVIEW:
             const deleteState = { ...state }
             delete deleteState.userReviews[action.reviewId];
+            delete deleteState.productReviews[action.reviewId]
+            delete deleteState.newReview[action.id];
             return deleteState
         default:
             return state
