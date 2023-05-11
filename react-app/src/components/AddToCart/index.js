@@ -7,7 +7,8 @@ import { getCartThunk, thunkAddToCart } from '../../store/shopping_cart'
 const AddToCart = () => {
     const { product_id }  = useParams()
     const dispatch = useDispatch()
-    const cart = useSelector((state) => state.shoppingCart.userCart)
+    const cart = useSelector((state) => state.userCart)
+    console.log('CART====>', cart)
     const user = useSelector((state) => state.session.user)
 
     useEffect(() => {
@@ -16,6 +17,11 @@ const AddToCart = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
+        if (!user) {
+            window.alert("Please Log in or Sign Up to shop! :)")
+            return
+        }
 
         const product = {
             user_id : user.id,

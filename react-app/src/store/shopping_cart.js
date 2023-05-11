@@ -35,6 +35,7 @@ export const getCartThunk = () => async dispatch => {
 }
 
 export const thunkAddToCart = (product) => async dispatch => {
+    console.log("PRODUCT WENT THROUGH HERE!!:",product)
     const response = await fetch (`/api/cart/`, {
         method: 'POST',
         headers: {
@@ -50,19 +51,17 @@ export const thunkAddToCart = (product) => async dispatch => {
     }
 }
 
-const initialState = { userCart: {}, products: {} }
+const initialState = { userCart: {} }
 
 export default function cartReducer (state = initialState, action) {
     let newState;
     switch(action.type) {
         case GET_USER_CART:
-            // newState = { ...state, userCart: {} }
-            // console.log('ACTION USER:', newState)
-            // newState.userCart[action.userId] = action.userId
             return { ...state, userCart: {...action.userId}}
         case ADD_TO_CART:
+                console.log("ADD TO CART ACTION: ", action)
                 newState = { ...state }
-                newState.userCart[action.product] = action.product
+                newState.userCart[action.product.id] = action.product
                 return newState
         default:
             return state
