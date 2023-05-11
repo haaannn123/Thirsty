@@ -9,6 +9,7 @@ import AddToCart from '../AddToCart'
 import UpdateReview from '../UpdateReview'
 import { thunkGetUserReviews } from '../../store/reviews'
 import DeleteReview from '../DeleteReviewModal'
+import './SingleProduct.css'
 
 
 // import { CreateNewReview}
@@ -66,6 +67,19 @@ const GetSingleProduct = () => {
         return "No Reviews"
     }
 
+    const renderRatings = (review) => {
+        const maxRating = 5;
+        const ratingIcons = [];
+        for (let i = 0; i < maxRating; i++) {
+          if (i < review.rating) {
+            ratingIcons.push(<i key={i} className="fa-solid fa-wine-glass"></i>);
+          } else {
+            ratingIcons.push(<i key={i} className="far fa-wine-glass"></i>);
+          }
+        }
+        return ratingIcons;
+      };
+
     return (
         <div>
             <div>
@@ -89,9 +103,12 @@ const GetSingleProduct = () => {
                 />
                 {reviews.map(review => {
                     return (
-                        <div key={review.id}>
+                        <div key={review.id} className="review-body">
                             <div>
-                                <div>{review.rating}</div>
+                                <div>
+                                    {renderRatings(review)}
+                                </div>
+
                                 <div>{review.review}</div>
                             </div>
                             <div>
