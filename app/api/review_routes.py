@@ -52,3 +52,15 @@ def create_review_for_product_by_id(product_id):
         db.session.commit()
         return new_review.to_dict()
     return form.errors
+
+@review_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_review(id):
+    review = Review.query.get(id)
+    if (not review):
+        return ('No Review Found'), 404
+
+    db.session.delete(review)
+    db.session.commit()
+
+    return {'Review Successfully Deleted': id}
