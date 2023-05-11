@@ -18,10 +18,10 @@ class Product(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.now)
 
     users = db.relationship("User", back_populates="products")
-    shop_product = db.relationship("Shop", back_populates="product_shop")
-    review_product = db.relationship("Review", back_populates="product_review")
-    cart_product = db.relationship("Shopping_Cart", back_populates="product_cart")
-    image_product = db.relationship("Product_Image", back_populates="product_image")
+    shop_product = db.relationship("Shop", cascade="all, delete-orphan", back_populates="product_shop")
+    review_product = db.relationship("Review", cascade="all, delete-orphan", back_populates="product_review")
+    cart_product = db.relationship("Shopping_Cart", cascade="all, delete-orphan", back_populates="product_cart")
+    image_product = db.relationship("Product_Image", cascade="all, delete-orphan", back_populates="product_image")
 
 
 
