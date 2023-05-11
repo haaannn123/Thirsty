@@ -57,10 +57,13 @@ const GetSingleProduct = () => {
 
     function averageRating(reviews) {
         let sum = 0
-        reviews.forEach((review) =>
+        if (reviews.length > 0){
+            reviews.forEach((review) =>
             sum += review.rating
         )
         return (sum / reviews.length).toFixed(2)
+        }
+        return "No Reviews"
     }
 
     return (
@@ -75,9 +78,7 @@ const GetSingleProduct = () => {
             </div>
             <div>
                 <h2>{averageRating(reviews)}
-                <span class="material-symbols-outlined">
-                    water_full
-                </span>
+                    <i class="fa-solid fa-wine-glass" style={{ color: "#2c8ae8" }}></i>
                     {reviews.length ? <div>·</div> : null}
                     {reviews.length && reviews.length === 1 ? reviews.length + ' review' : ''}
                     {reviews.length && reviews.length !== 1 ? reviews.length + ' reviews' : ''}
