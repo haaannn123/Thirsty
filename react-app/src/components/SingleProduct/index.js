@@ -8,13 +8,13 @@ import CreateNewReview from '../CreateNewReview'
 import AddToCart from '../AddToCart'
 import UpdateReview from '../UpdateReview'
 import { thunkGetUserReviews } from '../../store/reviews'
+import DeleteReview from '../DeleteReviewModal'
 
 // import { CreateNewReview}
 
 const GetSingleProduct = () => {
     const {product_id}  = useParams()
     const dispatch = useDispatch()
-
 
     const product = useSelector((state) => state.products.allProducts[product_id])
     const reviews = Object.values(useSelector(state => state.productReviews.productReviews))
@@ -28,6 +28,10 @@ const GetSingleProduct = () => {
         // dispatch(thunkGetUserReviews(user.id))
     }, [dispatch, product_id, new_review, user])
 
+    useEffect(() => {
+        dispatch(thunkGetProductReviews(product_id))
+    }, [reviewState])
+
     if (!product || !reviews) return null
 
     const userLoggedIn = (review, user_id) => {
@@ -38,6 +42,10 @@ const GetSingleProduct = () => {
                     <OpenModalButton
                         buttonText="Update your review"
                         modalComponent={<UpdateReview reviewId={review.id} />}
+                    />
+                    <OpenModalButton
+                        buttonText="Delete Your Review"
+                        modalComponent={<DeleteReview reviewId={review.id} />}
                     />
                 </div>
             )
