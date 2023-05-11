@@ -11,7 +11,7 @@ review_routes = Blueprint('reviews', __name__)
 @login_required
 def get_reviews_by_user_id(user_id):
     user_reviews = Review.query.filter_by(user_id=user_id).all()
-    print('----------USER REVIEWS---------', user_reviews)
+    # print('----------USER REVIEWS---------', user_reviews)
     reviews = [review.to_dict() for review in user_reviews]
 
     return reviews
@@ -46,9 +46,24 @@ def create_review_for_product_by_id(product_id):
             rating = form.data['rating']
         )
 
-        print('---------NEW REVIEW---------', new_review)
+        # print('---------NEW REVIEW---------', new_review)
 
         db.session.add(new_review)
         db.session.commit()
         return new_review.to_dict()
     return form.errors
+
+@review_routes.route('/<int:review_id>/update', methods=['PUT'])
+@login_required
+def update_user_review(review_id):
+    review = Review.query.get(review_id)
+    data = request.get_json()
+    # print('USER REVIEW--------------', review, data)
+
+    if (review):
+        review.rating = data["rating"]
+        review.review = data["review"]
+
+        db.session.commit()
+        return review.to_dict()
+    return {'MESSAGE': "Update review didn't work"}

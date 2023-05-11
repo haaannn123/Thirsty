@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
-import { thunkCreateProductReview } from '../../store/reviews';
+import { useState, useEffect } from 'react';
+import { thunkUpdateUserReview } from '../../store/reviews';
 import { useModal } from "../../context/Modal";
 
 const UpdateReview = (product) => {
@@ -12,13 +12,17 @@ const UpdateReview = (product) => {
 
     const previousReview = useSelector(state => state.productReviews.userReviews)
     const user = useSelector(state => state.session.user)
-    const previousReviewArr = Object.values(previousReview)[0]
-    console.log('---------UPDATE REVIEW------', previousReviewArr)
+    const previousReviewObj = Object.values(previousReview)[0]
+    // console.log('---------UPDATE REVIEW------', previousReviewObj)
 
 
-    const [review, setReview] = useState(previousReviewArr.review);
-    const [rating, setRating] = useState(previousReviewArr.rating);
+    const [review, setReview] = useState(previousReviewObj.review);
+    const [rating, setRating] = useState(previousReviewObj.rating);
     const [errors, setErrors] = useState({});
+
+    useEffect(() => {
+
+    }, [previousReview])
 
 
     if (!previousReview) return null
@@ -33,9 +37,9 @@ const UpdateReview = (product) => {
             review,
             rating
         }
+        console.log('--------updated REVIEW FE-------', previousReviewObj)
 
-
-        let newReview = await dispatch(thunkCreateProductReview(product_id, userReview))
+        let updatedReview = await dispatch(thunkUpdateUserReview(previousReviewObj.id, userReview))
         // .catch(
         //     async (res) => {
         //         const data = await res.json();
@@ -43,7 +47,7 @@ const UpdateReview = (product) => {
         //         if (data && data.errors) setErrors(data.errors);
         //     }
         // );
-        console.log('--------NEW REVIEW FE-------', newReview)
+        console.log('--------updated REVIEW FE-------', updatedReview)
         closeModal()
         // history.push(`/products/${product_id}`)
     }
