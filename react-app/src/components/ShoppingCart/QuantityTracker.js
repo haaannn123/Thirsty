@@ -1,27 +1,58 @@
+// import React, { useState } from 'react';
+
+// function Counter() {
+//     const [count, setCount] = useState(0);
+
+//     const handleIncrement = () => {
+//         if (count === 50) {
+//             return
+//         }
+//         setCount(count + 1);
+//     };
+
+//     const handleDecrement = () => {
+//         if (count === 0) {
+//             return
+//         }
+//         setCount(count - 1);
+//     };
+
+//     return (
+//         <div>
+//             <button onClick={handleDecrement}>-</button>
+//             <span>{count}</span>
+//             <button onClick={handleIncrement}>+</button>
+//         </div>
+//     );
+// }
+
+// export default Counter;
+
 import React, { useState } from 'react';
 
-function Counter() {
-    const [count, setCount] = useState(0);
+function Counter({quantity}) {
+    const [count, setCount] = useState(quantity);
 
-    const handleIncrement = () => {
-        if (count === 50) {
-            return
-        }
-        setCount(count + 1);
+    const handleCountChange = (event) => {
+        const value = parseInt(event.target.value);
+        setCount(value);
     };
 
-    const handleDecrement = () => {
-        if (count === 0) {
-            return
-        }
-        setCount(count - 1);
-    };
+    const options = [];
+    for (let i = 1; i <= 50; i++) {
+        options.push(
+            <option key={i} value={i}>
+                {i}
+            </option>
+        );
+    }
 
     return (
         <div>
-            <button onClick={handleIncrement}>+</button>
-            <span>{count}</span>
-            <button onClick={handleDecrement}>-</button>
+            <span>QUANTITY </span>
+            <select value={count} onChange={handleCountChange}>
+                {options}
+            </select>
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 // import { fetchProduct } from '../../store/single_product'
@@ -10,6 +10,7 @@ const AddToCart = () => {
     const cart = useSelector((state) => state.userCart)
     console.log('CART====>', cart)
     const user = useSelector((state) => state.session.user)
+    const history = useHistory()
 
     useEffect(() => {
         dispatch(getCartThunk())
@@ -23,12 +24,18 @@ const AddToCart = () => {
             return
         }
 
+        console.log("USER CART", cart)
+        
+
+
+
         const product = {
             user_id : user.id,
             product_id: product_id,
             // quantity: 4,
         }
         dispatch(thunkAddToCart(product))
+        history.push('/cart')
     }
 
     return(

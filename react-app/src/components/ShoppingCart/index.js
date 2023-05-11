@@ -9,20 +9,26 @@ const ShoppingCart = () => {
   const dispatch = useDispatch();
 
 
+
   const user = useSelector((state) => state.session.user);
   const products = useSelector((state) => state.products.allProducts);
   const productsArr = Object.values(products);
   // console.log("PRODUCTS-->", products);
   const userCart = useSelector((state) => state.userCart.userCart);
   const userCartArr = Object.values(userCart);
-  // console.log("USER CART-->", userCart);
+  console.log("USER CART ARRAY-->", userCartArr);
+
 
   useEffect(() => {
     dispatch(getCartThunk());
     dispatch(thunkGetAllProducts());
   }, [dispatch]);
 
-  if (!products) return null;
+  // useEffect(() => {
+  //   dispatch(getCartThunk());
+  // }, [dispatch]);
+
+  if (!products || !userCart) return null;
 
   const noUser = () => {
     if (!user) {
@@ -51,9 +57,9 @@ const ShoppingCart = () => {
                                     alt={`${product.name}'s unavaiable`}
                                     className="cart-product-image"
                                 />
-
+                                <div>PRICE: ${product.price}</div>
                                 <div>
-                                  <Counter />
+                                  <Counter quantity={item.quantity}/>
                                 </div>
                             </div>
                         : null;

@@ -15,6 +15,7 @@ export const actionAddToCart = (product) => ({
 const normalizeCarts = (carts) => {
     let normalizedCarts = {};
     carts.carts.forEach(cart => {
+        console.log("BEFORE NORMALIZE CART", cart)
         normalizedCarts[cart.id] = cart
     });
 
@@ -46,10 +47,16 @@ export const thunkAddToCart = (product) => async dispatch => {
 
     if (response.ok) {
         const cartProduct = await response.json();
+        // const normalizedCartProduct = normalizeCarts(cartProduct)
         dispatch(actionAddToCart(cartProduct))
         return cartProduct;
     }
 }
+
+
+
+
+
 
 const initialState = { userCart: {} }
 
