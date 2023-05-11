@@ -109,6 +109,8 @@ const productReviewsReducer = (state = initialState, action) => {
 
         case CREATE_PRODUCT_REVIEW:
             const createReviewState = {...state};
+            createReviewState.productReviews[action.new_review.id] = action.new_review
+            // createReviewState.userReviews[action.new_review.id] = action.new_review
             createReviewState.newReview = action.new_review
             return createReviewState
 

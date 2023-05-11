@@ -37,7 +37,7 @@ const GetSingleProduct = () => {
                 <div>
                     <OpenModalButton
                         buttonText="Update your review"
-                        modalComponent={<UpdateReview product={product_id} />}
+                        modalComponent={<UpdateReview reviewId={review.id} />}
                     />
                 </div>
             )
