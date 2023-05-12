@@ -46,15 +46,14 @@ def create_review_for_product_by_id(product_id):
             rating = form.data['rating']
         )
 
-        # print('---------NEW REVIEW---------', new_review)
-
         db.session.add(new_review)
         db.session.commit()
+
         return new_review.to_dict()
     return form.errors
 
 
- 
+
 @review_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_review(id):
@@ -66,9 +65,9 @@ def delete_review(id):
     db.session.commit()
 
     return {'Review Successfully Deleted': id}
-  
-  
-  
+
+
+
 @review_routes.route('/<int:review_id>/update', methods=['PUT'])
 @login_required
 def update_user_review(review_id):
@@ -83,4 +82,3 @@ def update_user_review(review_id):
         db.session.commit()
         return review.to_dict()
     return {'MESSAGE': "Update review didn't work"}
-
