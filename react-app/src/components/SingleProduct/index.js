@@ -20,12 +20,11 @@ const GetSingleProduct = () => {
     const reviews = Object.values(useSelector(state => state.productReviews.productReviews))
     const new_review = useSelector(state => state.productReviews.newReview)
     const user = useSelector(state => state.session.user)
-    // console.log('-----SINGLE PRODUCT IN COMPONENT----', product, reviews, new_review)
+    // console.log('-----SINGLE PRODUCT IN COMPONENT----', reviews)
 
     useEffect(() => {
         dispatch(fetchProduct(product_id))
         dispatch(thunkGetProductReviews(product_id))
-        // dispatch(thunkGetUserReviews(user.id))
     }, [dispatch, product_id, new_review, user])
 
     if (!product || !reviews) return null

@@ -13,11 +13,6 @@ const CreateNewReview = (product) => {
     const [rating, setRating] = useState();
     const [errors, setErrors] = useState({});
 
-    // useEffect(() => {
-    //     dispatch()
-    // }, [dispatch])
-
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -39,7 +34,6 @@ const CreateNewReview = (product) => {
             // );
         console.log('--------NEW REVIEW FE-------', newReview)
         closeModal()
-        // history.push(`/products/${product_id}`)
     }
 
     return (
