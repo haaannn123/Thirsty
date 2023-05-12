@@ -51,7 +51,6 @@ function Navigation({ isLoaded }) {
   return (
     <div className="navbar-container">
       <div className="logo">
-	  	<i class="fa-solid fa-faucet"></i>
         <NavLink exact to="/" className="home-link">Thirsty</NavLink>
       </div>
       <SearchBar />

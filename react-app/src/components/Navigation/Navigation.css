@@ -14,14 +14,6 @@
   color: rgb(44, 138, 232)
 }
 
-/* .fa-solid.fa-faucet{
-  height: 200%;
-  width: 300%
-} */
-.logo{
-
-}
-
 .store-button{
   text-decoration: none;
   color: black;
@@ -51,6 +43,11 @@
   gap: 2rem
 }
 
+
+.fa-shop, .fa-cart-shopping, .fa-user-circle {
+  font-size: 17px;
+  color:rgb(44, 44, 44)
+}
 .sign-in-button {
   background-color: #f1f1f1;
   color: #333;
