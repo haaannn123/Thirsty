@@ -1,25 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
-import { thunkCreateProductReview } from '../../store/reviews';
+import { useState, useEffect } from 'react';
+import { thunkGetUserReviews, thunkUpdateUserReview } from '../../store/reviews';
 import { useModal } from "../../context/Modal";
 
-const UpdateReview = (product) => {
-    const product_id = parseInt(product.product)
+const UpdateReview = (reviewId) => {
+    const review_id = parseInt(reviewId.reviewId)
+    // console.log(review_id)
     const dispatch = useDispatch();
     const history = useHistory();
     const { closeModal } = useModal();
 
-    const previousReview = useSelector(state => state.productReviews.userReviews)
+    const previousReviews = useSelector(state => state.productReviews.userReviews)
     const user = useSelector(state => state.session.user)
-    const previousReviewArr = Object.values(previousReview)[0]
-    console.log('---------UPDATE REVIEW------', previousReviewArr)
+    const previousReview = previousReviews[review_id]
+    // console.log('---------UPDATE REVIEW------', previousReview[review_id])
 
 
-    const [review, setReview] = useState(previousReviewArr.review);
-    const [rating, setRating] = useState(previousReviewArr.rating);
-    const [errors, setErrors] = useState({});
-
+    const [review, setReview] = useState(previousReview.review);
+    const [rating, setRating] = useState(previousReview.rating);
+    const [errors, setErrors] = useState('');
 
     if (!previousReview) return null
 
@@ -27,31 +27,32 @@ const UpdateReview = (product) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setErrors({});
+
+        let allErrors = {}
+
+        if (review.length < 3 || review.length > 255) allErrors.review = 'Review must be between 3 and 255 characters'
+
+        if (Object.keys(allErrors).length) {
+            return setErrors(allErrors)
+        }
 
         const userReview = {
             review,
             rating
         }
+        // console.log('--------updated REVIEW FE-------', previousReview)
 
-
-        let newReview = await dispatch(thunkCreateProductReview(product_id, userReview))
-        // .catch(
-        //     async (res) => {
-        //         const data = await res.json();
-        //         console.log(data)
-        //         if (data && data.errors) setErrors(data.errors);
-        //     }
-        // );
-        console.log('--------NEW REVIEW FE-------', newReview)
+        let updatedReview = await dispatch(thunkUpdateUserReview(previousReview.id, userReview))
+        // console.log('--------updated REVIEW FE-------', updatedReview)
         closeModal()
-        // history.push(`/products/${product_id}`)
+        window.location.reload()
     }
 
     return (
         <div>
             <form method='POST' onSubmit={handleSubmit}>
                 <label>Review</label>
+                {errors.review ? <p>{errors.review}</p> : null}
                 <input
                     type='textbox'
                     onChange={(e) => setReview(e.target.value)}

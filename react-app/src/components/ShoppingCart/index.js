@@ -23,7 +23,6 @@ const ShoppingCart = () => {
   // const userCartArr = Object.values(userCart);
   console.log("USER CART ARRAY-->", userCart);
 
-
   useEffect( async() => {
 
     const fetchData = async () => {
@@ -80,7 +79,6 @@ return (
                                 <OpenModalButton
                                    buttonText = "Delete Item"
                                    modalComponent={<DeleteCartItem product={product} cartItem={item}/>}
-
                                 />
 
                               </div>
@@ -103,6 +101,5 @@ return (
           }
   </div>
 );
-};
 
 export default ShoppingCart;

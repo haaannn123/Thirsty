@@ -1,0 +1,7 @@
+.update-button{
+    display: flex;
+    color: gray;
+    border: none;
+    background-color: rgb(248, 247, 247);
+    gap: .2rem;
+}

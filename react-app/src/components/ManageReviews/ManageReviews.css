@@ -1,0 +1,47 @@
+.shop-review-image {
+  height: 10rem;
+  object-fit: 100vw;
+}
+.shop-reviews-container {
+  display: flex;
+  flex-direction: column;
+}
+.shop-reviews-child {
+  display: flex;
+  flex-direction: row;
+  background: rgb(248, 247, 247);
+  margin-bottom: 1rem
+}
+.review-text {
+  font-family: "Lato", sans-serif;
+}
+.shop-reviews-content {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  height: 10rem;
+}
+.rating-date{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 1rem;
+}
+.shop-ratings {
+    display: flex;
+    gap: .5rem;
+}
+
+.shop-update-delete{
+    display: flex;
+    gap: .5rem;
+    margin-bottom: 1rem;
+}
+
+#shopDelete{
+    background-color: green;
+}
+
+.shop-date{
+    font-family: "Lato", sans-serif;
+}

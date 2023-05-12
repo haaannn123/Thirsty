@@ -14,12 +14,19 @@
   color: rgb(44, 138, 232)
 }
 
+.store-button{
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+}
 
 .navbar-container{
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
+  justify-content: center;
   padding: 1rem 3.2rem
 }
 
@@ -33,9 +40,14 @@
 .navbar-icons{
   display: flex;
   flex-direction: row;
-  gap: 1.5rem
+  gap: 2rem
 }
 
+
+.fa-shop, .fa-cart-shopping, .fa-user-circle {
+  font-size: 17px;
+  color:rgb(44, 44, 44)
+}
 .sign-in-button {
   background-color: #f1f1f1;
   color: #333;
@@ -49,4 +61,11 @@
 
 @media (min-width: 901px) {
 
+}
+
+.shopping-cart-button{
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
 }
