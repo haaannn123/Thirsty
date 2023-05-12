@@ -29,7 +29,7 @@ const SearchResults = () => {
 
     return (
         <>
-        <h1 className="search-results-header">Search Results for {`${search_terms}`}</h1>
+        <h1 className="search-results-header">Search Results for "{`${search_terms}`}"</h1>
             <div className='all-products-container'>
 
 

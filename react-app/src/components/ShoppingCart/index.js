@@ -8,7 +8,7 @@ import "./ShoppingCart.css";
 const ShoppingCart = () => {
   const dispatch = useDispatch();
 
-
+  const [isLoaded, setIsLoaded] = useState(false)
 
   const user = useSelector((state) => state.session.user);
   const products = useSelector((state) => state.products.allProducts);
@@ -19,14 +19,27 @@ const ShoppingCart = () => {
   console.log("USER CART ARRAY-->", userCartArr);
 
 
-  useEffect(() => {
-    dispatch(getCartThunk());
-    dispatch(thunkGetAllProducts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getCartThunk());
+  //   dispatch(thunkGetAllProducts());
+  // }, [dispatch]);
 
   // useEffect(() => {
   //   dispatch(getCartThunk());
   // }, [dispatch]);
+
+  useEffect( async() => {
+
+    const fetchData = async () => {
+      setIsLoaded(false);
+      await dispatch(getCartThunk());
+      await dispatch(thunkGetAllProducts());
+      setIsLoaded(true);
+    };
+
+    fetchData();
+
+  }, [dispatch]);
 
   if (!products || !userCart) return null;
 
@@ -34,7 +47,7 @@ const ShoppingCart = () => {
     if (!user) {
       return (
         <>
-          <h3>Please Log In :)</h3>
+          <h3>Please Log In</h3>
         </>
       )
     }
@@ -43,11 +56,13 @@ const ShoppingCart = () => {
 
 
   return (
+    (!isLoaded) ? <div className='LOADING-SCREEN'></div> :
     <div className="shopping-cart-container">
       <h1>Shopping Cart</h1>
       {user && userCartArr.length ?
                 <div>
                     {userCartArr.map(item => {
+                      console.log("ITEM--------------------",item)
                         const product = productsArr.find(product => item.product_id === product.id);
                         return product ?
                             <div className="cart-card">
@@ -59,7 +74,7 @@ const ShoppingCart = () => {
                                 />
                                 <div>PRICE: ${product.price}</div>
                                 <div>
-                                  <Counter quantity={item.quantity}/>
+                                  <Counter quantity={item.quantity} item={product} />
                                 </div>
                             </div>
                         : null;

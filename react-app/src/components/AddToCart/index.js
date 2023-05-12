@@ -9,6 +9,7 @@ const AddToCart = () => {
     const dispatch = useDispatch()
     const cart = useSelector((state) => state.userCart)
     console.log('CART====>', cart)
+    const userCartArray = Object.values(useSelector((state) => state.userCart.userCart))
     const user = useSelector((state) => state.session.user)
     const history = useHistory()
 
@@ -19,23 +20,47 @@ const AddToCart = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+
+
+
         if (!user) {
             window.alert("Please Log in or Sign Up to shop! :)")
             return
         }
 
-        console.log("USER CART", cart)
-        
+        // console.log("USER CART ARRAY-------------", userCartArray)
 
+        let showAlert = false;
 
+        if(userCartArray.length > 0){
+            userCartArray.forEach(item => {
+                // console.log("ITEM----------->>>", item.product_id, product_id)
+                if(item.product_id == product_id){
+                    // console.log("ITEM QUANTITY IN CART", item.quantity)
+                    if(item.quantity == 50){
+                        window.alert("You cannot add more than 50 quantities of the same item to cart")
+                        showAlert = true;
+                        return
+
+                    }
+                }
+
+            })
+        }
+
+        if(showAlert){
+            return
+        };
 
         const product = {
             user_id : user.id,
             product_id: product_id,
             // quantity: 4,
         }
+
         dispatch(thunkAddToCart(product))
-        history.push('/cart')
+        return history.push('/cart')
+
     }
 
     return(

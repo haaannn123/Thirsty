@@ -1,42 +1,21 @@
-// import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { thunkUpdateCartItemQuantityInDb } from '../../store/shopping_cart';
+import { useDispatch } from 'react-redux';
 
-// function Counter() {
-//     const [count, setCount] = useState(0);
-
-//     const handleIncrement = () => {
-//         if (count === 50) {
-//             return
-//         }
-//         setCount(count + 1);
-//     };
-
-//     const handleDecrement = () => {
-//         if (count === 0) {
-//             return
-//         }
-//         setCount(count - 1);
-//     };
-
-//     return (
-//         <div>
-//             <button onClick={handleDecrement}>-</button>
-//             <span>{count}</span>
-//             <button onClick={handleIncrement}>+</button>
-//         </div>
-//     );
-// }
-
-// export default Counter;
-
-import React, { useState } from 'react';
-
-function Counter({quantity}) {
+function Counter({quantity, item}) {
     const [count, setCount] = useState(quantity);
+    // const [isLoaded, setIsLoaded] = useState(false)
+    const dispatch = useDispatch()
 
-    const handleCountChange = (event) => {
+    const handleCountChange = async (event) => {
         const value = parseInt(event.target.value);
         setCount(value);
     };
+
+    useEffect( async() => {
+          await dispatch(thunkUpdateCartItemQuantityInDb(count, item))
+    }, [dispatch, count]);
+
 
     const options = [];
     for (let i = 1; i <= 50; i++) {

@@ -39,3 +39,32 @@ def add_to_cart():
         return item_in_user_cart.to_dict()
 
 
+@cart_routes.route('/', methods=['PUT'])
+@login_required
+def update_cart_item_quantity():
+    data = request.get_json()
+    quantity = data['quantity']
+    product_id = data['item']['id']
+    owner_id = session.get('_user_id')
+    # id = request.json.get('product_id')
+    print("DATA ------------", data)
+    # print('REQUEST', request.json)
+    item_in_user_cart = Shopping_Cart.query.filter(Shopping_Cart.product_id == product_id).filter(Shopping_Cart.user_id == owner_id).first()
+
+    # print("DOES PRODUCT EXIST IN USER CART--------------", item_in_user_cart.to_dict())
+
+    #print ("OWNER ID--------------------", owner_id)
+
+    # if item_in_user_cart is None:
+    #     cart_item = Shopping_Cart(user_id=owner_id, product_id=cartProduct.id, quantity=1)
+    #     db.session.add(cart_item)
+    #     db.session.commit()
+
+    #     return (cart_item.to_dict())
+
+    item_in_user_cart.quantity = quantity
+    db.session.add(item_in_user_cart)
+    db.session.commit()
+    return item_in_user_cart.to_dict()
+
+
