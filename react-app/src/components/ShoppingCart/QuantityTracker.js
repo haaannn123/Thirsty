@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { thunkUpdateCartItemQuantityInDb } from '../../store/shopping_cart';
+import { thunkUpdateCartItemQuantityInDb, getCartThunk } from '../../store/shopping_cart';
 import { useDispatch } from 'react-redux';
 
 function Counter({quantity, item}) {
@@ -9,11 +9,14 @@ function Counter({quantity, item}) {
 
     const handleCountChange = async (event) => {
         const value = parseInt(event.target.value);
+        await dispatch(getCartThunk())
+        console.log("///////////////")
         setCount(value);
     };
 
     useEffect( async() => {
           await dispatch(thunkUpdateCartItemQuantityInDb(count, item))
+
     }, [dispatch, count]);
 
 

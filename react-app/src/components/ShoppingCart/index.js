@@ -14,19 +14,10 @@ const ShoppingCart = () => {
   const products = useSelector((state) => state.products.allProducts);
   const productsArr = Object.values(products);
   // console.log("PRODUCTS-->", products);
-  const userCart = useSelector((state) => state.userCart.userCart);
-  const userCartArr = Object.values(userCart);
-  console.log("USER CART ARRAY-->", userCartArr);
+  const userCart = Object.values(useSelector((state) => state.userCart.userCart));
+  // const userCartArr = Object.values(userCart);
+  console.log("USER CART ARRAY-->", userCart);
 
-
-  // useEffect(() => {
-  //   dispatch(getCartThunk());
-  //   dispatch(thunkGetAllProducts());
-  // }, [dispatch]);
-
-  // useEffect(() => {
-  //   dispatch(getCartThunk());
-  // }, [dispatch]);
 
   useEffect( async() => {
 
@@ -40,6 +31,10 @@ const ShoppingCart = () => {
     fetchData();
 
   }, [dispatch]);
+
+  // useEffect( async () => {
+  //   await dispatch(getCartThunk());
+  // }, [dispatch])
 
   if (!products || !userCart) return null;
 
@@ -59,10 +54,10 @@ const ShoppingCart = () => {
     (!isLoaded) ? <div className='LOADING-SCREEN'></div> :
     <div className="shopping-cart-container">
       <h1>Shopping Cart</h1>
-      {user && userCartArr.length ?
+      {user && userCart.length ?
                 <div>
-                    {userCartArr.map(item => {
-                      console.log("ITEM--------------------",item)
+                    {userCart.map(item => {
+                      console.log("ITEM--------------------",item.quantity)
                         const product = productsArr.find(product => item.product_id === product.id);
                         return product ?
                             <div className="cart-card">
@@ -76,6 +71,7 @@ const ShoppingCart = () => {
                                 <div>
                                   <Counter quantity={item.quantity} item={product} />
                                 </div>
+                                <div>ITEM TOTAL: ${product.price * item.quantity}</div>
                             </div>
                         : null;
                     })}
