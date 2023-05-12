@@ -72,13 +72,20 @@ const GetSingleProduct = () => {
     return ratingIcons;
   };
 
+
+  function renderPost() {
+    return reviews.find(review => review.user_id === user.id)
+}
+
   const renderLeaveReviewButton = () => {
-    if (product.owner_id !== user.id) {
-        <OpenModalButton buttonText="Leave a Review" modalComponent={<CreateNewReview product={product_id} />} />;
+    if (user && product.owner_id !== user.id && !renderPost()) {
+        return <OpenModalButton buttonText="Leave a Review" modalComponent={<CreateNewReview product={product_id} />} />;
     } else {
         return null
     }
   };
+
+
 
   return (
     <div>
