@@ -50,15 +50,10 @@ function SignupFormModal() {
     const closeMenu = () => setShowMenu(false);
 
 	return (
-		<>
+		<div className='signup-outer-container'>
 			<h1>Sign Up</h1>
-			<OpenModalButton
-              buttonText="Sign Up"
-              onItemClick={closeMenu}
-              modalComponent={<SignupFormModal />}
-            />
-			<form onSubmit={handleSubmit}>
-				<ul>
+			<form className='signup-form-container' onSubmit={handleSubmit}>
+				<ul className='signup-errors'>
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
 					))}
@@ -67,6 +62,7 @@ function SignupFormModal() {
 					Email
 					<input
 						type="text"
+						className='signup-form-input'
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						required
@@ -76,6 +72,7 @@ function SignupFormModal() {
 					Username
 					<input
 						type="text"
+						className='signup-form-input'
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
 						required
@@ -85,6 +82,7 @@ function SignupFormModal() {
 					Password
 					<input
 						type="password"
+						className='signup-form-input'
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						required
@@ -94,14 +92,15 @@ function SignupFormModal() {
 					Confirm Password
 					<input
 						type="password"
+						className='signup-form-input'
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
 						required
 					/>
 				</label>
-				<button type="submit">Sign Up</button>
+				<button className='signup-button' type="submit">Sign Up</button>
 			</form>
-		</>
+		</div>
 	);
 }
 
