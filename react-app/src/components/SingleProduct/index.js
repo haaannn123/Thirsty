@@ -49,6 +49,11 @@ const GetSingleProduct = () => {
         }
     }
 
+
+    const handleClick = () => {
+        window.alert("Feature coming soon!")
+    }
+
     function formatDate(created_at) {
         const dateObj = new Date(created_at);
         const options = { month: "long", day: "numeric", year: "numeric" };
@@ -86,7 +91,7 @@ const GetSingleProduct = () => {
                 <img src={product.preview_img} alt="this is a drink!" />
                 <h2>${product.price}</h2>
                 <text>{product.description}</text>
-                <button>Buy it now</button>
+                <button onClick={handleClick}>Buy it now</button>
                 <AddToCart />
             </div>
             <div>
