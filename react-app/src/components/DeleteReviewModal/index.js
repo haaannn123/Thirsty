@@ -10,6 +10,7 @@ const DeleteReview = ({reviewId}) => {
     const handleSubmit = () => {
         dispatch(thunkDeleteReview(reviewId))
         closeModal()
+        window.location.reload()
     };
 
     return (
