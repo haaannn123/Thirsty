@@ -14,7 +14,7 @@ import ManageShop from './components/ManageShop'
 import ManageReviews from "./components/ManageReviews";
 import ShoppingCart from "./components/ShoppingCart";
 import { thunkGetAllProducts } from "./store/products";
-
+import ProductsPage from "./components/Products/ProductsPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ function App() {
             <ShoppingCart />
           </Route>
           <Route path="/">
-            <GetAllProducts />
+            <ProductsPage />
           </Route>
 
         </Switch>

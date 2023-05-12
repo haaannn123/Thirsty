@@ -19,7 +19,7 @@ def get_reviews_by_user_id(user_id):
 
 @review_routes.route('/product/<int:product_id>')
 def get_reviews_by_product_id(product_id):
-    product_reviews = Review.query.filter(Review.product_id.like(product_id)).order_by(Review.created_at.desc()).all()
+    product_reviews = Review.query.filter_by(product_id=product_id).order_by(Review.created_at.desc()).all()
     reviews = [review.to_dict() for review in product_reviews]
 
     for review in reviews:
