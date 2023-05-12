@@ -20,8 +20,8 @@ const DeleteProduct = ({ productId }) => {
             <div>
                 <h1>Confirm Delete</h1>
                 <p>Are you sure you want to remove this Product?</p>
-                <button id='yes-delete' onClick={handleSubmit}>Yes, Delete</button>
-                <button id='no-keep' onClick={closeModal}>No Return</button>
+                <button id='yes-delete' onClick={handleSubmit}>Yes, Delete Product</button>
+                <button id='no-keep' onClick={closeModal}>Cancel</button>
             </div>
         </div>
     );

@@ -121,7 +121,8 @@ export const fetchUserProducts = () => async (dispatch) => {
 export const editProduct = (product, productId) => async dispatch => {
     const response = await fetch(`/api/products/${productId}`, {
         method: 'PUT',
-        body: product
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(product)
     })
     if (response.ok) {
         const updatedProduct = await response.json()
@@ -184,7 +185,7 @@ const allProductsReducer = (state = initialState, action) => {
         }
         case EDIT_USER_PRODUCTS:{
             const newState = {...state}
-            newState.allProducts[action.products] = action.products;
+            newState.allProducts[action.products.id] = action.products;
             return newState;
         }
 
