@@ -43,8 +43,8 @@ const GetAllProducts = () => {
             {allProducts.map(product =>
                 {
                     return (
-                        <div key={product.id}>
-                        <NavLink to={`/products/${product.id}`} className='all-products-image-container'>
+                        <div key={product.id} className="products-container">
+                        <NavLink to={`/products/${product.id}`} className='all-products-image-card'>
                             <img
                                 src = {product.preview_img}
                                 alt = {`${product.name}'s unavaiable`}
@@ -53,7 +53,7 @@ const GetAllProducts = () => {
                             </img>
                             <div class="all-products-price-container">
                                 <div className='all-products-price'>
-                                    ${`${product.price}`}
+                                    ${`${product.price.toFixed(2)}`}
                                 </div>
                             </div>
                         </NavLink>
