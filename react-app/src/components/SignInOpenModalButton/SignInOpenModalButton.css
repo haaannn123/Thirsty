@@ -1,0 +1,10 @@
+.signin-modal-button{
+    border-radius: 1em;
+    width: 150%;
+    background-color: rgb(255, 255, 255);
+    padding: .5rem;
+    border: none;
+}
+.signin-modal-button:hover{
+    background-color: rgb(237, 238, 239);
+}

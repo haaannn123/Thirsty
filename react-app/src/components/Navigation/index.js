@@ -5,7 +5,7 @@ import ProfileButton from './ProfileButton';
 import SearchBar from '../SearchBar';
 import OpenModalButton from '../OpenModalButton';
 import LoginFormModal from '../LoginFormModal';
-
+import SignInOpenModalButton from '../SignInOpenModalButton';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -29,7 +29,7 @@ function Navigation({ isLoaded }) {
 
   const SignInButton = ({ closeMenu }) => {
     return (
-		<OpenModalButton
+		<SignInOpenModalButton
 		buttonText="Sign In"
 		onItemClick={closeMenu}
 		modalComponent={<LoginFormModal />}
@@ -41,7 +41,7 @@ function Navigation({ isLoaded }) {
   const shopButton = () => {
 	if (sessionUser){
 		return (
-			<NavLink to="/shops/current">
+			<NavLink to="/shops/current" className="store-button">
 				<i className="fa-solid fa-shop"></i>
 			</NavLink>
 		)
@@ -50,7 +50,8 @@ function Navigation({ isLoaded }) {
 
   return (
     <div className="navbar-container">
-      <div>
+      <div className="logo">
+	  	<i class="fa-solid fa-faucet"></i>
         <NavLink exact to="/" className="home-link">Thirsty</NavLink>
       </div>
       <SearchBar />
@@ -65,7 +66,7 @@ function Navigation({ isLoaded }) {
 			)}
 			</div>
 		)}
-		<NavLink to="/cart">
+		<NavLink to="/cart" className="shopping-cart-button">
 			<i className="fa-solid fa-cart-shopping"></i>
 		</NavLink>
 	  </div>
