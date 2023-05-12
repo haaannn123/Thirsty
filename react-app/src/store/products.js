@@ -185,7 +185,7 @@ const allProductsReducer = (state = initialState, action) => {
         }
         case EDIT_USER_PRODUCTS:{
             const newState = {...state}
-            newState.allProducts[action.products] = action.products;
+            newState.allProducts[action.products.id] = action.products;
             return newState;
         }
 

@@ -9,9 +9,9 @@ const CreateNewReview = (product) => {
   const product_id = parseInt(product.product);
   const dispatch = useDispatch();
   const [review, setReview] = useState("");
-  const [cups, setCups] = useState(null);
+  const [cups, setCups] = useState(1);
   const [reviewButton, setReviewButton] = useState();
-  const [hoveredCups, setHoveredCups] = useState(null);
+  const [hoveredCups, setHoveredCups] = useState(1);
   const numbers = [1, 2, 3, 4, 5];
   const { closeModal } = useModal();
 
@@ -20,7 +20,7 @@ const CreateNewReview = (product) => {
 
     const newReview = {
       review,
-      cups
+      rating: cups
     };
 
     dispatch(thunkCreateProductReview(product_id, newReview));

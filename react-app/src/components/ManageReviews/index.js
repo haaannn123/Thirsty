@@ -77,8 +77,8 @@ const ManageReviews = () => {
                   <div className="shop-ratings">{renderRatings(review)}</div>
                   <p className="review-text">{review.review}</p>
                   <div className="shop-update-delete">
-                    <OpenDeleteModal buttonText="Delete" onItemClick={closeMenu} modalComponent={<DeleteReview />} id="shopDelete"/>
-                    <OpenUpdateModal buttonText="Edit" onItemClick={closeMenu} modalComponent={<UpdateReview />} />
+                    <OpenDeleteModal buttonText="Delete" onItemClick={closeMenu} modalComponent={<DeleteReview reviewId={review.id}/>} id="shopDelete"/>
+                    <OpenUpdateModal buttonText="Edit" onItemClick={closeMenu} modalComponent={<UpdateReview reviewId={review.id}/>} />
                   </div>
                 </div>
               </div>
