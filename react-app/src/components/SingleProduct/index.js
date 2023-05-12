@@ -48,14 +48,18 @@ const GetSingleProduct = () => {
         }
     }
 
+    const handleClick = () => {
+        window.alert("Feature coming soon!")
+    }
+
     return (
         <div>
             <div>
                 <h1>{product.name}</h1>
                 <img src={product.preview_img} alt="this is a drink!" />
-                <h2>{product.price}</h2>
+                <h2>${product.price}</h2>
                 <text>{product.description}</text>
-                <button>Buy it now</button>
+                <button onClick={handleClick}>Buy it now</button>
                 <AddToCart />
             </div>
             <div>

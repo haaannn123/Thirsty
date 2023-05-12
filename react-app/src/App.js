@@ -50,9 +50,9 @@ function App() {
           <Route path= "/search/:search_terms">
             <SearchResults />
           </Route>
-          <Route path="/reviews/user/:user_id">
+          {/* <Route path="/reviews/user/:user_id">
             <ManageReviews />
-          </Route>
+          </Route> */}
           <Route path="/cart">
             <ShoppingCart />
           </Route>
