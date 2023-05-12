@@ -38,9 +38,9 @@ function App() {
           <Route path="/products/new">
             <CreateNewProduct />
           </Route>
-          <Route path="/signup">
+          {/* <Route path="/signup">
             <SignupFormPage />
-          </Route>
+          </Route> */}
           <Route path="/products/:productId/edit">
             <EditProduct/>
           </Route>
