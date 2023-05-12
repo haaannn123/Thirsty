@@ -23,7 +23,7 @@ const CreateNewReview = (product) => {
       cups
     };
 
-    dispatch(thunkCreateProductReview(newReview, product_id));
+    dispatch(thunkCreateProductReview(product_id, newReview));
     closeModal();
   };
 
