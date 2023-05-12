@@ -3,8 +3,13 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 30px;
+    padding: 35px;
     margin-top: -30px;
+}
+
+.signup-text {
+    font-size: 40px;
+    margin-bottom: -20px;
 }
 
 .signup-form-container {
@@ -16,20 +21,54 @@
 .signup-errors {
     color: rgb(255, 0, 0);
     font-weight: bold;
+    margin-top: 3em;
 }
 
 .signup-form-input {
     width: 300px;
     border-radius: 2px 2px 2px 2px;
 }
-.signup-button {
-    padding: 8px;
-    background-color: rgb(123, 188, 253);
-    width: 300px;
-    box-shadow: 1px 1px 1px 1px black;
+
+.signup-email-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px
 }
 
-.signup-button:hover {
+.signup-username-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px
+}
+
+.signup-password-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px
+}
+
+.signup-confirm-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px
+}
+
+#submit-disabled {
+  background-color: gray;
+  width: 200px;
+  box-shadow: 1px 1px 1px 1px black;
+  margin-top: 1.5em;
+}
+
+#submit-enabled {
+  background-color: rgb(123, 188, 253);
+  color: white;
+  width: 200px;
+  box-shadow: 1px 1px 1px 1px black;
+  margin-top: 1.5em;
+}
+
+#submit-enabled:hover {
   cursor: pointer;
   background-color: rgb(44,138,232);
 }
