@@ -2,22 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { thunkUpdateCartItemQuantityInDb, getCartThunk } from '../../store/shopping_cart';
 import { useDispatch } from 'react-redux';
 
-function Counter({quantity, item}) {
+
+function Counter({ quantity, item }) {
     const [count, setCount] = useState(quantity);
     // const [isLoaded, setIsLoaded] = useState(false)
     const dispatch = useDispatch()
 
-    const handleCountChange = async (event) => {
-        const value = parseInt(event.target.value);
-        await dispatch(getCartThunk())
-        console.log("///////////////")
+    const handleCountChange = async (e) => {
+        e.preventDefault()
+        const value = parseInt(e.target.value);
+        // console.log("///////////////")
         setCount(value);
+        await dispatch(thunkUpdateCartItemQuantityInDb(value, item))
+        await dispatch(getCartThunk())
     };
 
-    useEffect( async() => {
-          await dispatch(thunkUpdateCartItemQuantityInDb(count, item))
-
-    }, [dispatch, count]);
+    // useEffect(async () => {
+    //     await dispatch(thunkUpdateCartItemQuantityInDb(count, item))
+    // }, [dispatch, count]);
 
 
     const options = [];
@@ -32,11 +34,12 @@ function Counter({quantity, item}) {
     return (
         <div>
             <span>QUANTITY </span>
-            <select value={count} onChange={handleCountChange}>
+            <select value={count} onChange={((e) => handleCountChange(e))}>
                 {options}
             </select>
         </div>
     );
 }
+
 
 export default Counter;
