@@ -14,22 +14,12 @@ const UpdateReview = (reviewId) => {
     const previousReviews = useSelector(state => state.productReviews.userReviews)
     const user = useSelector(state => state.session.user)
     const previousReview = previousReviews[review_id]
-    console.log('---------UPDATE REVIEW------', previousReview[review_id])
+    // console.log('---------UPDATE REVIEW------', previousReview[review_id])
 
 
     const [review, setReview] = useState(previousReview.review);
     const [rating, setRating] = useState(previousReview.rating);
-    const [errors, setErrors] = useState({});
-
-    // useEffect(() => {
-    //     dispatch(thunkGetUserReviews(user.id))
-    // }, [dispatch])
-
-    // useEffect(() => {
-    //     setReview(previousReview.review);
-    //     setRating(previousReview.rating);
-    // }, [previousReview]);
-
+    const [errors, setErrors] = useState('');
 
     if (!previousReview) return null
 
@@ -37,32 +27,32 @@ const UpdateReview = (reviewId) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setErrors({});
+
+        let allErrors = {}
+
+        if (review.length < 3 || review.length > 255) allErrors.review = 'Review must be between 3 and 255 characters'
+
+        if (Object.keys(allErrors).length) {
+            return setErrors(allErrors)
+        }
 
         const userReview = {
             review,
             rating
         }
-        console.log('--------updated REVIEW FE-------', previousReview)
+        // console.log('--------updated REVIEW FE-------', previousReview)
 
         let updatedReview = await dispatch(thunkUpdateUserReview(previousReview.id, userReview))
-        // .catch(
-        //     async (res) => {
-        //         const data = await res.json();
-        //         console.log(data)
-        //         if (data && data.errors) setErrors(data.errors);
-        //     }
-        // );
-        console.log('--------updated REVIEW FE-------', updatedReview)
+        // console.log('--------updated REVIEW FE-------', updatedReview)
         closeModal()
         window.location.reload()
-        // history.push(`/products/${product_id}`)
     }
 
     return (
         <div>
             <form method='POST' onSubmit={handleSubmit}>
                 <label>Review</label>
+                {errors.review ? <p>{errors.review}</p> : null}
                 <input
                     type='textbox'
                     onChange={(e) => setReview(e.target.value)}

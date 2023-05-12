@@ -44,9 +44,9 @@ const EditProduct = () => {
         let allErrors = {}
 
         if (!name.length) allErrors.name = 'Name is Required'
-        if (description.length < 30) allErrors.description = 'Description is too short'
-        if (description.length > 255) allErrors.description = 'Description is too long'
-        if (!price || Number(price) <= 0) allErrors.price = 'Please enter a valid price'
+        if (name.length < 3 || name.length > 255) allErrors.name = 'Name must be between 3 and 255 characters'
+        if (description.length < 30 || description > 255) allErrors.description = 'Description must be between 30 and 255 characters'
+        if (!price.length || price < 1) allErrors.price = 'Please enter a valid price'
         // if (!preview_img || preview_img === '') allErrors.preview_img = 'Preview image is required'
         // if (!preview_img.endsWith('.png') && !preview_img.endsWith('.jpg') && !preview_img.endsWith('.jpeg')) allErrors.preview_img = 'Image URL must end in .png, .jpg, or .jpeg'
 
