@@ -41,6 +41,7 @@
 #review-button-enabled {
     background-color: rgb(44, 138, 232);
     color: white;
+    font-weight: bold;
     width: 300px;
     box-shadow: 1px 1px 1px 1px black;
 }

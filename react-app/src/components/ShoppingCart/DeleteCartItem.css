@@ -1,17 +1,17 @@
-.delete-review-container {
+.delete-cart-item-container {
     height: 175px;
     width: 400px
 }
 
-.delete-review-title {
+.delete-cart-item-title {
     text-align: center;
 }
 
-.delete-review-text {
+.delete-cart-item-text {
     text-align: center;
 }
 
-.delete-review-submit {
+.delete-cart-item-submit {
     display: flex;
     justify-content: center;
     margin-top: 30px;
