@@ -1,0 +1,65 @@
+.update-review-container {
+    width: 500px;
+    border-radius: 20px;
+    border-color: 10px solid black;
+    height: 350px;
+}
+
+.update-review-title-header {
+    display: flex;
+    justify-content: center;
+}
+
+.review-text-box {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    resize: none;
+}
+
+.review-cups {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: .5rem;
+    font-size: 50px;
+    /* color: #2c8ae8; */
+}
+
+#review-button-disabled {
+    background-color: gray;
+    width: 300px;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+#review-button-enabled {
+    background-color: rgb(44, 138, 232);
+    color: white;
+    width: 300px;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+#review-button-enabled:hover {
+    cursor: pointer;
+}
+
+.fa-solid.fa-wine-glass-empty {
+    font-size: 50px
+}
+
+.fa-solid.fa-wine-glass {
+    font-size: 50px
+}
+
+.update-review-errors {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.update-review-submit-container {
+    margin-top: 20px;
+    text-align: center;
+}
