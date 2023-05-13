@@ -73,6 +73,37 @@ export const thunkUpdateCartItemQuantityInDb = (quantity, item) => async dispatc
     }
 }
 
+export const thunkDeleteItemFromCart = (item) => async dispatch => {
+    const response = await fetch (`/api/cart/deleteSingleItem`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(item)
+    })
+
+    if(response.ok){
+        console.log("DELETE ITEM FROM CART RESPONSE")
+
+        await dispatch(getCartThunk())
+    }
+}
+
+export const thunkDeleteAllItemsFromCart = (item) => async dispatch => {
+    const response = await fetch (`/api/cart/deleteAllItems`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(item)
+    })
+
+    if(response.ok){
+        console.log("DELETE ALL ITEMS FROM CART RESPONSE")
+
+        await dispatch(getCartThunk())
+    }
+}
 
 const initialState = { userCart: {} }
 

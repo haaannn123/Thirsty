@@ -12,11 +12,20 @@ const CreateNewReview = (product) => {
   const [cups, setCups] = useState(1);
   const [reviewButton, setReviewButton] = useState();
   const [hoveredCups, setHoveredCups] = useState(1);
+  const [errors, setErrors] = useState('');
   const numbers = [1, 2, 3, 4, 5];
   const { closeModal } = useModal();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    let allErrors = {}
+
+    if (review.length < 3 || review.length > 255) allErrors.review = 'Review must be between 3 and 255 characters'
+
+    if (Object.keys(allErrors).length) {
+      return setErrors(allErrors)
+    }
 
     const newReview = {
       review,
@@ -34,7 +43,6 @@ const CreateNewReview = (product) => {
   const handleMouseLeave = () => {
     setHoveredCups(null);
   };
-
 
   const changeClassName = (value) => {
     if (hoveredCups !== null) {
@@ -63,8 +71,9 @@ const CreateNewReview = (product) => {
 
   return (
     <div className="new-review-container">
-      <h2 className="title-header">Review</h2>
+      <h2 className="title-header">Leave Your Review</h2>
       <form onSubmit={handleSubmit} className="review-form">
+        {errors.review ? <p className='new-review-errors'>{errors.review}</p> : null}
         <textarea
           className="review-text-box"
           type="text"
@@ -85,7 +94,7 @@ const CreateNewReview = (product) => {
             </div>
           ))}
         </div>
-        <div className="submit-container">
+        <div className="new-review-submit-container">
           <button
             id={reviewButton}
             type="submit"

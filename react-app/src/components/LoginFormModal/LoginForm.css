@@ -1,10 +1,86 @@
-.login-container{
+.login-outer-container {
     display: flex;
+    align-items: center;
     flex-direction: column;
+    padding: 35px;
+    margin-top: -30px;
+    height: 375px;
+    width: 250px;
 }
 
-.login-header{
+.login-header {
     display: flex;
     flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+    width: 225px;
     justify-content: space-between;
+    margin-bottom: -20px;
+    /* background-color: green; */
+}
+
+.login-text {
+    font-size: 30px;
+    margin-bottom: -20px;
+    margin-bottom: 20px;
+}
+
+.login-errors {
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    margin-top: 3em;
+}
+
+.open-modal-button {
+    height: 30px;
+}
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    width: 225px;
+}
+
+.login-email-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.login-password-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.login-submit-button {
+    margin-bottom: 10px;
+}
+
+.or-text {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.demo-user-button {
+    background-color: #54a7fa;
+    color: white;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+.demo-user-button:hover {
+    cursor: pointer;
+    background-color: #2c8ae8;
+}
+
+.login-submit-button {
+    background-color: #54a7fa;
+    color: white;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+.login-submit-button:hover {
+    cursor: pointer;
+    background-color: #2c8ae8;
 }

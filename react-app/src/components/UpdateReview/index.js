@@ -3,87 +3,120 @@ import { useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { thunkGetUserReviews, thunkUpdateUserReview } from '../../store/reviews';
 import { useModal } from "../../context/Modal";
+import './UpdateReview.css'
 
 const UpdateReview = (reviewId) => {
     const review_id = parseInt(reviewId.reviewId)
-    // console.log(review_id)
     const dispatch = useDispatch();
     const history = useHistory();
     const { closeModal } = useModal();
-
-    const previousReviews = useSelector(state => state.productReviews.userReviews)
-    const user = useSelector(state => state.session.user)
-    const previousReview = previousReviews[review_id]
-    console.log('---------UPDATE REVIEW------', previousReview[review_id])
-
-
+    const previousReviews = useSelector(state => state.productReviews.userReviews);
+    const user = useSelector(state => state.session.user);
+    const previousReview = previousReviews[review_id];
+    // console.log('---------UPDATE REVIEW------', previousReview[review_id])
+    const [cups, setCups] = useState(1);
+    const [reviewButton, setReviewButton] = useState();
+    const [hoveredCups, setHoveredCups] = useState(1);
+    const [errors, setErrors] = useState('');
+    const numbers = [1, 2, 3, 4, 5];
     const [review, setReview] = useState(previousReview.review);
     const [rating, setRating] = useState(previousReview.rating);
-    const [errors, setErrors] = useState({});
 
-    // useEffect(() => {
-    //     dispatch(thunkGetUserReviews(user.id))
-    // }, [dispatch])
-
-    // useEffect(() => {
-    //     setReview(previousReview.review);
-    //     setRating(previousReview.rating);
-    // }, [previousReview]);
-
+    useEffect(() => {
+        if (!cups || review.length < 3) {
+            setReviewButton("review-button-disabled");
+        } else {
+            setReviewButton("review-button-enabled");
+        }
+    }, [cups, review]);
 
     if (!previousReview) return null
 
-
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setErrors({});
+
+        let allErrors = {}
+
+        if (review.length < 3 || review.length > 255) allErrors.review = 'Review must be between 3 and 255 characters'
+
+        if (Object.keys(allErrors).length) {
+            return setErrors(allErrors)
+        }
 
         const userReview = {
             review,
-            rating
+            rating: cups
         }
-        console.log('--------updated REVIEW FE-------', previousReview)
+        // console.log('--------updated REVIEW FE-------', previousReview)
 
         let updatedReview = await dispatch(thunkUpdateUserReview(previousReview.id, userReview))
-        // .catch(
-        //     async (res) => {
-        //         const data = await res.json();
-        //         console.log(data)
-        //         if (data && data.errors) setErrors(data.errors);
-        //     }
-        // );
-        console.log('--------updated REVIEW FE-------', updatedReview)
+        // console.log('--------updated REVIEW FE-------', updatedReview)
         closeModal()
         window.location.reload()
-        // history.push(`/products/${product_id}`)
     }
 
-    return (
-        <div>
-            <form method='POST' onSubmit={handleSubmit}>
-                <label>Review</label>
-                <input
-                    type='textbox'
-                    onChange={(e) => setReview(e.target.value)}
-                    value={review}
-                    placeholder='Please leave a review!'
-                    name='review'
-                />
-                <label>Rating</label>
-                <input
-                    type='number'
-                    onChange={(e) => setRating(e.target.value)}
-                    value={rating}
-                    placeholder='Rating'
-                    name='rating'
-                />
+    const handleMouseOver = (num) => {
+        setHoveredCups(num);
+    };
 
-                <button type='submit'>Submit update</button>
+    const handleMouseLeave = () => {
+        setHoveredCups(null);
+    };
+
+    const changeClassName = (value) => {
+        if (hoveredCups !== null) {
+            return value <= hoveredCups
+                ? "fa-solid fa-wine-glass"
+                : "fa-solid fa-wine-glass-empty";
+        }
+        if (value <= cups) {
+            return "fa-solid fa-wine-glass";
+        }
+        return "fa-solid fa-wine-glass-empty";
+    };
+
+    const disabledButton = () => {
+        if (!cups) return true;
+        return false;
+    };
+
+    return (
+        <div className="update-review-container">
+            <h2 className="update-review-title-header">Update Your Review</h2>
+            <form onSubmit={handleSubmit} className="review-form">
+                {errors.review ? <p className='update-review-errors'>{errors.review}</p> : null}
+                <textarea
+                    className="review-text-box"
+                    type="text"
+                    rows="10"
+                    value={review}
+                    placeholder="Leave your review here"
+                    onChange={(e) => setReview(e.target.value)}
+                />
+                <br />
+                <div className="review-cups" onMouseLeave={handleMouseLeave}>
+                    {numbers.map((value) => (
+                        <div key={value}>
+                            <i
+                                className={changeClassName(value)}
+                                onMouseOver={() => handleMouseOver(value)}
+                                onClick={() => setCups(value)}
+                            ></i>
+                        </div>
+                    ))}
+                </div>
+                <div className="update-review-submit-container">
+                    <button
+                        id={reviewButton}
+                        type="submit"
+                        disabled={disabledButton()}
+                    >
+                        Update Your Review
+                    </button>
+                </div>
             </form>
         </div>
-    )
-
-}
+    );
+};
 
 export default UpdateReview
