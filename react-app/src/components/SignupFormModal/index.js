@@ -1,5 +1,6 @@
 import React, { useState , useEffect, useRef} from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from 'react-router-dom'
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
@@ -15,7 +16,8 @@ function SignupFormModal() {
 	const [showMenu, setShowMenu] = useState(false);
 	const { closeModal } = useModal();
 	const ulRef = useRef();
-
+	const [signUpState, setSignUpState] = useState()
+	const sessionUser = useSelector((state) => state.session.user)
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -47,18 +49,30 @@ function SignupFormModal() {
 		return () => document.removeEventListener("click", closeMenu);
 	  }, [showMenu]);
 
-    const closeMenu = () => setShowMenu(false);
+	  const disabledButton = () => {
+		return password !== confirmPassword
+		}
+
+	  useEffect(() => {
+		if (password !== confirmPassword) {
+		  setSignUpState('submit-disabled')
+		} else {
+		  setSignUpState('submit-enabled')
+		}
+	  }, [password, confirmPassword])
+
+	  if (sessionUser) return <Redirect to="/" />;
 
 	return (
 		<div className='signup-outer-container'>
-			<h1>Sign Up</h1>
+			<h1 className='signup-text'>Sign Up</h1>
 			<form className='signup-form-container' onSubmit={handleSubmit}>
 				<ul className='signup-errors'>
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
 					))}
 				</ul>
-				<label>
+				<label className='signup-email-container'>
 					Email
 					<input
 						type="text"
@@ -68,7 +82,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<label>
+				<label className='signup-username-container'>
 					Username
 					<input
 						type="text"
@@ -78,7 +92,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<label>
+				<label className='signup-password-container'>
 					Password
 					<input
 						type="password"
@@ -88,7 +102,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<label>
+				<label className='signup-confirm-container'>
 					Confirm Password
 					<input
 						type="password"
@@ -98,7 +112,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<button className='signup-button' type="submit">Sign Up</button>
+				<button className='signup-button' id={signUpState} type="submit" disable={disabledButton()}>Sign Up</button>
 			</form>
 		</div>
 	);
