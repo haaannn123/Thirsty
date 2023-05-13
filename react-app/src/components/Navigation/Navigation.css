@@ -2,14 +2,24 @@
   position: absolute;
 }
 
+.logo {
+  display: flex;
+}
+
+.blue-lagoon-logo {
+  height: 55px;
+
+}
+
 .hidden {
   display: none;
 }
 
 .home-link{
   text-decoration: none;
-  font-family: 'Darumadrop One', cursive;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Fugaz One', cursive;
+  /* font-family: 'Darumadrop One', cursive;
+  font-family: 'Montserrat', sans-serif; */
   font-size: 50px;
   color: rgb(44, 138, 232)
 }
