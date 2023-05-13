@@ -16,10 +16,10 @@ const DeleteProduct = ({ productId }) => {
 
 
     return (
-        <div>
-            <div>
-                <h1>Confirm Delete</h1>
-                <p>Are you sure you want to remove this Product?</p>
+        <div className='delete-product-container'>
+            <h1 className='delete-product-title'>Confirm Delete</h1>
+            <p className='delete-product-text'>Are you sure you want to remove this Product?</p>
+            <div className='delete-product-submit'>
                 <button id='yes-delete' onClick={handleSubmit}>Yes, Delete Product</button>
                 <button id='no-keep' onClick={closeModal}>Cancel</button>
             </div>
