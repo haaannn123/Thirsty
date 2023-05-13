@@ -68,7 +68,6 @@ def update_cart_item_quantity():
     return item_in_user_cart.to_dict()
 
 
-
 @cart_routes.route('/deleteSingleItem', methods=['DELETE'])
 @login_required
 def delete_item_from_cart():
