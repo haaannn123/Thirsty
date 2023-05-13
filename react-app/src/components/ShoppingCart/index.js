@@ -7,7 +7,9 @@ import "./ShoppingCart.css";
 import { useModal } from "../../context/Modal";
 import OpenModalButton from "../OpenModalButton";
 import DeleteCartItem from "./DeleteCartItem";
+
 import DeleteAllCartItems from "./DeleteAllCartItems";
+
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
@@ -25,7 +27,9 @@ const ShoppingCart = () => {
   console.log("USER CART ARRAY-->", userCart);
 
 
+
   useEffect( async() => {
+
 
     const fetchData = async () => {
       setIsLoaded(false);
@@ -38,7 +42,9 @@ const ShoppingCart = () => {
 
   }, [dispatch]);
 
+
   useEffect( async () => {
+
     await dispatch(getCartThunk());
   }, [dispatch])
 
@@ -53,6 +59,7 @@ const ShoppingCart = () => {
       )
     }
   }
+
 
 return (
   (!isLoaded) ? <div className='LOADING-SCREEN'></div> :
@@ -112,6 +119,7 @@ return (
           }
   </div>
 );
+
 };
 
 export default ShoppingCart;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom"
+import { NavLink, useHistory } from "react-router-dom"
 import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
@@ -10,6 +10,7 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+  const history = useHistory();
 
   const openMenu = () => {
     if (showMenu) return;
@@ -33,6 +34,7 @@ function ProfileButton({ user }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
+    history.push('/')
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -43,19 +45,19 @@ function ProfileButton({ user }) {
       <button onClick={openMenu}>
         <i className="fas fa-user-circle" />
       </button>
-      <ul className={ulClassName} ref={ulRef}>
+      <div className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li>{user.username}</li>
-            <li>{user.email}</li>
-            <li>
-              <NavLink to={`/reviews/user/${user.id}`}>
+            <p>Hello, {user.username}</p>
+            <p>{user.email}</p>
+            <p>
+              {/* <NavLink to={`/reviews/user/${user.id}`}>
                 Manage reviews
-              </NavLink>
-            </li>
-            <li>
+              </NavLink> */}
+            </p>
+            <p>
               <button onClick={handleLogout}>Log Out</button>
-            </li>
+            </p>
           </>
         ) : (
           <>
@@ -72,7 +74,7 @@ function ProfileButton({ user }) {
             />
           </>
         )}
-      </ul>
+      </div>
     </>
   );
 }

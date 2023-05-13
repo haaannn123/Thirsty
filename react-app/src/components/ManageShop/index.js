@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import './manageshop.css';
 import ProductOfCurrUser from '../ProductOfCurrUser';
 import { fetchCurrUserShops } from '../../store/shop';
+import ManageReviews from '../ManageReviews';
 
 
 const ManageShop = () => {
@@ -32,13 +33,13 @@ const ManageShop = () => {
             {shopsArr.map((shop) => {
                 return (
                     <div className="shop-title">
-                    <i class="fa-solid fa-shop"></i>
-                    <h2>{shop.name}</h2>
+                      <i class="fa-solid fa-shop"></i>
+                      <h2>Your Store</h2>
                     </div>
                 )
             })}
           <h4 onClick={() => handleMenuItemClick('listing')}>Products</h4>
-          <h4 onClick={() => handleMenuItemClick('testing')}>Testing</h4>
+          <h4 onClick={() => handleMenuItemClick('testing')}>Reviews</h4>
       </div>
       <div className="content-panel">
           {selectedMenuItem === 'listing' &&
@@ -51,7 +52,10 @@ const ManageShop = () => {
           </>
           }
           {selectedMenuItem === 'testing' &&
-          <h3>Testing</h3>
+          <>
+            <h1>Manage Your Reviews</h1>
+            <ManageReviews />
+          </>
           }
       </div>
     </div>

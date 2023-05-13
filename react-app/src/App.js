@@ -14,7 +14,7 @@ import ManageShop from './components/ManageShop'
 import ManageReviews from "./components/ManageReviews";
 import ShoppingCart from "./components/ShoppingCart";
 import { thunkGetAllProducts } from "./store/products";
-
+import ProductsPage from "./components/Products/ProductsPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,18 +29,18 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/login" >
+          {/* <Route path="/login" >
             <LoginFormPage />
-          </Route>
+          </Route> */}
           <Route exact path="/shops/current">
             <ManageShop />
           </Route>
           <Route path="/products/new">
             <CreateNewProduct />
           </Route>
-          <Route path="/signup">
+          {/* <Route path="/signup">
             <SignupFormPage />
-          </Route>
+          </Route> */}
           <Route path="/products/:productId/edit">
             <EditProduct/>
           </Route>
@@ -50,14 +50,14 @@ function App() {
           <Route path= "/search/:search_terms">
             <SearchResults />
           </Route>
-          <Route path="/reviews/user/:user_id">
+          {/* <Route path="/reviews/user/:user_id">
             <ManageReviews />
-          </Route>
+          </Route> */}
           <Route path="/cart">
             <ShoppingCart />
           </Route>
           <Route path="/">
-            <GetAllProducts />
+            <ProductsPage />
           </Route>
 
         </Switch>
