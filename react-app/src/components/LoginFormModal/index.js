@@ -56,40 +56,45 @@ function LoginFormModal() {
 
   return (
     <>
-    <div className="login-container">
+    <div className="login-outer-container">
       <div className='login-header'>
-          <h1>Log In</h1>
+          <h1 className='login-text'>Log In</h1>
           <OpenModalButton
                   buttonText="Sign Up"
                   onItemClick={closeMenu}
                   modalComponent={<SignupFormModal />}
           />
       </div>
-      <form onSubmit={handleSubmit}>
-        <ul>
+      <form className='login-form-container' onSubmit={handleSubmit}>
+        <ul className="login-errors">
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
-        </ul>
-        <label>
-          Email
-        </label>
-        <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        <label>
-          Password
-        </label>
-        <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        <button type="submit">Log In</button>
+          </ul>
+          <div className="login-email-container">
+            <label>
+              Email
+            </label>
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className='login-password-container'>
+            <label>
+              Password
+            </label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+        <button className='login-submit-button' type="submit">Log In</button>
+        <div className='or-text'>or</div>
         <button className="demo-user-button" onClick={demoUser}>Log in as Demo User</button>
       </form>
       </div>
