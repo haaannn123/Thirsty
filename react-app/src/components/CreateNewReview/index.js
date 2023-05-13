@@ -44,7 +44,6 @@ const CreateNewReview = (product) => {
     setHoveredCups(null);
   };
 
-
   const changeClassName = (value) => {
     if (hoveredCups !== null) {
       return value <= hoveredCups

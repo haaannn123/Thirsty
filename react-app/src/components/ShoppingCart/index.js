@@ -42,7 +42,6 @@ const ShoppingCart = () => {
 
   }, [dispatch]);
 
-
   useEffect( async () => {
 
     await dispatch(getCartThunk());

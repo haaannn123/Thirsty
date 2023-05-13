@@ -73,7 +73,6 @@ export const thunkUpdateCartItemQuantityInDb = (quantity, item) => async dispatc
     }
 }
 
-
 export const thunkDeleteItemFromCart = (item) => async dispatch => {
     const response = await fetch (`/api/cart/deleteSingleItem`, {
         method: 'DELETE',
