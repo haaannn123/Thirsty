@@ -1,0 +1,37 @@
+.delete-review-container {
+    height: 175px;
+    width: 400px
+}
+
+.delete-review-title {
+    text-align: center;
+}
+
+.delete-review-text {
+    text-align: center;
+}
+
+.delete-review-submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+#yes-delete {
+    width: 175px;
+    text-align: center;
+    background-color: #86bcf2;
+}
+
+#yes-delete:hover{
+    background-color: #2c8ae8;
+}
+
+#no-keep {
+    background-color: #86bcf2;
+    margin-left: 10px;
+    width: 175px
+}
+
+#no-keep:hover {
+    background-color: #2c8ae8;
+}
