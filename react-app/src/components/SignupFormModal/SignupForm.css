@@ -68,7 +68,7 @@
   margin-top: 1.5em;
 }
 
-#submit-enabled:hover {
+.signup-button:hover {
   cursor: pointer;
   background-color: rgb(44,138,232);
 }
