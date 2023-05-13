@@ -58,7 +58,7 @@ function LoginFormModal() {
     <>
     <div className="login-outer-container">
       <div className='login-header'>
-          <h1 className='login-text'>Log In</h1>
+          <h1 className='login-text'>Sign In</h1>
           <OpenModalButton
                   buttonText="Sign Up"
                   onItemClick={closeMenu}
@@ -93,7 +93,7 @@ function LoginFormModal() {
               required
             />
           </div>
-        <button className='login-submit-button' type="submit">Log In</button>
+        <button className='login-submit-button' type="submit">Sign In</button>
         <div className='or-text'>or</div>
         <button className="demo-user-button" onClick={demoUser}>Log in as Demo User</button>
       </form>
