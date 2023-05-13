@@ -68,3 +68,27 @@ def update_cart_item_quantity():
     return item_in_user_cart.to_dict()
 
 
+
+@cart_routes.route('/deleteSingleItem', methods=['DELETE'])
+@login_required
+def delete_item_from_cart():
+    data = request.get_json()
+    product_id = data['product_id']
+    owner_id = session.get('_user_id')
+
+    print("DELETE ITEM FROM CART", product_id, owner_id)
+
+    item_in_user_cart = Shopping_Cart.query.filter(Shopping_Cart.product_id == product_id).filter(Shopping_Cart.user_id == owner_id).first()
+
+    print("DELETE ITEM FROM CART", item_in_user_cart)
+
+
+    db.session.delete(item_in_user_cart)
+    db.session.commit()
+
+    # carts = Shopping_Cart.query.filter_by(user_id=owner_id).all()
+
+    return {'Message' : "Item deleted from cart"}
+
+
+
