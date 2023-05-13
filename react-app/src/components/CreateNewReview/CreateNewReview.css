@@ -25,7 +25,7 @@
     justify-content: center;
     gap: .5rem;
     font-size: 50px;
-    color: #2c8ae8;
+    /* color: #2c8ae8; */
 }
 
 .cups {
@@ -47,15 +47,23 @@
 
 #review-button-enabled:hover {
     cursor: pointer;
-    background-color: rgb(44, 138, 232);
 }
 
 .fa-solid.fa-wine-glass-empty {
-    color: #2c8ae8;
     font-size: 50px
 }
 
 .fa-solid.fa-wine-glass {
-    color: #2c8ae8;
     font-size: 50px
+}
+
+.new-review-errors {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.new-review-submit-container {
+    margin-top: 20px;
+    text-align: center;
 }
