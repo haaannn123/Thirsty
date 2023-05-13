@@ -48,6 +48,8 @@ function Navigation({ isLoaded }) {
 	}
   }
 
+  
+
   return (
     <div className="navbar-container">
       <div className="logo">

@@ -5,6 +5,7 @@ import { useModal } from "../../context/Modal";
 import OpenModalButton from "../OpenModalButton";
 import SignupFormModal from "../SignupFormModal";
 import "./LoginForm.css";
+import SignInOpenModalButton from "../SignInOpenModalButton";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ function LoginFormModal() {
     if (data) {
       setErrors(data);
     } else {
-        closeModal()
+      closeModal();
     }
   };
 
@@ -52,46 +53,28 @@ function LoginFormModal() {
           setErrors(["The provided credentials were invalid."]);
         }
       });
-  }
+  };
 
   return (
     <>
-    <div className="login-container">
-      <div className='login-header'>
-          <h1>Log In</h1>
-          <OpenModalButton
-                  buttonText="Sign Up"
-                  onItemClick={closeMenu}
-                  modalComponent={<SignupFormModal />}
-          />
-      </div>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <label>
-          Email
-        </label>
-        <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        <label>
-          Password
-        </label>
-        <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        <button type="submit">Log In</button>
-        <button className="demo-user-button" onClick={demoUser}>Log in as Demo User</button>
-      </form>
+      <div className="login-container">
+        <h1>Log In</h1>
+        <OpenModalButton buttonText="Sign Up" onItemClick={closeMenu} modalComponent={<SignupFormModal />} />
+        <form onSubmit={handleSubmit}>
+          <ul>
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
+          <label>Email</label>
+          <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <label>Password</label>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <button type="submit">Log In</button>
+          <button className="demo-user-button" onClick={demoUser}>
+            Log in as Demo User
+          </button>
+        </form>
       </div>
     </>
   );
