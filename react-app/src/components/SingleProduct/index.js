@@ -19,7 +19,7 @@ const GetSingleProduct = () => {
   const reviews = Object.values(useSelector((state) => state.productReviews.productReviews));
   const new_review = useSelector((state) => state.productReviews.newReview);
   const user = useSelector((state) => state.session.user);
-  console.log("THIS IS THE LOG I'M LOOKING FOR", reviews);
+  // console.log("THIS IS THE LOG I'M LOOKING FOR", product);
 
   useEffect(() => {
     dispatch(fetchProduct(product_id));
