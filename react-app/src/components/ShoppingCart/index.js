@@ -7,6 +7,7 @@ import "./ShoppingCart.css";
 import { useModal } from "../../context/Modal";
 import OpenModalButton from "../OpenModalButton";
 import DeleteCartItem from "./DeleteCartItem";
+import DeleteAllCartItems from "./DeleteAllCartItems";
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
@@ -94,6 +95,14 @@ return (
                   })}
                 </>
                       <div>CART TOTAL = {total.toFixed(2)}</div>
+                      <div>
+                                <OpenModalButton
+                                   buttonText = "EMPTY CART"
+                                   modalComponent={<DeleteAllCartItems/>}
+
+                                />
+
+                      </div>
               </div>
               : <div className="cup-image-container">
                   <img src='/images/empty-glass-clip-art.png' alt='empty-cup' className='cup-image'/>
