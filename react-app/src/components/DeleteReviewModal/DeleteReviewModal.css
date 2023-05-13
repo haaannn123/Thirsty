@@ -19,7 +19,7 @@
 #yes-delete {
     width: 175px;
     text-align: center;
-    background-color: #86bcf2;
+    background-color: #54a7fa;
 }
 
 #yes-delete:hover{
@@ -27,7 +27,7 @@
 }
 
 #no-keep {
-    background-color: #86bcf2;
+    background-color: #54a7fa;
     margin-left: 10px;
     width: 175px
 }
