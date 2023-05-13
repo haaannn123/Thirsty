@@ -1,11 +1,11 @@
-.new-review-container {
+.update-review-container {
     width: 500px;
     border-radius: 20px;
     border-color: 10px solid black;
     height: 350px;
 }
 
-.title-header {
+.update-review-title-header {
     display: flex;
     justify-content: center;
 }
@@ -28,10 +28,6 @@
     /* color: #2c8ae8; */
 }
 
-.cups {
-    margin-left: 5px;
-}
-
 #review-button-disabled {
     background-color: gray;
     width: 300px;
@@ -39,7 +35,7 @@
 }
 
 #review-button-enabled {
-    background-color: rgb(44, 138, 232);
+    background-color: #54a7fa;
     color: white;
     width: 300px;
     box-shadow: 1px 1px 1px 1px black;
@@ -47,6 +43,7 @@
 
 #review-button-enabled:hover {
     cursor: pointer;
+    background-color: #2c8ae8;
 }
 
 .fa-solid.fa-wine-glass-empty {
@@ -57,13 +54,13 @@
     font-size: 50px
 }
 
-.new-review-errors {
+.update-review-errors {
     color: red;
     font-weight: bold;
     text-align: center;
 }
 
-.new-review-submit-container {
+.update-review-submit-container {
     margin-top: 20px;
     text-align: center;
 }
