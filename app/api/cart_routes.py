@@ -69,6 +69,7 @@ def update_cart_item_quantity():
     return item_in_user_cart.to_dict()
 
 
+
 @cart_routes.route('/deleteSingleItem', methods=['DELETE'])
 @login_required
 def delete_item_from_cart():
@@ -76,7 +77,7 @@ def delete_item_from_cart():
     product_id = data['product_id']
     owner_id = session.get('_user_id')
 
-    # print("DELETE ITEM FROM CART", product_id, owner_id)
+    print("DELETE ITEM FROM CART", product_id, owner_id)
 
     item_in_user_cart = Shopping_Cart.query.filter(Shopping_Cart.product_id == product_id).filter(Shopping_Cart.user_id == owner_id).first()
 
