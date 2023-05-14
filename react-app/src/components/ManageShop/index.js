@@ -32,7 +32,7 @@ const ManageShop = () => {
       <div className="menu-panel">
         {shopsArr.map((shop) => {
           return (
-            <h2>Your Account</h2>
+            <h2 className='your-account-text'>Your Account</h2>
           )
         })}
         <h4 className='shop-title' onClick={() => handleMenuItemClick('listing')}>

@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { createNewProduct } from '../../store/products';
+import './CreateNewProduct.css';
 
 const CreateNewProduct = () => {
     const dispatch = useDispatch();

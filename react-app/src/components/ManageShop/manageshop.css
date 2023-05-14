@@ -47,4 +47,6 @@
     cursor: pointer;
 }
 
-
+.your-account-text {
+    text-decoration: underline;
+}
