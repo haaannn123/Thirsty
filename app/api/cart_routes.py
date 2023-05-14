@@ -9,7 +9,7 @@ cart_routes = Blueprint('cart', __name__)
 def get_shopping_cart():
     owner_id = session.get('_user_id')
     carts = Shopping_Cart.query.filter_by(user_id=owner_id).all()
-    print('CARTS', carts)
+    # print('CARTS', carts)
     return {"carts": [cart.to_dict() for cart in carts]}
 
 @cart_routes.route('/', methods=['POST'])
@@ -17,7 +17,8 @@ def get_shopping_cart():
 def add_to_cart():
     owner_id = session.get('_user_id')
     id = request.json.get('product_id')
-    # print('REQUEST', request.json)
+    product_quantity = request.json.get('quantity')
+    # print('REQUEST', request.json, product_quantity)
     cartProduct = Product.query.get(id)
     item_in_user_cart = Shopping_Cart.query.filter(Shopping_Cart.product_id == id).filter(Shopping_Cart.user_id == owner_id).first()
 
@@ -26,14 +27,14 @@ def add_to_cart():
     #print ("OWNER ID--------------------", owner_id)
 
     if item_in_user_cart is None:
-        cart_item = Shopping_Cart(user_id=owner_id, product_id=cartProduct.id, quantity=1)
+        cart_item = Shopping_Cart(user_id=owner_id, product_id=cartProduct.id, quantity=product_quantity)
         db.session.add(cart_item)
         db.session.commit()
 
         return (cart_item.to_dict())
 
     else:
-        item_in_user_cart.quantity += 1
+        item_in_user_cart.quantity += product_quantity
         db.session.add(item_in_user_cart)
         db.session.commit()
         return item_in_user_cart.to_dict()
@@ -47,7 +48,7 @@ def update_cart_item_quantity():
     product_id = data['item']['id']
     owner_id = session.get('_user_id')
     # id = request.json.get('product_id')
-    print("DATA ------------", data)
+    # print("DATA ------------", data)
     # print('REQUEST', request.json)
     item_in_user_cart = Shopping_Cart.query.filter(Shopping_Cart.product_id == product_id).filter(Shopping_Cart.user_id == owner_id).first()
 
@@ -68,7 +69,6 @@ def update_cart_item_quantity():
     return item_in_user_cart.to_dict()
 
 
-
 @cart_routes.route('/deleteSingleItem', methods=['DELETE'])
 @login_required
 def delete_item_from_cart():
@@ -76,7 +76,7 @@ def delete_item_from_cart():
     product_id = data['product_id']
     owner_id = session.get('_user_id')
 
-    print("DELETE ITEM FROM CART", product_id, owner_id)
+    # print("DELETE ITEM FROM CART", product_id, owner_id)
 
     item_in_user_cart = Shopping_Cart.query.filter(Shopping_Cart.product_id == product_id).filter(Shopping_Cart.user_id == owner_id).first()
 
@@ -89,6 +89,3 @@ def delete_item_from_cart():
     # carts = Shopping_Cart.query.filter_by(user_id=owner_id).all()
 
     return {'Message' : "Item deleted from cart"}
-
-
-

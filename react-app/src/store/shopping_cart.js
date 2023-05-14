@@ -36,7 +36,7 @@ export const getCartThunk = () => async dispatch => {
 }
 
 export const thunkAddToCart = (product) => async dispatch => {
-    console.log("PRODUCT WENT THROUGH HERE!!:",product)
+    // console.log("PRODUCT WENT THROUGH HERE!!:",product)
     const response = await fetch (`/api/cart/`, {
         method: 'POST',
         headers: {
@@ -55,7 +55,7 @@ export const thunkAddToCart = (product) => async dispatch => {
 }
 
 export const thunkUpdateCartItemQuantityInDb = (quantity, item) => async dispatch => {
-    console.log("PRODUCT WENT THROUGH HERE!!:", quantity, item)
+    // console.log("PRODUCT WENT THROUGH HERE!!:", quantity, item)
     const response = await fetch (`/api/cart/`, {
         method: 'PUT',
         headers: {
@@ -72,7 +72,6 @@ export const thunkUpdateCartItemQuantityInDb = (quantity, item) => async dispatc
         return cartProduct;
     }
 }
-
 
 export const thunkDeleteItemFromCart = (item) => async dispatch => {
     const response = await fetch (`/api/cart/deleteSingleItem`, {

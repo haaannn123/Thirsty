@@ -51,14 +51,14 @@ function Navigation({ isLoaded }) {
   };
 
   const shopButton = () => {
-    if (sessionUser) {
-      return (
-        <NavLink to="/shops/current" className="store-button">
-          <i className="fa-solid fa-shop"></i>
-        </NavLink>
-      );
-    }
-  };
+	if (sessionUser){
+		return (
+			<NavLink to="/shops/current" className="store-button" data-tooltip="Shop Manager">
+				<i className="fa-solid fa-shop" id="shop-icon" ></i>
+			</NavLink>
+		)
+	}
+  }
 
   useEffect(() => {
     const totalQuantity = calculateTotalQuantity(cartItems);
@@ -68,7 +68,6 @@ function Navigation({ isLoaded }) {
   const updateCartItemCount = count => {
     setCartItemCount(count);
   };
-
   return (
     <div className="navbar-container">
       <div className="logo">
