@@ -23,7 +23,7 @@ const GetAllProducts = () => {
     if (sessionUser){
       return `Welcome back, ${sessionUser.username}`
     } else {
-      return 'Welcome to Thristy!'
+      return 'Welcome to Thirsty!'
     }
   }
 
