@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchProduct } from "../../store/products";
 import { thunkGetProductReviews } from "../../store/reviews";
-import OpenModalButton from "../OpenModalButton";
+import OpenLeaveAReviewButton from "../OpenLeaveAReviewModal";
 import CreateNewReview from "../CreateNewReview";
 import AddToCart from "../AddToCart";
 import UpdateReview from "../UpdateReview";
@@ -34,9 +34,9 @@ const GetSingleProduct = () => {
     if (review.user_id === user_id) {
       dispatch(thunkGetUserReviews(user_id));
       return (
-        <div>
-          <OpenModalButton buttonText="Update your review" modalComponent={<UpdateReview reviewId={review.id} />} />
-          <OpenModalButton buttonText="Delete Your Review" modalComponent={<DeleteReview reviewId={review.id} />} />
+        <div className="c-product-user-review-interact">
+          <OpenLeaveAReviewButton buttonText="Update your review" modalComponent={<UpdateReview reviewId={review.id} />} />
+          <OpenLeaveAReviewButton buttonText="Delete Your Review" modalComponent={<DeleteReview reviewId={review.id} />} />
         </div>
       );
     }
@@ -66,7 +66,7 @@ const GetSingleProduct = () => {
     const ratingIcons = [];
     for (let i = 0; i < maxRating; i++) {
       if (i < review.rating) {
-        ratingIcons.push(<i key={i} className="fa-solid fa-wine-glass"></i>);
+        ratingIcons.push(<i key={i} className="fa-solid fa-wine-glass c-product-indivrating"></i>);
       } else {
         ratingIcons.push(<i key={i} className="far fa-wine-glass"></i>);
       }
@@ -81,7 +81,7 @@ const GetSingleProduct = () => {
 
   const renderLeaveReviewButton = () => {
     if (user && product.owner_id !== user.id && !renderPost()) {
-        return <OpenModalButton buttonText="Leave a Review" modalComponent={<CreateNewReview product={product_id} />} />;
+      return <OpenLeaveAReviewButton className="c-product-leavereview" buttonText="Leave a Review" modalComponent={<CreateNewReview product={product_id} />} />;
     } else {
         return null
     }
@@ -158,10 +158,8 @@ const GetSingleProduct = () => {
 
         <div className="c-product-reviews-header">
           <h2>
-            Reviews
+            Reviews {reviews.length ? '•' : null} {reviews.length ? reviews.length : null}
           </h2>
-          {reviews.length ? <h2>·</h2> : null}
-          {reviews.length ? <h2>({reviews.length})</h2> : null}
           <div>
             {renderLeaveReviewButton()}
           </div>
@@ -170,14 +168,15 @@ const GetSingleProduct = () => {
         <div className="c-product-reviews-list">
           {reviews.map((review) => {
             return (
-              <div key={review.id} className="review-body">
+              <div key={review.id} className="c-product-user-review-block">
                 <div>
-                  <div>{renderRatings(review)}</div>
-
-                  <div>{review.review}</div>
+                  <div className="c-product-review-icons">{renderRatings(review)}</div>
+                </div>
+                <div className="c-product-user-review">
+                  {review.review}
                 </div>
                 <div>
-                  <div>{review.User_info.username}</div>
+                  <div>By {review.User_info.username}</div>
                   <div>{formatDate(review.created_at)}</div>
                 </div>
                 {user ? <div>{userLoggedIn(review, user.id)}</div> : null}

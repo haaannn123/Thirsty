@@ -84,7 +84,7 @@
 }
 
 .c-product-buynow:hover {
-        animation: btn-bigger 0.3s forwards;
+    animation: btn-bigger 0.3s forwards;
 }
 
 @keyframes btn-bigger {
@@ -144,6 +144,7 @@
 
 .c-product-description {
     font-size: 22px;
+    padding-bottom: 1em;
 }
 
 .c-product-reviews-block {
@@ -156,7 +157,50 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     column-gap: 0.5em;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.c-product-leavereview {
+    border-radius: 3em;
+    padding: 0.5em 3em;
+    background-color: rgb(44, 138, 232);
+    color: white;
+    font-size: 14px;
+}
+
+.c-product-reviews-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+.c-product-user-review-block {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+.c-product-review-icons {
+    display: flex;
+    column-gap: 0.2em;
+}
+
+.fa-solid.fa-wine-glass.c-product-indivrating {
+    font-size: 20px;
+    color: black;
+}
+
+.c-product-user-review {
+    font-size: 20px;
+}
+
+.c-product-user-review-interact {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1em;
 }
 
 
