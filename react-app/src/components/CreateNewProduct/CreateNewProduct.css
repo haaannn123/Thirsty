@@ -1,8 +1,8 @@
 .new-product-container {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    padding: 1rem 7rem;
+    align-items: center;
+    /* padding: 1rem 7rem; */
 }
 
 .new-product-photo {
@@ -30,6 +30,7 @@
     flex-direction: column;
     /* justify-content: space-evenly; */
     /* gap: 2rem */
+    margin-top: 30px;
 }
 
 .new-product-label {

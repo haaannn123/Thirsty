@@ -3,6 +3,10 @@
   justify-content: center;
   padding: 2rem 2rem 1rem 2rem;
   font-size: 40px;
+  color: rgb(20, 20, 20);
+  font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
+  letter-spacing: .5px;
+  font-weight: 300;
 }
 
 .welcome-back{
@@ -67,7 +71,7 @@
   z-index: -1;
 }
 
-.color-strip-bottom {
+/* .color-strip-bottom {
   height: 50px;
   background-color: #c4ba9b;
   position: absolute;
@@ -75,7 +79,7 @@
   left: 0;
   right: 0;
   z-index: -1;
-}
+} */
 
 
 
