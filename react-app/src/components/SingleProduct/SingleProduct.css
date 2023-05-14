@@ -1,3 +1,169 @@
-.review-body{
-    font-size: 30px;
+.c-single-product {
+    padding: 1rem 10em
 }
+
+.c-product-info-block {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    column-gap: 3em;
+    margin-bottom: 1em;
+    border: 1px solid rgba(34, 34, 34, .15);
+    padding: 1em 1em;
+    border-radius: 1em;
+}
+
+.c-product-info-left {
+    width: auto;
+}
+
+.c-product-image {
+    height: 40em;
+    width: 30em;
+    object-fit: cover;
+    border-radius: 1em;
+}
+
+.c-product-info-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* flex: 1; */
+    width: 55%;
+}
+
+.c-product-owner {
+    font-size: 20px;
+}
+
+.c-product-quantity-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 1em;
+}
+
+.c-product-quantity {
+    width: 10em;
+    border: 1px solid rgba(34, 34, 34, .15);
+    border-radius: 1em;
+    box-shadow: 0 1px 6px 0 rgba(34, 34, 34, .15);
+    font-size: 16px;
+    padding-left: 0.5em;
+    height: 1.7em;
+}
+
+.c-product-quantity:hover {
+    animation: btn-darker 0.3s forwards;
+}
+
+@keyframes btn-darker {
+    from {
+        border: 1px solid rgba(34, 34, 34, .15);
+    }
+
+    to {
+        border: 1px solid grey;
+    }
+}
+
+.c-product-purchase {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3em;
+}
+
+.c-product-buynow {
+    width: 75%;
+    border-radius: 3em;
+    padding: 1.3em 2em;
+    border: 2px solid black;
+    background-color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.c-product-buynow:hover {
+        animation: btn-bigger 0.3s forwards;
+}
+
+@keyframes btn-bigger {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.01);
+    }
+}
+
+.c-product-addcart {
+    width: 75%;
+    border-radius: 3em;
+    padding: 1.3em 2em;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.c-product-addcart:hover {
+    animation: btn-bigger 0.3s forwards;
+}
+
+@keyframes btn-bigger {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.01);
+    }
+}
+
+.c-product-avgrating-block {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.3em;
+    font-weight: lighter;
+    font-size: 22px;
+    /* border-bottom: 1px solid black; */
+}
+
+
+.fa-solid.fa-wine-glass.c-product-avgrating {
+    font-size: 19px;
+    color: rgb(44, 138, 232);
+}
+
+.c-product-description-header {
+    font-style: italic;
+    text-decoration: underline;
+    font-size: 25px;
+}
+
+.c-product-description {
+    font-size: 22px;
+}
+
+.c-product-reviews-block {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+.c-product-reviews-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 0.5em;
+}
+
+
+
+
+
+
+/* .review-body{
+    font-size: 30px;
+} */
