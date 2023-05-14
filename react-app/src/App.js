@@ -42,12 +42,12 @@ function App() {
             <SignupFormPage />
           </Route> */}
           <Route path="/products/:productId/edit">
-            <EditProduct/>
+            <EditProduct />
           </Route>
           <Route exact path="/products/:product_id">
             <GetSingleProduct />
           </Route>
-          <Route path= "/search/:search_terms">
+          <Route path="/search/:search_terms">
             <SearchResults />
           </Route>
           {/* <Route path="/reviews/user/:user_id">
@@ -59,7 +59,6 @@ function App() {
           <Route path="/">
             <ProductsPage />
           </Route>
-
         </Switch>
       )}
     </>
