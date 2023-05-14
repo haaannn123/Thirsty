@@ -13,8 +13,8 @@ const AddToCartConditions = ({user, userCartArray, product_id}) => {
 
     const { closeModal } = useModal();
     const dispatch = useDispatch()
-    const [itemQuantityExceeded, setItemQuantityExceeded] = useState(false)
-    const [hasRun,setHasRun] = useState(false)
+    // const [itemQuantityExceeded, setItemQuantityExceeded] = useState(false)
+    // const [hasRun,setHasRun] = useState(false)
 
     // if (!user) {
     //     window.alert("Please Log in or Sign Up to shop! :)")
@@ -24,54 +24,88 @@ const AddToCartConditions = ({user, userCartArray, product_id}) => {
     console.log("CART CONDITION PARAMS", userCartArray)
     // let itemQuantityExceeded = false;
 
-    
 
-    const productInCart = userCartArray.find()
 
-    if(user && !hasRun){
+    // if(user && !hasRun){
 
-        if(userCartArray.length > 0){
-            userCartArray.forEach(item => {
-                // console.log("ITEM----------->>>", item.product_id, product_id)
-                if(item.product_id == product_id){
-                    console.log("ITEM QUANTITY IN CART", item.quantity)
-                    if(item.quantity >= 50){
-                        //window.alert("You cannot add more than 50 quantities of the same item to cart")
-                        setItemQuantityExceeded(true);
-                        return
+    //     if(userCartArray.length > 0){
+    //         userCartArray.forEach(item => {
+    //             // console.log("ITEM----------->>>", item.product_id, product_id)
+    //             if(item.product_id == product_id){
+    //                 console.log("ITEM QUANTITY IN CART", item.quantity)
+    //                 if(item.quantity >= 50){
+    //                     //window.alert("You cannot add more than 50 quantities of the same item to cart")
+    //                     setItemQuantityExceeded(true);
+    //                     return
 
+    //                 }
+    //             }
+
+    //         })
+    //     }
+
+    //     if(itemQuantityExceeded){
+    //         return
+    //     };
+
+    //     console.log("PRODUCT ID------------------>>>>>>", product_id)
+    //     console.log("USER------------------>>>>>>", user)
+
+    //     const product = {
+    //         user_id : user.id,
+    //         product_id: product_id,
+    //         // quantity: 4,
+    //     }
+
+    //     setHasRun(true)
+
+    //     if(!itemQuantityExceeded){
+    //         console.log("UGKIUGKGGLUGYUYVKUYVKYGKYGKUYYVKYVLUVKVKUVKYVJHVHJ")
+    //         dispatch(thunkAddToCart(product))
+
+    //     }else{
+    //         console.log("WE ARE HEREEEEEEEEEEEEEEEEEEE")
+    //     }
+
+
+    //     return
+    // }
+    let itemQuantityExceeded = false;
+
+        if(user){
+            if(userCartArray.length > 0){
+                userCartArray.forEach(item => {
+                    // console.log("ITEM----------->>>", item.product_id, product_id)
+                    if(item.product_id == product_id){
+                        // console.log("ITEM QUANTITY IN CART", item.quantity)
+                        if(item.quantity == 50){
+                            // window.alert("You cannot add more than 50 quantities of the same item to cart")
+                            itemQuantityExceeded = true;
+                            return
+
+                        }
                     }
-                }
 
-            })
-        }
+                })
+            }
 
-        if(itemQuantityExceeded){
-            return
-        };
+            if(itemQuantityExceeded){
+                return
+            };
 
-        console.log("PRODUCT ID------------------>>>>>>", product_id)
-        console.log("USER------------------>>>>>>", user)
+            const product = {
+                user_id : user.id,
+                product_id: product_id,
+                // quantity: 4,
+            }
 
-        const product = {
-            user_id : user.id,
-            product_id: product_id,
-            // quantity: 4,
-        }
-
-        setHasRun(true)
-
-        if(!itemQuantityExceeded){
-            console.log("UGKIUGKGGLUGYUYVKUYVKYGKYGKUYYVKYVLUVKVKUVKYVJHVHJ")
             dispatch(thunkAddToCart(product))
 
-        }else{
-            console.log("WE ARE HEREEEEEEEEEEEEEEEEEEE")
+            return
+            // return history.push('/cart')
         }
 
 
-        return
-    }
 
     return(
 

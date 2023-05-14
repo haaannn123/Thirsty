@@ -61,7 +61,7 @@ const ShoppingCart = () => {
     }
   }
 
-console.log("USER IN USER CAR---------T", user.id)
+// console.log("USER IN USER CAR---------T", user.id)
 return (
   (!isLoaded) ? <div className='LOADING-SCREEN'></div> :
   <div className="shopping-cart-container">

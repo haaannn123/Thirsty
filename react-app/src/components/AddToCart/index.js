@@ -23,56 +23,57 @@ const AddToCart = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-
-
-
+        if (!user) {
+            window.alert("Please Log in or Sign Up to shop! :)")
+            return
+        }
 
 
         // console.log("USER CART ARRAY-------------", userCartArray)
 
-        // let itemQuantityExceeded = false;
+        let itemQuantityExceeded = false;
 
-        // if(userCartArray.length > 0){
-        //     userCartArray.forEach(item => {
-        //         // console.log("ITEM----------->>>", item.product_id, product_id)
-        //         if(item.product_id == product_id){
-        //             // console.log("ITEM QUANTITY IN CART", item.quantity)
-        //             if(item.quantity == 50){
-        //                 window.alert("You cannot add more than 50 quantities of the same item to cart")
-        //                 itemQuantityExceeded = true;
-        //                 return
+        if(userCartArray.length > 0){
+            userCartArray.forEach(item => {
+                // console.log("ITEM----------->>>", item.product_id, product_id)
+                if(item.product_id == product_id){
+                    // console.log("ITEM QUANTITY IN CART", item.quantity)
+                    if(item.quantity == 50){
+                        window.alert("You cannot add more than 50 quantities of the same item to cart")
+                        itemQuantityExceeded = true;
+                        return
 
-        //             }
-        //         }
+                    }
+                }
 
-        //     })
-        // }
+            })
+        }
 
-        // if(itemQuantityExceeded){
-        //     return
-        // };
+        if(itemQuantityExceeded){
+            return
+        };
 
-        // const product = {
-        //     user_id : user.id,
-        //     product_id: product_id,
-        //     // quantity: 4,
-        // }
+        const product = {
+            user_id : user.id,
+            product_id: product_id,
+            // quantity: 4,
+        }
 
-        // dispatch(thunkAddToCart(product))
-        // return history.push('/cart')
+        dispatch(thunkAddToCart(product))
+        return history.push('/cart')
 
     }
 
     return(
-        // <button onClick={handleSubmit}>Add to Cart</button>
-        <div>
-            <OpenModalButton
-                buttonText="ADD TO CART"
-                modalComponent={<AddToCartConditions user={user} userCartArray={userCartArray} product_id={product_id}/>}
+        <button onClick={handleSubmit}>Add to Cart</button>
+        // <div>
+        //     <OpenModalButton
+        //         buttonText="ADD TO CART"
+        //         modalComponent={<AddToCartConditions user={user} userCartArray={userCartArray} product_id={product_id}/>}
 
-            />
+        //     />
 
-        </div>
+        // </div>
     )
 }
 
