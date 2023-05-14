@@ -76,7 +76,7 @@ def delete_item_from_cart():
     product_id = data['product_id']
     owner_id = session.get('_user_id')
 
-    # print("DELETE ITEM FROM CART", product_id, owner_id)
+    print("DELETE ITEM FROM CART", product_id, owner_id)
 
     item_in_user_cart = Shopping_Cart.query.filter(Shopping_Cart.product_id == product_id).filter(Shopping_Cart.user_id == owner_id).first()
 
@@ -87,5 +87,4 @@ def delete_item_from_cart():
     db.session.commit()
 
     # carts = Shopping_Cart.query.filter_by(user_id=owner_id).all()
-
     return {'Message' : "Item deleted from cart"}
