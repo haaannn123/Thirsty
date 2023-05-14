@@ -50,8 +50,6 @@ const EditProduct = () => {
         // if (!preview_img || preview_img === '') allErrors.preview_img = 'Preview image is required'
         // if (!preview_img.endsWith('.png') && !preview_img.endsWith('.jpg') && !preview_img.endsWith('.jpeg')) allErrors.preview_img = 'Image URL must end in .png, .jpg, or .jpeg'
 
-        console.log("PRICE------------------", typeof (price))
-
         if (Object.keys(allErrors).length) {
             return setErrors(allErrors)
         }

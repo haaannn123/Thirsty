@@ -88,5 +88,4 @@ def delete_item_from_cart():
     db.session.commit()
 
     # carts = Shopping_Cart.query.filter_by(user_id=owner_id).all()
-
     return {'Message' : "Item deleted from cart"}
