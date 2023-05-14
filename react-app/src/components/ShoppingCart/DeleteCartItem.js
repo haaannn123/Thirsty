@@ -8,7 +8,6 @@ const DeleteCartItem = ({product, cartItem}) => {
 
     const { closeModal } = useModal();
     const dispatch = useDispatch();
-
     // console.log("ITEM--------------", cartItem)
 
     const deleteItem = async (e) => {
