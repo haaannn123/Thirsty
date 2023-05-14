@@ -50,49 +50,54 @@ const CreateNewProduct = () => {
     }
 
     return (
-        <div>
-            <h2>Create a New Product</h2>
-            <form method='POST' encType="multipart/form-data" onSubmit={handleSubmit}>
-                <label>Name</label>
-                {errors.name ? <p>{errors.name}</p> : null}
-                <input
-                    type='text'
+        <div className='new-product-container'>
+            <h1 className='new-product-header'>Create a New Product</h1>
+            <div className='new-product-photo-form'>
+            <img className='new-product-photo' src='/images/blue-lagoon.png' alt="this is a drink!" />
+                <form className='new-product-form-container' method='POST' encType="multipart/form-data" onSubmit={handleSubmit}>
+                    <label className='new-product-label'>Name</label>
+                    {errors.name ? <p>{errors.name}</p> : null}
+                    <input
+                        type='text'
 
-                    onChange={(e) => setName(e.target.value)}
-                    value={name}
-                    placeholder='Name'
-                    name='name'
-                />
-                <label>Description</label>
-                {errors.description ? <p>{errors.description}</p> : null}
-                <textarea
-                    type='textbox'
-                    onChange={(e) => setDescription(e.target.value)}
-                    value={description}
-                    placeholder='Please write at least 30 characters'
-                    name='description'
-                    rows='7'
-                />
-                <label>Price</label>
-                {errors.price ? <p>{errors.price}</p> : null}
-                <input
-                    type='number'
-                    onChange={(e) => setPrice(e.target.value)}
-                    value={price}
-                    placeholder='Price'
-                    name='price'
-                />
-                <label>Preview Image</label>
-                {errors.preview_img ? <p>{errors.preview_img}</p> : null}
-                <input
-                    type='file'
-                    accept=".jpg, .jpeg, .png"
-                    onChange={(e) => setPreview_img(e.target.files[0])}
-                    placeholder='Preview Image'
-                    name='preview_img'
-                />
-                <button type='submit'>Create a New Product</button>
-            </form>
+                        onChange={(e) => setName(e.target.value)}
+                        value={name}
+                        placeholder='Name'
+                        name='name'
+                    />
+                    <label className='new-product-label'>Description</label>
+                    {errors.description ? <p>{errors.description}</p> : null}
+                    <textarea
+                        type='textbox'
+                        onChange={(e) => setDescription(e.target.value)}
+                        value={description}
+                        placeholder='Please write at least 30 characters'
+                        name='description'
+                        rows='7'
+                    />
+                    <label className='new-product-label'>Price($)</label>
+                    {errors.price ? <p>{errors.price}</p> : null}
+                    <input
+                        type='number'
+                        onChange={(e) => setPrice(e.target.value)}
+                        value={price}
+                        placeholder='Price'
+                        name='price'
+                    />
+                    <label className='new-product-label'>Preview Image</label>
+                    {errors.preview_img ? <p>{errors.preview_img}</p> : null}
+                    <input
+                        type='file'
+                        accept=".jpg, .jpeg, .png"
+                        onChange={(e) => setPreview_img(e.target.files[0])}
+                        placeholder='Preview Image'
+                        name='preview_img'
+                    />
+                    <div className='new-submit-button-container'>
+                        <button className='new-product-submit-button' type='submit'>Create a New Product</button>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

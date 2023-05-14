@@ -81,36 +81,49 @@ const EditProduct = () => {
             <div className='edit-product-photo-form'>
                 <img className='edit-product-photo' src={product.preview_img} alt="this is a drink!" />
                 <form className='edit-product-form-container' method='POST' encType="multipart/form-data" onSubmit={handleSubmit}>
-                    <label className='edit-product-label'>Name</label>
-                    {errors.name ? <p>{errors.name}</p> : null}
-                    <input
-                        type='text'
-                        onChange={(e) => setName(e.target.value)}
-                        value={name}
-                        placeholder='Name'
-                        name='name'
-                    />
-                    <label className='edit-product-label'>Description</label>
-                    {errors.description ? <p>{errors.description}</p> : null}
-                    <textarea
-                        className='edit-product-description'
-                        type='textbox'
-                        onChange={(e) => setDescription(e.target.value)}
-                        value={description}
-                        placeholder='Please write at least 30 characters'
-                        name='description'
-                        rows='7'
-                    />
-                    <label className='edit-product-label'>Price($)</label>
-                    {errors.price ? <p>{errors.price}</p> : null}
-                    <input
-                        className='edit-product-price'
-                        type='number'
-                        onChange={(e) => setPrice(e.target.value)}
-                        value={price}
-                        placeholder='Price'
-                        name='price'
-                    />
+                    <div className='edit-product-name' style={{marginBottom: '2em'}}>
+                        <label className='edit-product-label'>Name</label>
+                        <div className='edit-product-errors'>
+                            {errors.name ? <p>{errors.name}</p> : null}
+                        </div>
+                        <input
+                            className='edit-product-input'
+                            type='text'
+                            onChange={(e) => setName(e.target.value)}
+                            value={name}
+                            placeholder='Name'
+                            name='name'
+                        />
+                    </div>
+                    <div className='edit-product-description' style={{marginBottom: '2em'}}>
+                        <label className='edit-product-label'>Description</label>
+                        <div className='edit-product-errors'>
+                            {errors.description ? <p>{errors.description}</p> : null}
+                        </div>
+                        <textarea
+                            className='edit-product-description-field'
+                            type='textbox'
+                            onChange={(e) => setDescription(e.target.value)}
+                            value={description}
+                            placeholder='Please write at least 30 characters'
+                            name='description'
+                            rows='7'
+                        />
+                    </div>
+                    <div className='edit-product-price' style={{marginBottom: '2em'}}>
+                        <label className='edit-product-label'>Price($)</label>
+                        <div className='edit-product-errors'>
+                            {errors.price ? <p>{errors.price}</p> : null}
+                        </div>
+                        <input
+                            className='edit-product-input'
+                            type='number'
+                            onChange={(e) => setPrice(e.target.value)}
+                            value={price}
+                            placeholder='Price'
+                            name='price'
+                        />
+                    </div>
                     {/* <label>Preview Image</label>
                 {errors.preview_img ? <p>{errors.preview_img}</p> : null}
                 <input
