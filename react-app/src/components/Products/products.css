@@ -1,3 +1,11 @@
+.welcome-back{
+  display: flex;
+  justify-content: center;
+  padding: 2rem 2rem 1rem 2rem;
+  font-size: 40px;
+}
+
+
 .all-products-container {
   display: flex;
   flex-wrap: wrap;
@@ -15,11 +23,14 @@
   padding: 1rem;
   box-sizing: border-box;
   position: relative;
+  height: fit-content;
+  /* border: 2px solid red; */
+  /* margin-top: 100px; */
 }
 
 .all-products-image {
   width: 100%;
-  height: 100%;
+  height: 500px;
   object-fit: cover;
 }
 
@@ -36,12 +47,12 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  transform: translate(38px, -30px);
+  transform: translate(35px, -15px);
 }
 
 .color-strip {
   border-top: 2px solid rgb(236, 236, 236);
-  height: 190px;
+  height: 280px;
   background-color: rgb(44, 138, 232);
   position: absolute;
   top: 100px;
@@ -59,6 +70,8 @@
   right: 0;
   z-index: -1;
 }
+
+
 
 .spot-info-loading {
   display: flex;
