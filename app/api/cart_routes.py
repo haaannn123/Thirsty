@@ -77,7 +77,7 @@ def delete_item_from_cart():
     product_id = data['product_id']
     owner_id = session.get('_user_id')
 
-    print("DELETE ITEM FROM CART", product_id, owner_id)
+    # print("DELETE ITEM FROM CART", product_id, owner_id)
 
     item_in_user_cart = Shopping_Cart.query.filter(Shopping_Cart.product_id == product_id).filter(Shopping_Cart.user_id == owner_id).first()
 
@@ -89,3 +89,25 @@ def delete_item_from_cart():
 
     # carts = Shopping_Cart.query.filter_by(user_id=owner_id).all()
     return {'Message' : "Item deleted from cart"}
+
+
+
+@cart_routes.route('/deleteAllItemsFromCart', methods=['DELETE'])
+@login_required
+def delete_all_items_from_cart():
+    data = request.get_json()
+    cart_owner_id = data
+
+
+    all_items_in_user_cart = Shopping_Cart.query.filter(Shopping_Cart.user_id == cart_owner_id).all()
+
+    print("DELETE ALL ITEMS FROM CART------------------------------", type(all_items_in_user_cart))
+    # print("DELETE ITEM FROM CART", item_in_user_cart)
+
+    for item in all_items_in_user_cart:
+        db.session.delete(item)
+        db.session.commit()
+
+    # # carts = Shopping_Cart.query.filter_by(user_id=owner_id).all()
+
+    return {'Message' : "User's cart Items deleted"}

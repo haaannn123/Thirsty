@@ -17,8 +17,8 @@ const SearchResults = () => {
 
     const searchResultProducts = Object.values(useSelector(state => state.products.allProducts))
 
-    useEffect(() => {
-        dispatch(thunkGetSearchResultProducts(search_terms))
+    useEffect(async () => {
+        await dispatch(thunkGetSearchResultProducts(search_terms))
     }, [dispatch, search_terms])
 
     // if(!Object.keys(searchResultProducts).length){

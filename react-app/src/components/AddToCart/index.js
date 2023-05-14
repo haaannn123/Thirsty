@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 // import { fetchProduct } from '../../store/single_product'
 import { getCartThunk, thunkAddToCart } from '../../store/shopping_cart'
+import OpenModalButton from "../OpenModalButton";
+import AddToCartConditions from './AddToCartConditionsModal';
 
 const AddToCart = ({quantity}) => {
     const { product_id }  = useParams()
@@ -13,6 +15,7 @@ const AddToCart = ({quantity}) => {
     const user = useSelector((state) => state.session.user)
     const history = useHistory()
 
+
     useEffect(() => {
         dispatch(getCartThunk())
     }, [dispatch])
@@ -20,17 +23,15 @@ const AddToCart = ({quantity}) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-
-
-
         if (!user) {
             window.alert("Please Log in or Sign Up to shop! :)")
             return
         }
 
+
         // console.log("USER CART ARRAY-------------", userCartArray)
 
-        let showAlert = false;
+        let itemQuantityExceeded = false;
 
         if(userCartArray.length > 0){
             userCartArray.forEach(item => {
@@ -39,7 +40,7 @@ const AddToCart = ({quantity}) => {
                     // console.log("ITEM QUANTITY IN CART", item.quantity)
                     if(item.quantity == 50){
                         window.alert("You cannot add more than 50 quantities of the same item to cart")
-                        showAlert = true;
+                        itemQuantityExceeded = true;
                         return
 
                     }
@@ -48,7 +49,7 @@ const AddToCart = ({quantity}) => {
             })
         }
 
-        if(showAlert){
+        if(itemQuantityExceeded){
             return
         };
 
@@ -64,7 +65,15 @@ const AddToCart = ({quantity}) => {
     }
 
     return(
-        <button onClick={handleSubmit} className="c-product-addcart">Add to Cart</button>
+        <button onClick={handleSubmit}>Add to Cart</button>
+        // <div>
+        //     <OpenModalButton
+        //         buttonText="ADD TO CART"
+        //         modalComponent={<AddToCartConditions user={user} userCartArray={userCartArray} product_id={product_id}/>}
+
+        //     />
+
+        // </div>
     )
 }
 

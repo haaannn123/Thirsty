@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { thunkUpdateCartItemQuantityInDb, getCartThunk } from '../../store/shopping_cart';
 import { useDispatch } from 'react-redux';
+import "./ShoppingCart.css";
 
 
 function Counter({ quantity, item }) {
@@ -33,10 +34,10 @@ function Counter({ quantity, item }) {
 
     return (
         <div>
-            <span>QUANTITY </span>
-            <select value={count} onChange={((e) => handleCountChange(e))}>
-                {options}
-            </select>
+            <span style={{ textDecoration: 'underline', fontFamily: 'system-ui', fontSize: '1rem', color: 'black'  }}>QUANTITY</span><span style={{color: 'black'}}> : </span>
+                 <select value={count} onChange={((e) => handleCountChange(e))}>
+                    {options}
+                </select>
         </div>
     );
 }
