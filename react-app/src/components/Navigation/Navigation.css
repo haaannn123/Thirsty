@@ -43,7 +43,7 @@
 
 .home-link{
   text-decoration: none;
-  font-family: 'Fugaz One', cursive;
+  font-family: 'Fugaz One';
   /* font-family: 'Darumadrop One', cursive;
   font-family: 'Montserrat', sans-serif; */
   font-size: 50px;
@@ -104,4 +104,15 @@
   color: black;
   display: flex;
   align-items: center;
+}
+
+.cart-count {
+  top: -8px;
+  right: -8px;
+  background-color: rgb(44, 138, 232);
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 15px;
 }
