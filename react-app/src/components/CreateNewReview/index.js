@@ -44,7 +44,6 @@ const CreateNewReview = (product) => {
     setHoveredCups(null);
   };
 
-
   const changeClassName = (value) => {
     if (hoveredCups !== null) {
       return value <= hoveredCups
@@ -72,9 +71,9 @@ const CreateNewReview = (product) => {
 
   return (
     <div className="new-review-container">
-      <h2 className="title-header">Review</h2>
+      <h2 className="title-header">Leave Your Review</h2>
       <form onSubmit={handleSubmit} className="review-form">
-        {errors.review ? <p>{errors.review}</p> : null}
+        {errors.review ? <p className='new-review-errors'>{errors.review}</p> : null}
         <textarea
           className="review-text-box"
           type="text"
@@ -95,7 +94,7 @@ const CreateNewReview = (product) => {
             </div>
           ))}
         </div>
-        <div className="submit-container">
+        <div className="new-review-submit-container">
           <button
             id={reviewButton}
             type="submit"

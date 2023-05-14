@@ -41,5 +41,4 @@ function Counter({ quantity, item }) {
     );
 }
 
-
 export default Counter;

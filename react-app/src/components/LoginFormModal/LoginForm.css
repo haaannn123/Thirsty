@@ -1,6 +1,5 @@
 .login-outer-container {
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     flex-direction: column;
     padding: 35px;
@@ -65,27 +64,23 @@
 }
 
 .demo-user-button {
-    background-color: rgb(123, 188, 253);
+    background-color: #54a7fa;
     color: white;
-    /* width: 200px; */
     box-shadow: 1px 1px 1px 1px black;
-    /* margin-top: 1.5em; */
 }
 
 .demo-user-button:hover {
     cursor: pointer;
-    background-color: rgb(44, 138, 232);
+    background-color: #2c8ae8;
 }
 
 .login-submit-button {
-    background-color: rgb(123, 188, 253);
+    background-color: #54a7fa;
     color: white;
-    /* width: 200px; */
     box-shadow: 1px 1px 1px 1px black;
-    /* margin-top: 1.5em; */
 }
 
 .login-submit-button:hover {
     cursor: pointer;
-    background-color: rgb(44, 138, 232);
+    background-color: #2c8ae8;
 }

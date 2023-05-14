@@ -100,7 +100,7 @@ const GetSingleProduct = () => {
       <div>
         <h2>
           {averageRating(reviews)}
-          <i class="fa-solid fa-wine-glass" style={{ color: "#2c8ae8" }}></i>
+          <i class="fa-solid fa-wine-glass"></i>
           {reviews.length ? <div>·</div> : null}
           {reviews.length && reviews.length === 1 ? reviews.length + " review" : ""}
           {reviews.length && reviews.length !== 1 ? reviews.length + " reviews" : ""}

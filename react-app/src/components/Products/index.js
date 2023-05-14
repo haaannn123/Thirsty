@@ -47,5 +47,4 @@ const GetAllProducts = () => {
     </>
   );
 };
-
 export default GetAllProducts;
