@@ -19,7 +19,30 @@
   color: black;
   display: flex;
   align-items: center;
+  position: relative;
 }
+
+/* #shop-icon::before,
+#shop-icon::after{
+  position: absolute;
+  top: -.25rem;
+  left: 50%;
+  transform: translateX(50%) translateY(100%)
+}
+
+#shop-icon::before{
+  content: attr(data-tooltip);
+  color: white;
+  width: max-content;
+  max-width: 100%;
+  padding: .5rem;
+  background: black;
+}
+
+#shop-icon:hover::before{
+ --scale: 1;
+} */
+
 
 .navbar-container{
   display: flex;
@@ -46,7 +69,8 @@
 
 .fa-shop, .fa-cart-shopping, .fa-user-circle {
   font-size: 17px;
-  color:rgb(44, 44, 44)
+  color:rgb(44, 44, 44);
+  position: relative
 }
 .sign-in-button {
   background-color: #f1f1f1;
