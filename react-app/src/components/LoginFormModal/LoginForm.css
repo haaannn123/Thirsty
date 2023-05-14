@@ -66,6 +66,7 @@
 .demo-user-button {
     background-color: #54a7fa;
     color: white;
+    font-weight: bold;
     box-shadow: 1px 1px 1px 1px black;
 }
 
@@ -77,6 +78,7 @@
 .login-submit-button {
     background-color: #54a7fa;
     color: white;
+    font-weight: bold;
     box-shadow: 1px 1px 1px 1px black;
 }
 

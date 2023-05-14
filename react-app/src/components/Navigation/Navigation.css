@@ -1,5 +1,40 @@
 .profile-dropdown {
   position: absolute;
+  right: 6.5em;
+  margin-top: .5em;
+  z-index: 1;
+  background-color: white;
+  width: 8em;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.logo {
+  display: flex;
+}
+
+.profile-dropdown-content {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  gap: 1em
+}
+
+.blue-lagoon-logo {
+  height: 55px;
+}
+
+.manage-reviews-link{
+  color:black;
+  text-decoration: none;
+}
+
+.manage-reviews-link:hover {
+  color: rgb(44, 138, 232);
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .hidden {
@@ -8,8 +43,9 @@
 
 .home-link{
   text-decoration: none;
-  font-family: 'Darumadrop One', cursive;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Fugaz One';
+  /* font-family: 'Darumadrop One', cursive;
+  font-family: 'Montserrat', sans-serif; */
   font-size: 50px;
   color: rgb(44, 138, 232)
 }
@@ -92,4 +128,15 @@
   color: black;
   display: flex;
   align-items: center;
+}
+
+.cart-count {
+  top: -8px;
+  right: -8px;
+  background-color: rgb(44, 138, 232);
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 15px;
 }

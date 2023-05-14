@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import './manageshop.css';
 import ProductOfCurrUser from '../ProductOfCurrUser';
@@ -30,33 +30,33 @@ const ManageShop = () => {
   return (
     <div className="manage-shop-container">
       <div className="menu-panel">
-            {shopsArr.map((shop) => {
-                return (
-                    <div className="shop-title">
-                      <i class="fa-solid fa-shop"></i>
-                      <h2>Your Store</h2>
-                    </div>
-                )
-            })}
-          <h4 onClick={() => handleMenuItemClick('listing')}>Products</h4>
-          <h4 onClick={() => handleMenuItemClick('testing')}>Reviews</h4>
+        {shopsArr.map((shop) => {
+          return (
+            <h2 className='your-account-text'>Your Account</h2>
+          )
+        })}
+        <h4 className='shop-title' onClick={() => handleMenuItemClick('listing')}>
+          <i className="fa-solid fa-shop"></i>
+          Your Store
+        </h4>
+        <h4 className='your-review-button' onClick={() => handleMenuItemClick('testing')}>Your Reviews</h4>
       </div>
       <div className="content-panel">
-          {selectedMenuItem === 'listing' &&
-        <>
-          <div className='content-panel-header'>
-            <h1>Products</h1>
-            <button className="create-new-product-button" onClick={createNewProductButton}>Create New Product</button>
-          </div>
+        {selectedMenuItem === 'listing' &&
+          <>
+            <div className='content-panel-header'>
+              <h1>Products</h1>
+              <button className="create-new-product-button" onClick={createNewProductButton}>Create New Product</button>
+            </div>
             <ProductOfCurrUser />
           </>
-          }
-          {selectedMenuItem === 'testing' &&
+        }
+        {selectedMenuItem === 'testing' &&
           <>
             <h1>Manage Your Reviews</h1>
             <ManageReviews />
           </>
-          }
+        }
       </div>
     </div>
   );

@@ -63,6 +63,7 @@
 #submit-enabled {
     background-color: #54a7fa;
     color: white;
+    font-weight: bold;
     width: 200px;
     box-shadow: 1px 1px 1px 1px black;
     margin-top: 1.5em;

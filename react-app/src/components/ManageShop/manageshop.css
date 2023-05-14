@@ -35,6 +35,18 @@
     gap: .5rem
 }
 
+.shop-title:hover {
+    cursor: pointer;
+}
+
 .create-new-product-button{
     border-radius: 10%;
+}
+
+.your-review-button:hover {
+    cursor: pointer;
+}
+
+.your-account-text {
+    text-decoration: underline;
 }
