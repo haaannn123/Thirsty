@@ -90,13 +90,13 @@ export const thunkDeleteItemFromCart = (item) => async dispatch => {
     }
 }
 
-export const thunkDeleteAllItemsFromCart = (item) => async dispatch => {
-    const response = await fetch (`/api/cart/deleteAllItems`, {
+export const thunkDeleteAllItemsFromCart = (userId) => async dispatch => {
+    const response = await fetch (`/api/cart/deleteAllItemsFromCart`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(item)
+        body: JSON.stringify(userId)
     })
 
     if(response.ok){
