@@ -26,6 +26,7 @@
 
 #yes-delete:hover{
     background-color: #2c8ae8;
+    cursor: pointer;
 }
 
 #no-keep {
@@ -38,4 +39,5 @@
 
 #no-keep:hover {
     background-color: #2c8ae8;
+    cursor: pointer;
 }
