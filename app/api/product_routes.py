@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request
 from flask_login import login_required
-from app.models import Product, db
+from app.models import Product, User, db
 from app.forms import ProductForm
 from datetime import date
 from .aws_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
@@ -14,6 +14,13 @@ def get_all_products():
     """
     all_products = Product.query.all()
     response = [one_product.to_dict() for one_product in all_products]
+
+    # Adds owner username to product
+    for product in response:
+        owner_id = product['owner_id']
+        owner = User.query.get(owner_id)
+        product_owner = owner.to_dict()
+        product['owner_info'] = product_owner['username']
     return response
 
 
@@ -22,9 +29,17 @@ def get_product_by_id(id):
     """"
     Query for single product route that retuns a single product from the db.
     """
-    print(id)
+    # print(id)
     one_product = Product.query.get(id)
     product = one_product.to_dict()
+
+    # Adds owner username to product
+    owner_id = product['owner_id']
+    owner = User.query.get(owner_id)
+    product_owner = owner.to_dict()
+    product['owner_info'] = product_owner['username']
+    # print("PRODUCTTTTTTTTTTTTTTTTTTT:", product)
+
     return product
 
 

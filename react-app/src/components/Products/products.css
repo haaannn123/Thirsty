@@ -8,9 +8,8 @@
 
 .all-products-container {
   display: flex;
-  text-align: center;
-  padding: 1.4rem;
-  /* border: 2px solid brown; */
+  flex-wrap: wrap;
+  padding: 1rem 10em;
   position: relative;
 }
 
@@ -20,7 +19,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 1em;
+  padding: 1rem;
   box-sizing: border-box;
   position: relative;
   height: fit-content;
@@ -84,8 +84,8 @@
 }
 
 .all-products-image {
-  width: 20vw;
-  height: 20vw;
+  width: 18vw;
+  height: 18vw;
   overflow: hidden;
   border-radius: 7px;
   object-fit: cover;

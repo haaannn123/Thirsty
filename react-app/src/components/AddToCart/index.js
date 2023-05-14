@@ -4,11 +4,11 @@ import { useEffect } from 'react'
 // import { fetchProduct } from '../../store/single_product'
 import { getCartThunk, thunkAddToCart } from '../../store/shopping_cart'
 
-const AddToCart = () => {
+const AddToCart = ({quantity}) => {
     const { product_id }  = useParams()
     const dispatch = useDispatch()
     const cart = useSelector((state) => state.userCart)
-    console.log('CART====>', cart)
+    // console.log('CART====>', parseInt(quantity))
     const userCartArray = Object.values(useSelector((state) => state.userCart.userCart))
     const user = useSelector((state) => state.session.user)
     const history = useHistory()
@@ -55,7 +55,7 @@ const AddToCart = () => {
         const product = {
             user_id : user.id,
             product_id: product_id,
-            // quantity: 4,
+            quantity: parseInt(quantity),
         }
 
         dispatch(thunkAddToCart(product))
@@ -64,7 +64,7 @@ const AddToCart = () => {
     }
 
     return(
-        <button onClick={handleSubmit}>Add to Cart</button>
+        <button onClick={handleSubmit} className="c-product-addcart">Add to Cart</button>
     )
 }
 
