@@ -1,14 +1,40 @@
 .profile-dropdown {
   position: absolute;
+  right: 6.5em;
+  margin-top: .5em;
+  z-index: 1;
+  background-color: white;
+  width: 8em;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .logo {
   display: flex;
 }
 
+.profile-dropdown-content {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  gap: 1em
+}
+
 .blue-lagoon-logo {
   height: 55px;
+}
 
+.manage-reviews-link{
+  color:black;
+  text-decoration: none;
+}
+
+.manage-reviews-link:hover {
+  color: rgb(44, 138, 232);
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .hidden {
