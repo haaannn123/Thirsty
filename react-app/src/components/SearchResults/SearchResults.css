@@ -1,12 +1,20 @@
 .search-results-header{
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Fugaz One';
     color: rgb(44, 138, 232);
     padding-left: 5.5em;
+
 }
 
 .no-search-results{
     color: orange;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: large;
+    font-family: 'Fugaz One';
+
     font-weight: bold;
+    margin-left: 2em;
+}
+
+.search-empty-cup-image {
+    margin-left: 5rem;
+    margin-top: 2rem;
+    width: 17em;
 }
