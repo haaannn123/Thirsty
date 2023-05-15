@@ -15,7 +15,7 @@ import ManageReviews from "./components/ManageReviews";
 import ShoppingCart from "./components/ShoppingCart";
 import { thunkGetAllProducts } from "./store/products";
 import ProductsPage from "./components/Products/ProductsPage";
-
+import AboutThirsty from "./components/AboutThirsty";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -32,6 +32,9 @@ function App() {
           {/* <Route path="/login" >
             <LoginFormPage />
           </Route> */}
+          <Route path="/about">
+            <AboutThirsty />
+          </Route>
           <Route exact path="/shops/current">
             <ManageShop />
           </Route>
