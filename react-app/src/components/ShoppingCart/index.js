@@ -93,6 +93,7 @@ return (
                                 <div><span style={{ textDecoration: 'underline', fontFamily: 'system-ui', color: 'black'  }}>ITEM TOTAL</span><span style={{color: 'black'}}> : </span>${(product.price * item.quantity).toFixed(2)}</div>
                                 <div>
                                   <OpenModalButton
+                                    className="c-product-deletecart-items"
                                     buttonText = "Delete Item"
                                     modalComponent={<DeleteCartItem product={product} cartItem={item}/>}
 
@@ -118,6 +119,7 @@ return (
                         <div className="cart-total"><span style={{ textDecoration: 'underline', fontFamily: 'system-ui', fontSize: '1.7rem', color: 'black'  }}>CART TOTAL</span><span style={{fontSize: '1.7rem'  }}><span style={{color: 'black'}}> : </span>${total.toFixed(2)}</span></div>
                         <div className="checkout-button">
                                   <OpenModalButton
+                                    className="c-product-deletecart-items"
                                     buttonText = "CHECKOUT"
                                     modalComponent={<MakeAPurchase userId={user.id} totalPurchaseAmount={total}/>}
                                   />

@@ -17,11 +17,13 @@ const MakeAPurchase = ({userId, totalPurchaseAmount}) => {
 
 
 return(
-    <div>
-        <div>PURCHASE CONFIRMATION</div>
-        <div>PURCHASE TOTAL: ${totalPurchaseAmount.toFixed(2)}</div>
-        <button onClick={deleteAllItemsFromCart}>YES (PURCHASE ITEMS)</button>
-        <button onClick={closeModal}>NO (KEEP SHOPPING)</button>
+    <div className='delete-cart-item-container'>
+        <h1 className="delete-cart-item-title">Purchase Confirmation</h1>
+        <div className="delete-cart-item-text">Purchase Total: ${totalPurchaseAmount.toFixed(2)}</div>
+        <div className="delete-review-submit">
+            <button id='yes-delete' onClick={deleteAllItemsFromCart}>YES (PURCHASE ITEMS)</button>
+            <button id='no-keep' onClick={closeModal}>NO (KEEP SHOPPING)</button>
+        </div>
     </div>
 )
 }

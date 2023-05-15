@@ -65,7 +65,7 @@ const AddToCart = ({quantity}) => {
     }
 
     return(
-        <button onClick={handleSubmit}>Add to Cart</button>
+        <button className='c-product-addcart' onClick={handleSubmit}>Add to Cart</button>
         // <div>
         //     <OpenModalButton
         //         buttonText="ADD TO CART"

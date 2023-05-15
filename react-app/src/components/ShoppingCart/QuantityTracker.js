@@ -35,7 +35,7 @@ function Counter({ quantity, item }) {
     return (
         <div>
             <span style={{ textDecoration: 'underline', fontFamily: 'system-ui', fontSize: '1rem', color: 'black'  }}>QUANTITY</span><span style={{color: 'black'}}> : </span>
-                 <select value={count} onChange={((e) => handleCountChange(e))}>
+                 <select className='cart-item-counter' value={count} onChange={((e) => handleCountChange(e))}>
                     {options}
                 </select>
         </div>
