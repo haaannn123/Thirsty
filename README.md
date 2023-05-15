@@ -8,7 +8,10 @@ Welcome to Thirsty, your ultimate destination for a diverse and flavorful bevera
 Thirsty Live Link --> https://thirsty-stores.onrender.com/
 
 <br />
+
 ### Thirsty was created with the following languages and frameworks:
+
+<br />
 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
