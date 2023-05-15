@@ -60,6 +60,7 @@ function LoginFormModal() {
       <div className='login-header'>
           <h1 className='login-text'>Sign In</h1>
           <OpenModalButton
+                  className='sign-up-button-open-modal'
                   buttonText="Sign Up"
                   onItemClick={closeMenu}
                   modalComponent={<SignupFormModal />}
