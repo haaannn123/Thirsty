@@ -30,18 +30,13 @@ const ManageShop = () => {
   return (
     <div className="manage-shop-container">
       <div className="menu-panel">
-        {shopsArr.map((shop) => {
-          return (
-            <h2 className='your-account-text'>Your Account</h2>
-          )
-        })}
+        <h2 className='your-account-text'>Your Account</h2>
         <h3 className='shop-title' onClick={() => handleMenuItemClick('listing')}>
         <i class="fa-solid fa-shop"></i>
           Store
         </h3>
         <h3 className='your-review-button' onClick={() => handleMenuItemClick('testing')}>
-        <i class="fa-regular fa-thumbs-up"></i>
-           Reviews</h3>
+        <i class="fa-regular fa-thumbs-up"></i> Reviews</h3>
       </div>
       <div className="content-panel">
         {selectedMenuItem === 'listing' &&
