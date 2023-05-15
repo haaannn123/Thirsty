@@ -5,7 +5,7 @@ from sqlalchemy.sql import text
 
 def seed_reviews():
     review1 = Review(
-        user_id = 1,
+        user_id = 4,
         product_id = 1,
         review = 'I think it is a great purchase !! It tastes delicious and is exactly as advertised. I am very pleased',
         rating = 5
@@ -19,14 +19,14 @@ def seed_reviews():
     )
 
     review3 = Review(
-        user_id = 3,
+        user_id = 5,
         product_id = 3,
         review = 'I think it is a terrible purchase !! It tastes bad and is not as advertised. I am very sad',
         rating = 1
     )
 
     review4 = Review(
-        user_id = 2,
+        user_id = 6,
         product_id = 1,
         review = 'I think it is a okay purchase !! It tastes average but it is exactly as advertised. I am very whelmed, again.',
         rating = 3

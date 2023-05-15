@@ -1,0 +1,16 @@
+.about-thirsty-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Fugaz One";;
+
+    letter-spacing: 0.5px;
+    font-weight: 300;
+    /* width: 500px; */
+    /* color: rgb(44, 138, 232); */
+}
+.text-welcome{
+    width: 500px;
+    font-family: "Guardian-EgypTT", Charter, "Charter Bitstream", Cambria, "Noto Serif Light", "Droid Serif", Georgia, serif;
+}
