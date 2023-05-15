@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import OpenModalButton from "../OpenModalButton";
 import SignupFormModal from "../SignupFormModal";
+import { getCartThunk } from "../../store/shopping_cart";
 import "./LoginForm.css";
 
 function LoginFormModal() {
@@ -23,6 +24,7 @@ function LoginFormModal() {
     } else {
         closeModal()
     }
+    dispatch(getCartThunk())
   };
 
   useEffect(() => {
