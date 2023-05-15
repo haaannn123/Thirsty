@@ -21,11 +21,11 @@ const SearchResults = () => {
         await dispatch(thunkGetSearchResultProducts(search_terms))
     }, [dispatch, search_terms])
 
-    if(!Object.keys(searchResultProducts).length){
-        return(
-            <i className="fa-solid fa-truck-ramp-box spot-info-loading">LOADING...</i>
-        )
-    }
+    // if(!Object.keys(searchResultProducts).length){
+    //     return(
+    //         <i className="fa-solid fa-truck-ramp-box spot-info-loading">LOADING...</i>
+    //     )
+    // }
 
     return (
         <>
@@ -33,8 +33,12 @@ const SearchResults = () => {
             <div className='all-products-container'>
 
 
-                {searchResultProducts.length === 0 && <div className="no-search-results">There are no products that matched your search</div>}
-
+                {searchResultProducts.length === 0 &&
+                    <div className="no-search-results-container">
+                        <h2 className="no-search-results">Sorry, your search came up empty!</h2>
+                        <img src='/images/empty-glass-clip-art.png' alt='empty-cup' className='search-empty-cup-image'/>
+                    </div>
+                }
                 {searchResultProducts.map(product =>
                     {
                         return (
