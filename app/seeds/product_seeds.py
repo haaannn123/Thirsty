@@ -178,7 +178,7 @@ def seed_products():
     Cproduct15 = Product(
             owner_id = 4,
             name = 'Jarritos',
-            description = 'Borhani, (Bengali: বোরহানী) is a traditional yogurt-like drink from Bangladesh. Borhani is made from sour yogurt (doi), green chilli, mustard seeds, black salt, coriander and mint. It is considered by some to be a type of lassi.',
+            description = 'Jarritos is a popular Mexican soda brand known for its vibrant and refreshing flavors. Made with real cane sugar, Jarritos offers a wide range of fruity and traditional Mexican flavors such as tamarind, pineapple, mango, and hibiscus.',
             price = 5.49,
             preview_img = 'https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/odusqltx/bf1a3726-25a2-45e3-b8f0-f042659809de.jpg',
             created_at = date.today(),
