@@ -86,3 +86,18 @@
     cursor: pointer;
     background-color: #2c8ae8;
 }
+
+.sign-up-button-open-modal {
+    background-color: #f1f1f1;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sign-up-button-open-modal:hover {
+    color: rgb(44, 138, 232);
+    text-decoration: underline;
+    font-weight: bold;
+}

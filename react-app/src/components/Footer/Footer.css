@@ -1,0 +1,82 @@
+.footer-container {
+    background-color: tan;
+    padding-bottom: 1rem;
+}
+
+.footer-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -10px;
+    padding-top: 1em;
+}
+
+.all-group-container {
+    display: flex;
+    justify-content: space-around;
+    /* padding-bottom: 1rem; */
+}
+
+.person-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.github-wrapper {
+    display: flex;
+    gap: .4em;
+}
+
+.linked-in-wrapper {
+    display: flex;
+    gap: .4em;
+}
+
+.single-name {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.linkedin-github-text {
+    font-size: 13px;
+}
+
+.linkedin-link {
+    display: flex;
+    text-decoration: none;
+    background-color: rgb(44, 138, 232);
+    color: white;
+    height: 30px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 1.3em;
+}
+
+.github-link {
+    display: flex;
+    text-decoration: none;
+    background-color: rgb(44, 138, 232);
+    color: white;
+    height: 30px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 1.3em;
+}
+
+.links-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: .5em;
+}
+
+.fa-brands.fa-github {
+    font-size: 15px;
+  }
+
+  .fa-brands.fa-linkedin {
+    font-size: 15px;
+  }
