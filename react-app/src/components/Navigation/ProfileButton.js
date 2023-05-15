@@ -48,9 +48,9 @@ function ProfileButton({ user }) {
       <div className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <div className="profile-dropdown-content">
+            <div className="profile-dropdown-content wrap-text">
               <div>Hello, {user.username}</div>
-              <div>{user.email}</div>
+              {/* <div>{user.email}</div> */}
               <div>
                 <NavLink className='manage-reviews-link' to={`/shops/current`}>
                   Manage Account
