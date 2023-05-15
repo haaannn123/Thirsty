@@ -26,7 +26,7 @@ def seed_reviews():
     )
 
     review4 = Review(
-        user_id = 6,
+        user_id = 3,
         product_id = 1,
         review = 'I think it is a okay purchase !! It tastes average but it is exactly as advertised. I am very whelmed, again.',
         rating = 3
