@@ -7,7 +7,7 @@ const Footer = () => {
             <h2 className="footer-header">Meet the Team</h2>
             <div className="all-group-container">
                 <div className="person-container">
-                    <h4 className="single-name">Ash Iranfar</h4>
+                    <h4 className="single-name">Ashkaun Iranfar</h4>
                     <div className="links-wrapper">
                         <a href="https://www.linkedin.com/in/ashkaun-iranfar-608387220/" target="_blank" rel="noopener noreferrer" className="linkedin-link">
                             <div className="linked-in-wrapper">
