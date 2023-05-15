@@ -1,8 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import { createNewProduct } from '../../store/products';
+import { createNewProduct, fetchProduct } from '../../store/products';
 import './CreateNewProduct.css';
+import { thunkGetAllProducts } from '../../store/products';
 
 const CreateNewProduct = () => {
     const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const CreateNewProduct = () => {
 
         if (!name.length) allErrors.name = 'Name is Required'
         if (name.length < 3 || name.length > 255) allErrors.name = 'Name must be between 3 and 255 characters'
-        if (description.length < 30 || description > 255) allErrors.description = 'Description must be between 30 and 255 characters'
+        if (description.length < 30 || description.length > 255) allErrors.description = 'Description must be between 30 and 255 characters'
         if (!price.length || price < 1) allErrors.price = 'Please enter a valid price'
         if (!preview_img || preview_img === '') allErrors.preview_img = 'Preview image is required'
         // if (!preview_img.endsWith('.png') && !preview_img.endsWith('.jpg') && !preview_img.endsWith('.jpeg')) allErrors.preview_img = 'Image URL must end in .png, .jpg, or .jpeg'
@@ -43,6 +44,7 @@ const CreateNewProduct = () => {
         console.log('HELLLO', newProduct)
         const createdProduct = await dispatch(createNewProduct(newProduct))
         console.log('CREATED_PRODUCT->', createdProduct)
+        dispatch(thunkGetAllProducts())
         if (createdProduct) {
             history.push(`/products/${createdProduct.id}`)
             return

@@ -70,7 +70,6 @@ def post_new_product():
             created_at = date.today(),
             updated_at = date.today()
         )
-    # print('newProduct->', new_product)
         db.session.add(new_product)
         db.session.commit()
         return new_product.to_dict()

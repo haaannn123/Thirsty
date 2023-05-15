@@ -40,7 +40,7 @@ const ProductOfCurrentUser = () => {
                         />
                         <NavLink to={`/products/${product.id}/edit`} >
                             <i class="fa-solid fa-pen"></i>
-                            <button className="store-edit-button">Edit Products</button>
+                            <button className="store-edit-button">Edit Product</button>
                         </NavLink>
                       </div>
                     </div>
