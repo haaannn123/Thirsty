@@ -60,7 +60,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="person-container">
-                    <h4 className="single-name">Waheed Meem</h4>
+                    <h4 className="single-name">Mehedi Waheed Meem</h4>
                     <div className="links-wrapper">
                         <a href="https://www.linkedin.com/in/mehedi-waheed-meem-405483257/" target="_blank" rel="noopener noreferrer" className="linkedin-link">
                             <div className="linked-in-wrapper">
