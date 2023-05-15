@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 import { thunkGetUserReviews } from "../../store/reviews";
 import "./ManageReviews.css";
 import OpenDeleteModal from "../OpenDeleteModal";
@@ -26,9 +26,9 @@ const ManageReviews = () => {
     const ratingIcons = [];
     for (let i = 0; i < maxRating; i++) {
       if (i < review.rating) {
-        ratingIcons.push(<i key={i} className="fa-solid fa-wine-glass"></i>);
+        ratingIcons.push(<i key={i} className="fa-solid fa-wine-glass c-manage-reviews"></i>);
       } else {
-        ratingIcons.push(<i key={i} className="far fa-wine-glass"></i>);
+        ratingIcons.push(<i key={i} className="far fa-wine-glass c-manage-reviews"></i>);
       }
     }
     return ratingIcons;
@@ -69,7 +69,11 @@ const ManageReviews = () => {
               <div className="shop-reviews-content">
                 {productsArr.map((product) => {
                   if (review.product_id === product.id) {
-                    return <img src={product.preview_img} alt="drinkity dinkity" className="shop-review-image" />;
+                    return (
+                      <NavLink to={`/products/${product.id}`}>
+                        <img src={product.preview_img} alt="drinkity dinkity" className="shop-review-image" />
+                      </NavLink>
+                    )
                   }
                 })}
                 <div className="rating-date">
