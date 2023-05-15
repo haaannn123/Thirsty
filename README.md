@@ -57,6 +57,11 @@ Welcome to Thirsty, your ultimate destination for a diverse and flavorful bevera
 
 <br />
 
+**For additional information please check out the WIKI page on this repo:**
+
+[WIKI](https://github.com/haaannn123/Thirsty/wiki)
+
+
 # Flask React Project
 
 This is the starter for the Flask React project.
