@@ -188,7 +188,7 @@ def seed_products():
     Waheed1 = Product(
             owner_id = 5,
             name = 'Borhani',
-            description = 'Jarritos is a brand of popular Mexican soft drinks that come in a variety of fruity flavors. They are made with real sugar and are a refreshing alternative to traditional carbonated sodas.',
+            description = 'Borhani, (Bengali: বোরহানী) is a traditional yogurt-like drink from Bangladesh. Borhani is made from sour yogurt, green chilli, mustard seeds, black salt, coriander and mint. It is considered by some to be a type of lassi.',
             price = 5.55,
             preview_img = 'https://whisk-res.cloudinary.com/image/upload/g_auto,g_auto,c_fill,q_60,f_auto,h_600,w_800/v1652822464/v3/user-recipes/bq0shkg7v5zjijxtxnvv.jpg',
             created_at = date.today(),
@@ -259,7 +259,7 @@ def seed_products():
             owner_id = 5,
             name = 'Falooda',
             description = 'Falooda is a popular ice-cream drink/dessert made with vermicelli, jelly, rose syrup, sabja seeds, milk and ice cream.',
-            price = 2.49,
+            price = 9.99,
             preview_img = 'https://food-fanatic-res.cloudinary.com/iu/s--nHYuZDmm--/t_full/cs_srgb,f_auto,fl_strip_profile.lossy,q_auto:420/v1463134847/falooda-photo.jpg',
             created_at = date.today(),
             updated_at = date.today()
@@ -268,8 +268,8 @@ def seed_products():
     Waheed9 = Product(
             owner_id = 5,
             name = 'Sugarcane Juice',
-            description = 'This street food is extracted from sugarcane pressing them by a traditional hand drive machine. This food is found in many cities in Bangladesh, India and some other south Asian countries.',
-            price = 2.49,
+            description = 'This street food is extracted from sugarcane by pressing them via a traditional hand drive machine. This drink is found in many cities in Bangladesh, India and some other south Asian countries.',
+            price = 1.49,
             preview_img = 'https://globalupfront.com/wp-content/uploads/2022/04/sugarcane-juice.jpg',
             created_at = date.today(),
             updated_at = date.today()
@@ -279,7 +279,7 @@ def seed_products():
             owner_id = 5,
             name = 'Ice-Cream Float',
             description = 'An ice cream float or ice cream soda, also known as a spider in Australia and New Zealand, is a chilled beverage that consists of ice cream in either a soft drink or a mixture of flavored syrup and carbonated water.',
-            price = 2.49,
+            price = 7.49,
             preview_img = 'https://www.thespruceeats.com/thmb/eNr_gAMw0r8ZG144hpWfvfBt4co=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/ice-cream-float-4846526-hero-03_alt-e5f74e7cac504fd7b18bd95b6b7be6c6.jpg',
             created_at = date.today(),
             updated_at = date.today()
