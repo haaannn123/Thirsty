@@ -1,3 +1,70 @@
+# Welcome to Thirsty
+
+Welcome to Thirsty, your ultimate destination for a diverse and flavorful beverage experience! At Thirsty, we take pride in offering a wide selection of beverages that showcase the rich and unique flavors from various cultures and regions across the globe. Discover a world of exquisite tastes as you explore our curated collection of beverages, carefully sourced from different corners of the world.
+
+<br />
+
+
+Thirsty Live Link --> https://thirsty-stores.onrender.com/
+
+<br />
+
+### Thirsty was created with the following languages and frameworks:
+
+<br />
+
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![Python](https://img.shields.io/badge/Python-%233776AB.svg?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-%23FCA121.svg?style=for-the-badge&logo=sqlalchemy&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+
+<br />
+
+## Meet the team:
+
+<br />
+
+**Ashkaun Iranfar**
+
+[Linkedin](https://www.linkedin.com/in/ashkaun-iranfar-608387220/)
+
+[Github](https://github.com/AIranfar)
+
+<br />
+
+**Christian Oviedo**
+
+[Linkedin](https://www.linkedin.com/in/christian-oviedo-6a1586242/)
+
+[Github](https://github.com/Christian-815)
+
+<br />
+
+**Han Nguyen**
+
+[Linkedin](https://www.linkedin.com/in/christian-oviedo-6a1586242/)
+
+[Github](https://github.com/haaannn123)
+
+<br />
+
+**Mehedi Waheed Meem**
+
+[Linkedin](https://www.linkedin.com/in/mehedi-waheed-meem-405483257/)
+
+[Github](https://github.com/waheed816)
+
+<br />
+
+**For additional information please check out the WIKI page on this repo:**
+
+[WIKI](https://github.com/haaannn123/Thirsty/wiki)
+
+
 # Flask React Project
 
 This is the starter for the Flask React project.

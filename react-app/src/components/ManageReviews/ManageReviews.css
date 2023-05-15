@@ -1,16 +1,23 @@
 .shop-review-image {
   height: 10rem;
-  object-fit: 100vw;
+  width: 10rem;
+  object-fit: cover;
+  border-radius: 1em;
 }
 .shop-reviews-container {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  row-gap: 1em;
 }
 .shop-reviews-child {
   display: flex;
   flex-direction: row;
   background: rgb(248, 247, 247);
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
+  width: 100%;
+  border-bottom: 1px solid black;
+  padding-bottom: 1em;
 }
 .review-text {
   font-family: "Lato", sans-serif;
@@ -44,4 +51,9 @@
 
 .shop-date{
     font-family: "Lato", sans-serif;
+}
+
+.fa-solid.fa-wine-glass.c-manage-reviews {
+  font-size: 20px;
+  padding-top: 0.5em;
 }

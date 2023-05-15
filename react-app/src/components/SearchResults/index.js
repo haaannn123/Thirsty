@@ -21,11 +21,11 @@ const SearchResults = () => {
         await dispatch(thunkGetSearchResultProducts(search_terms))
     }, [dispatch, search_terms])
 
-    // if(!Object.keys(searchResultProducts).length){
-    //     return(
-    //         <i className="fa-solid fa-truck-ramp-box spot-info-loading">LOADING...</i>
-    //     )
-    // }
+    if(!Object.keys(searchResultProducts).length){
+        return(
+            <i className="fa-solid fa-truck-ramp-box spot-info-loading">LOADING...</i>
+        )
+    }
 
     return (
         <>
@@ -38,19 +38,21 @@ const SearchResults = () => {
                 {searchResultProducts.map(product =>
                     {
                         return (
-                            <NavLink to={`/products/${product.id}`} key={product.id} className='all-products-image-container'>
-                                <img
-                                    src = {product.preview_img}
-                                    alt = {`${product.name}'s image unavaiable`}
-                                    className='all-products-image'
-                                >
-                                </img>
-                                <div class="all-products-price-container">
-                                    <div className='all-products-price'>
-                                        ${`${product.price}`}
+                            <div key={product.id} className = 'all-products-card'>
+                                <NavLink to={`/products/${product.id}`} className='all-products-image-container'>
+                                    <img
+                                        src = {product.preview_img}
+                                        alt = {`${product.name}'s image unavaiable`}
+                                        className='all-products-image'
+                                    >
+                                    </img>
+                                    <div class="all-products-price-container">
+                                        <div className='all-products-price'>
+                                            ${`${product.price.toFixed(2)}`}
+                                        </div>
                                     </div>
-                                </div>
-                            </NavLink>
+                                </NavLink>
+                            </div>
                         )
                     })
                 }

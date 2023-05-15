@@ -21,7 +21,7 @@ const GetAllProducts = () => {
 
   const welcome = () => {
     if (sessionUser){
-      return `Welcome back, ${sessionUser.username}`
+      return `Welcome back, ${sessionUser.username}!`
     } else {
       return 'Welcome to Thirsty!'
     }

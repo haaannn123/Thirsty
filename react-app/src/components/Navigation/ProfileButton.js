@@ -34,7 +34,8 @@ function ProfileButton({ user }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
-    history.push('/')
+    history.push('/');
+    window.location.reload();
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -48,9 +49,9 @@ function ProfileButton({ user }) {
       <div className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <div className="profile-dropdown-content">
+            <div className="profile-dropdown-content wrap-text">
               <div>Hello, {user.username}</div>
-              <div>{user.email}</div>
+              {/* <div>{user.email}</div> */}
               <div>
                 <NavLink className='manage-reviews-link' to={`/shops/current`}>
                   Manage Account

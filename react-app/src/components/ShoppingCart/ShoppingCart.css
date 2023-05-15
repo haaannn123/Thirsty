@@ -15,7 +15,7 @@
 
 .cup-image-container {
     display: flex;
-    /* align-items: center; */
+    align-items: center;
     padding: 3rem;
     flex-direction: column;
     gap: 10%;
