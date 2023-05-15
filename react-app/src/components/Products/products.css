@@ -55,7 +55,7 @@
   /* padding: 0.1rem; */
   box-sizing: border-box;
   position: absolute;
-  bottom: 0;
+  bottom: 1em;
   left: 0;
   transform: translate(35px, -15px);
 }
@@ -63,7 +63,7 @@
 .color-strip {
   border-top: 2px solid rgb(236, 236, 236);
   height: 280px;
-  background-color: rgb(44, 138, 232);
+  background-color: lightblue;
   position: absolute;
   top: 100px;
   left: 0;
