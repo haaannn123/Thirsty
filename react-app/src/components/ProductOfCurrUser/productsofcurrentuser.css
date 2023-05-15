@@ -26,12 +26,13 @@
 
 .store-delete-button, .store-edit-button{
     border: none;
-    color: gray
+    color: gray;
+    cursor: pointer;
 }
 
 .store-product-link{
     text-decoration: none;
-    color: black
+    color: black;
 }
 
 .fa-pen{

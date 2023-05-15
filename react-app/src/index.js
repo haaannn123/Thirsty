@@ -15,6 +15,7 @@ const store = configureStore();
 if (process.env.NODE_ENV !== "production") {
 	window.store = store;
 	window.sessionActions = sessionActions;
+	console.log = () => { };
 }
 
 // Wrap the application with the Modal provider and render the Modal component
