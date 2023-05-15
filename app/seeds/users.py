@@ -13,7 +13,7 @@ def seed_users():
     christian = User(
         username='coviedo', email='coviedo@gmail.com', password='coolbeans123')
     waheed = User(
-        username='wmeem', email='wmeem@gmail.com', password='coolbeans123')
+        username='waheed', email='wmeem@gmail.com', password='coolbeans123')
     db.session.add(demo)
     db.session.add(han)
     db.session.add(ash)

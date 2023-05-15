@@ -29,7 +29,7 @@ def seed_products():
         name = 'Yerba Mate',
         description = 'Yerba mate is a traditional South American drink made by steeping the leaves and twigs of the yerba mate plant in hot water.',
         price = 8.99,
-        preview_img = 'https://www.chevronextramile.com/content/uploads/2021/04/Yerba_Mate_RevelBerry_15.5oz.jpg',
+        preview_img = 'https://www.authenticfoodquest.com/wp-content/uploads/2015/10/Yerba_MateUruguay_AuthenticFoodQuest.jpeg.webp',
         created_at = date.today(),
         updated_at = date.today()
     )
@@ -178,19 +178,120 @@ def seed_products():
     Cproduct15 = Product(
             owner_id = 4,
             name = 'Jarritos',
-            description = 'Jarritos is a brand of popular Mexican soft drinks that come in a variety of fruity flavors. They are made with real sugar and are a refreshing alternative to traditional carbonated sodas.',
-            price = 2.49,
+            description = 'Borhani, (Bengali: বোরহানী) is a traditional yogurt-like drink from Bangladesh. Borhani is made from sour yogurt (doi), green chilli, mustard seeds, black salt, coriander and mint. It is considered by some to be a type of lassi.',
+            price = 5.49,
             preview_img = 'https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/odusqltx/bf1a3726-25a2-45e3-b8f0-f042659809de.jpg',
             created_at = date.today(),
             updated_at = date.today()
     )
 
+    Waheed1 = Product(
+            owner_id = 5,
+            name = 'Borhani',
+            description = 'Jarritos is a brand of popular Mexican soft drinks that come in a variety of fruity flavors. They are made with real sugar and are a refreshing alternative to traditional carbonated sodas.',
+            price = 5.55,
+            preview_img = 'https://whisk-res.cloudinary.com/image/upload/g_auto,g_auto,c_fill,q_60,f_auto,h_600,w_800/v1652822464/v3/user-recipes/bq0shkg7v5zjijxtxnvv.jpg',
+            created_at = date.today(),
+            updated_at = date.today()
+    )
+
+    Waheed2 = Product(
+            owner_id = 5,
+            name = 'Kombucha',
+            description = 'Kombucha tea is a fermented drink made with tea, sugar, bacteria and yeast. To make the drink, bacteria and yeast must first grow together to form a culture. The culture is added to the sugar and tea. Then the mix is allowed to ferment.',
+            price = 5.77,
+            preview_img = 'https://www.thedripbar.co.za/wp-content/uploads/2020/04/Kombucha-800x675.jpeg',
+            created_at = date.today(),
+            updated_at = date.today()
+    )
+
+    Waheed3 = Product(
+            owner_id = 5,
+            name = 'Mango Lassi',
+            description = "Mango lassi is a delicious creamy drink with mango, yogurt, milk, a little sugar, and a sprinkling of cardamom. It's cool and refreshing on a hot day!",
+            price = 3.33,
+            preview_img = 'https://pipingpotcurry.com/wp-content/uploads/2019/09/Mango-Lassi-Piping-Pot-Curry-20.jpg',
+            created_at = date.today(),
+            updated_at = date.today()
+    )
+
+    Waheed4 = Product(
+            owner_id = 5,
+            name = 'Kefir',
+            description = 'Kefir is a fermented milk drink similar to a thin yogurt or ayran that is made from kefir grains, a specific type of mesophilic symbiotic culture.',
+            price = 5.33,
+            preview_img = 'https://images.immediate.co.uk/production/volatile/sites/30/2023/02/Kefir-pouring-into-glass-608636e.jpg?quality=90&webp=true&resize=440,400',
+            created_at = date.today(),
+            updated_at = date.today()
+    )
+
+    Waheed5 = Product(
+            owner_id = 5,
+            name = 'Chocolate Milk',
+            description = "Chocolate milk is generally made by mixing cow's milk with cocoa and sweeteners like sugar or high-fructose corn syrup.",
+            price = 2.55,
+            preview_img = 'https://i0.wp.com/sweetlycakes.com/wp-content/uploads/2020/10/IMG_0010-3-scaled.jpg?w=1440&ssl=1',
+            created_at = date.today(),
+            updated_at = date.today()
+    )
+
+    Waheed6 = Product(
+            owner_id = 5,
+            name = 'Coffee Mocha Coca-Cola',
+            description = "Coca-Cola's newest offering infuses the beloved Coca-Cola taste with a rich, luxurious mocha coffee flavor. Each 12-oz. can is infused with Brazilian coffee and packs 69 mg of caffeine, nearly double the amount in a typical can of Coke.",
+            price = 5.33,
+            preview_img = 'https://www.tasteofhome.com/wp-content/uploads/2022/01/coca-cola-coffee-mocha-flavor-courtesy-Coca-Cola.jpg?w=1200',
+            created_at = date.today(),
+            updated_at = date.today()
+    )
+
+    Waheed7 = Product(
+            owner_id = 5,
+            name = 'Coconut Water',
+            description = " So coconut water is a type of juice - it is the clear fluid found inside coconuts. It's not the same as coconut milk, which is a blend of coconut water and grated coconut." ,
+            price = 5.23,
+            preview_img = 'https://images.immediate.co.uk/production/volatile/sites/30/2017/08/coconut-water-bb9cfe8.jpg?quality=90&webp=true&resize=750,681',
+            created_at = date.today(),
+            updated_at = date.today()
+    )
+
+    Waheed8 = Product(
+            owner_id = 5,
+            name = 'Falooda',
+            description = 'Falooda is a popular ice-cream drink/dessert made with vermicelli, jelly, rose syrup, sabja seeds, milk and ice cream.',
+            price = 2.49,
+            preview_img = 'https://food-fanatic-res.cloudinary.com/iu/s--nHYuZDmm--/t_full/cs_srgb,f_auto,fl_strip_profile.lossy,q_auto:420/v1463134847/falooda-photo.jpg',
+            created_at = date.today(),
+            updated_at = date.today()
+    )
+
+    Waheed9 = Product(
+            owner_id = 5,
+            name = 'Sugarcane Juice',
+            description = 'This street food is extracted from sugarcane pressing them by a traditional hand drive machine. This food is found in many cities in Bangladesh, India and some other south Asian countries.',
+            price = 2.49,
+            preview_img = 'https://globalupfront.com/wp-content/uploads/2022/04/sugarcane-juice.jpg',
+            created_at = date.today(),
+            updated_at = date.today()
+    )
+
+    Waheed10 = Product(
+            owner_id = 5,
+            name = 'Ice-Cream Float',
+            description = 'An ice cream float or ice cream soda, also known as a spider in Australia and New Zealand, is a chilled beverage that consists of ice cream in either a soft drink or a mixture of flavored syrup and carbonated water.',
+            price = 2.49,
+            preview_img = 'https://www.thespruceeats.com/thmb/eNr_gAMw0r8ZG144hpWfvfBt4co=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/ice-cream-float-4846526-hero-03_alt-e5f74e7cac504fd7b18bd95b6b7be6c6.jpg',
+            created_at = date.today(),
+            updated_at = date.today()
+    )
+
+
 
     # db.session.add(product1)
     # db.session.add(product2)
     # db.session.add(product3)
-    all_reviews = [product1, product2, product3, Cproduct1, Cproduct2, Cproduct3, Cproduct4, Cproduct5, Cproduct6, Cproduct7, Cproduct8, Cproduct9, Cproduct10, Cproduct11, Cproduct12, Cproduct13, Cproduct14, Cproduct15]
-    add_reviews = [db.session.add(review) for review in all_reviews]
+    all_products = [product1, product2, product3, Cproduct1, Cproduct2, Cproduct3, Cproduct4, Cproduct5, Cproduct6, Cproduct7, Cproduct8, Cproduct9, Cproduct10, Cproduct11, Cproduct12, Cproduct13, Cproduct14, Cproduct15, Waheed1, Waheed2, Waheed3, Waheed4, Waheed5, Waheed6, Waheed7, Waheed8, Waheed9, Waheed10]
+    add_products = [db.session.add(product) for product in all_products]
 
     db.session.commit()
 

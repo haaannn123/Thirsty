@@ -138,7 +138,7 @@ export const thunkGetSearchResultProducts = (search_terms) => async (dispatch) =
     if (response.ok){
         const searchResultProducts = await response.json();
         const normalizedProducts = normalizingAllProducts(searchResultProducts);
-        dispatch(actionGetAllProducts(searchResultProducts));
+        dispatch(actionGetAllProducts(normalizedProducts));
         return normalizedProducts;
     }
 }
