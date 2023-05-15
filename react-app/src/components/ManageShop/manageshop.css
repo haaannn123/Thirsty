@@ -1,52 +1,71 @@
-.manage-shop-container{
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    padding: 1rem 10em
+.manage-shop-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  padding: 1rem 10em;
 }
 
-.menu-panel{
-    border: 1px solid rgb(182, 180, 180);
-    width: 25%;
-    height: 100%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.menu-panel {
+  border: 1px solid rgb(182, 180, 180);
+  width: 25%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Guardian-EgypTT", Charter, "Charter Bitstream", Cambria, "Noto Serif Light", "Droid Serif", Georgia, serif;
+  letter-spacing: 0.5px;
+  font-weight: 300;
 }
 
-.content-panel{
-    border: 1px solid rgb(182, 180, 180);
-    width: 75%;
-    padding: 1rem;
+.content-panel {
+  border: 1px solid rgb(182, 180, 180);
+  width: 75%;
+  padding: 1rem;
+  font-family: "Guardian-EgypTT", Charter, "Charter Bitstream", Cambria, "Noto Serif Light", "Droid Serif", Georgia, serif;
+  letter-spacing: 0.5px;
+  font-weight: 300;
 }
 
-.content-panel-header{
-    display: flex;
-    justify-content: space-between;
+.content-panel-header {
+  display: flex;
+  justify-content: space-between;
 }
 
-.shop-title{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: .5rem
+.shop-title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .shop-title:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.create-new-product-button{
-    border-radius: 10%;
+.create-new-product-button {
+  border: none;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.create-new-product-button:hover {
+  text-decoration: underline;
+  color: rgb(44, 138, 232)
 }
 
 .your-review-button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .your-account-text {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+.shop-tile,
+.your-review-button {
 }
