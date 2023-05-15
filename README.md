@@ -5,7 +5,7 @@ Welcome to Thirsty, your ultimate destination for a diverse and flavorful bevera
 <br />
 
 
-[Click here for the Thirsty live link]https://thirsty-stores.onrender.com/)
+Thirsty Live Link --> https://thirsty-stores.onrender.com/
 
 <br />
 ### Thirsty was created with the following languages and frameworks:
