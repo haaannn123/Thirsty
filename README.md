@@ -10,6 +10,11 @@ Thirsty Live Link --> https://thirsty-stores.onrender.com/
 ## Home Page
 
 ![Alt Text](./react-app//public/images/Thirsty-Splash-Page.gif)
+<br />
+
+## Product Page
+
+![Alt Text](./react-app//public/images/Thirsty-Product-Page.gif)
 
 <br />
 
