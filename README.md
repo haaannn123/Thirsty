@@ -4,6 +4,11 @@ Welcome to Thirsty, your ultimate destination for a diverse and flavorful bevera
 
 <br />
 
+## Home Page
+
+![Alt Text](./react-app//public/images/Thirsty-Splash-Page.gif)
+
+<br />
 
 Thirsty Live Link --> https://thirsty-stores.onrender.com/
 
