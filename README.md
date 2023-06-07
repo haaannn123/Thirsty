@@ -46,7 +46,7 @@ Thirsty Live Link --> https://thirsty-stores.onrender.com/
 
 **Han Nguyen**
 
-[Linkedin](https://www.linkedin.com/in/christian-oviedo-6a1586242/)
+[Linkedin](https://www.linkedin.com/in/han-nguyen-developer/)
 
 [Github](https://github.com/haaannn123)
 
