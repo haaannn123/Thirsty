@@ -121,15 +121,11 @@
     }
 }
 
-.c-product-avgrating-block {
+.all-ratings{
     display: flex;
-    flex-direction: row;
-    column-gap: 0.3em;
-    font-weight: lighter;
-    font-size: 22px;
-    /* border-bottom: 1px solid black; */
+    align-items: center;
+    gap: 1rem;
 }
-
 
 .fa-solid.fa-wine-glass.c-product-avgrating {
     font-size: 19px;
