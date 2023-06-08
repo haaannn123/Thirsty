@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: 30958aa0d3d9
-Revises: 
+Revises:
 Create Date: 2023-05-10 16:03:52.498152
 
 """
@@ -95,3 +95,4 @@ def downgrade():
     op.drop_table('products')
     op.drop_table('users')
     # ### end Alembic commands ###
+

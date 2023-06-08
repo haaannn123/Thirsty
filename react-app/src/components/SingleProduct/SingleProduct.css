@@ -141,6 +141,7 @@
 .c-product-description {
     font-size: 22px;
     padding-bottom: 1em;
+    word-break: break-word;
 }
 
 .c-product-reviews-block {
@@ -199,11 +200,6 @@
     column-gap: 1em;
 }
 
-
-
-
-
-
-/* .review-body{
-    font-size: 30px;
-} */
+.single-product-name {
+    word-break: break-word;
+}
