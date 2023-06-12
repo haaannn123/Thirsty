@@ -6,3 +6,18 @@ button {
 * {
     font-family: 'Oswald', sans-serif;
 }
+
+@media screen and (max-width: 428px){
+    .all-content{
+        display: none;
+    }
+    .mobile-text{
+        display: block;
+    }
+}
+
+@media screen and (min-width: 427px){
+    .mobile-text{
+        display: none;
+    }
+}

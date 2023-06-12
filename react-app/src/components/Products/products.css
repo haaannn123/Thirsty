@@ -125,3 +125,13 @@
     width: 100%;
   }
 }
+
+@media screen and (max-width: 428px) {
+  .hidden{
+    display: block;
+  }
+}
+
+.hidden{
+  display: none;
+}
