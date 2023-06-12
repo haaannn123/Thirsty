@@ -21,6 +21,8 @@
 }
 .review-text {
   font-family: "Lato", sans-serif;
+  word-break: break-word;
+  overflow: auto;
 }
 .shop-reviews-content {
   display: flex;

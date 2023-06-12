@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchProduct } from "../../store/products";
@@ -10,10 +10,12 @@ import UpdateReview from "../UpdateReview";
 import { thunkGetUserReviews } from "../../store/reviews";
 import DeleteReview from "../DeleteReviewModal";
 import "./SingleProduct.css";
+import { thunkAddToCart } from "../../store/shopping_cart";
 
 const GetSingleProduct = () => {
   const { product_id } = useParams();
   const dispatch = useDispatch();
+  const history = useHistory();
   const [count, setCount] = useState(1);
 
 
@@ -21,6 +23,7 @@ const GetSingleProduct = () => {
   const reviews = Object.values(useSelector((state) => state.productReviews.productReviews));
   const new_review = useSelector((state) => state.productReviews.newReview);
   const user = useSelector((state) => state.session.user);
+  const userCartArray = Object.values(useSelector((state) => state.userCart.userCart))
   // console.log("THIS IS THE LOG I'M LOOKING FOR", product);
 
   useEffect(() => {
@@ -102,6 +105,48 @@ const GetSingleProduct = () => {
     }
   }
 
+  const handleClick = (count) => {
+
+    if (!user) {
+      window.alert("Please Log in or Sign Up to shop! :)")
+      return
+    }
+
+
+    // console.log("USER CART ARRAY-------------", userCartArray)
+
+    let itemQuantityExceeded = false;
+
+    if (userCartArray.length > 0) {
+      userCartArray.forEach(item => {
+        // console.log("ITEM----------->>>", item.product_id, product_id)
+        if (item.product_id === parseInt(product_id)) {
+          // console.log("ITEM QUANTITY IN CART", item.quantity)
+          if (item.quantity >= 50 || (item.quantity + parseInt(count)) > 50) {
+            window.alert("You cannot add more than 50 quantities of the same item to cart")
+            itemQuantityExceeded = true;
+            return
+
+          }
+        }
+
+      })
+    }
+
+    if (itemQuantityExceeded) {
+      return
+    };
+
+    const payload = {
+      user_id: user.id,
+      product_id: product_id,
+      quantity: parseInt(count)
+    }
+
+    dispatch(thunkAddToCart(payload))
+    history.push('/cart')
+  };
+
   return (
     <div className="c-single-product">
 
@@ -130,6 +175,9 @@ const GetSingleProduct = () => {
           </div>
 
           <div className="c-product-purchase">
+            <div>
+              <button onClick={() => handleClick(count)} className="c-product-buynow">Buy it now</button>
+            </div>
             <div>
               <AddToCart quantity={count}/>
             </div>

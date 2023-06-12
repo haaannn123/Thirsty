@@ -1,4 +1,4 @@
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 // import { fetchProduct } from '../../store/single_product'
@@ -13,7 +13,6 @@ const AddToCart = ({quantity}) => {
     // console.log('CART====>', parseInt(quantity))
     const userCartArray = Object.values(useSelector((state) => state.userCart.userCart))
     const user = useSelector((state) => state.session.user)
-    const history = useHistory()
 
 
     useEffect(() => {
@@ -36,9 +35,9 @@ const AddToCart = ({quantity}) => {
         if(userCartArray.length > 0){
             userCartArray.forEach(item => {
                 // console.log("ITEM----------->>>", item.product_id, product_id)
-                if(item.product_id === product_id){
+                if(item.product_id === parseInt(product_id)){
                     // console.log("ITEM QUANTITY IN CART", item.quantity)
-                    if(item.quantity === 50){
+                    if (item.quantity >= 50 || (item.quantity + parseInt(quantity)) > 50){
                         window.alert("You cannot add more than 50 quantities of the same item to cart")
                         itemQuantityExceeded = true;
                         return
@@ -60,7 +59,7 @@ const AddToCart = ({quantity}) => {
         }
 
         dispatch(thunkAddToCart(product))
-        return history.push('/cart')
+        // return history.push('/cart')
 
     }
 
