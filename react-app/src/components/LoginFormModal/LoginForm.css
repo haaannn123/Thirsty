@@ -4,7 +4,7 @@
     flex-direction: column;
     padding: 35px;
     margin-top: -30px;
-    height: 375px;
+    height: 350px;
     width: 250px;
 }
 
@@ -15,7 +15,7 @@
     align-items: center;
     width: 225px;
     justify-content: space-between;
-    margin-bottom: -20px;
+    /* margin-bottom: -20px; */
     /* background-color: green; */
 }
 
@@ -26,9 +26,10 @@
 }
 
 .login-errors {
+    margin-top: 0px;
+    /* margin-bottom: -10px; */
     color: rgb(255, 0, 0);
     font-weight: bold;
-    margin-top: 3em;
 }
 
 .open-modal-button {

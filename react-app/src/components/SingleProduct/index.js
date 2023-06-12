@@ -56,7 +56,7 @@ const GetSingleProduct = () => {
     let sum = 0;
     if (reviews.length > 0) {
       reviews.forEach((review) => (sum += review.rating));
-      return "Average rating " + (sum / reviews.length);
+      return "average rating " + (sum / reviews.length);
     }
     return "No Reviews";
   }
@@ -96,7 +96,13 @@ const GetSingleProduct = () => {
     );
   }
 
-
+  const renderReviews = (numReviews) => {
+    if (numReviews === 1){
+        return numReviews + ' rating'
+    } else{
+        return numReviews + ' ratings'
+    }
+  }
 
   return (
     <div className="c-single-product">
@@ -110,7 +116,7 @@ const GetSingleProduct = () => {
         <div className="c-product-info-right">
           <div>
             <h1>${product.price.toFixed(2)}</h1>
-            <h1>{product.name}</h1>
+            <h1 className="single-product-name">{product.name}</h1>
             <div className="c-product-owner">
               Sold by {product.owner_info}
             </div>
@@ -138,16 +144,6 @@ const GetSingleProduct = () => {
       </div>
 
       <div>
-        <h2>
-          <div className="c-product-avgrating-block">
-            <div>
-              {averageRating(reviews)}
-            </div>
-            <div>
-              <i className="fa-solid fa-wine-glass c-product-avgrating"></i>
-            </div>
-          </div>
-        </h2>
         <h2 className="c-product-description-header">Drink Description</h2>
         <div className="c-product-description">
           {product.description}
@@ -157,16 +153,20 @@ const GetSingleProduct = () => {
       <div className="c-product-reviews-block">
 
         <div className="c-product-reviews-header">
-          <h2>
-            Reviews {reviews.length ? '•' : null} {reviews.length ? reviews.length : null}
-          </h2>
+          <div className="all-ratings">
+            <h2>{renderReviews(reviews.length)}</h2>
+            •
+            <h2
+              className="average-rating">{averageRating(reviews)}
+              <i className="fa-solid fa-wine-glass c-product-avgrating"></i></h2>
+          </div>
           <div>
             {renderLeaveReviewButton()}
           </div>
         </div>
 
         <div className="c-product-reviews-list">
-          {reviews.map((review) => {
+          {reviews.reverse().map((review) => {
             return (
               <div key={review.id} className="c-product-user-review-block">
                 <div>

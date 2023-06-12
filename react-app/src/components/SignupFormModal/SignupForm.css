@@ -9,7 +9,7 @@
 
 .signup-text {
     font-size: 40px;
-    margin-bottom: -20px;
+    /* margin-bottom: -20px; */
 }
 
 .signup-form-container {
@@ -19,9 +19,10 @@
 }
 
 .signup-errors {
+    margin-top: -10px;
     color: rgb(255, 0, 0);
     font-weight: bold;
-    margin-top: 3em;
+    margin-right: 30px;
 }
 
 .signup-form-input {
