@@ -119,6 +119,7 @@ export const fetchUserProducts = () => async (dispatch) => {
 }
 
 export const editProduct = (product, productId) => async dispatch => {
+    console.log('thunk product id', productId)
     const response = await fetch(`/api/products/${productId}`, {
         method: 'PUT',
         headers: {"Content-Type": "application/json"},

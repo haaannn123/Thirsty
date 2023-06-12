@@ -22,6 +22,9 @@
 .store-product-name{
     color: rgb(44, 138, 232);
     padding-left: .5rem;
+    overflow: hidden;
+    max-width: 190px;
+    /* padding-right: 5px; */
 }
 
 .store-delete-button, .store-edit-button{

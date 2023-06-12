@@ -116,7 +116,7 @@ const GetSingleProduct = () => {
         <div className="c-product-info-right">
           <div>
             <h1>${product.price.toFixed(2)}</h1>
-            <h1>{product.name}</h1>
+            <h1 className="single-product-name">{product.name}</h1>
             <div className="c-product-owner">
               Sold by {product.owner_info}
             </div>

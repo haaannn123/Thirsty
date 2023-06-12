@@ -30,6 +30,7 @@ const GetAllProducts = () => {
   return (
     <>
       <div className="welcome-back">{welcome()}</div>
+      <div className="hidden">OUR SITE WAS DESIGNED TO BE VIEWED ON THE DESKTOP</div>
       <div className="all-products-container">
         {allProducts.map((product) => {
           return (
