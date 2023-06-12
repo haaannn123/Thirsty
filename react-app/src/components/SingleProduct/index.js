@@ -42,9 +42,7 @@ const GetSingleProduct = () => {
     }
   };
 
-  const handleClick = () => {
-    window.alert("Feature coming soon!");
-  };
+
 
   function formatDate(created_at) {
     const dateObj = new Date(created_at);
@@ -126,9 +124,6 @@ const GetSingleProduct = () => {
           </div>
 
           <div className="c-product-purchase">
-            <div>
-              <button onClick={handleClick} className="c-product-buynow">Buy it now</button>
-            </div>
             <div>
               <AddToCart quantity={count}/>
             </div>

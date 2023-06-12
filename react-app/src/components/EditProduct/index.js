@@ -12,7 +12,7 @@ const EditProduct = () => {
     const history = useHistory();
 
     const product = useSelector((state) => state.products.singleProduct)
-    console.log('PRODUCT HERE PRODUCT HERE!!!!:', product)
+    // console.log('PRODUCT HERE PRODUCT HERE!!!!:', product)
 
     const [name, setName] = useState(product.name);
     const [description, setDescription] = useState(product.description);
@@ -63,7 +63,7 @@ const EditProduct = () => {
 
         const updatedProduct = await dispatch(editProduct(newProduct, productId))
 
-        console.log("UPDATED PRODUCT--------", updatedProduct)
+        // console.log("UPDATED PRODUCT--------", updatedProduct)
 
         await dispatch(fetchProduct(updatedProduct.id))
 

@@ -1,17 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { thunkGetUserReviews, thunkUpdateUserReview } from '../../store/reviews';
+import { thunkUpdateUserReview } from '../../store/reviews';
 import { useModal } from "../../context/Modal";
 import './UpdateReview.css'
 
 const UpdateReview = (reviewId) => {
     const review_id = parseInt(reviewId.reviewId)
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
     const { closeModal } = useModal();
     const previousReviews = useSelector(state => state.productReviews.userReviews);
-    const user = useSelector(state => state.session.user);
+    // const user = useSelector(state => state.session.user);
     const previousReview = previousReviews[review_id];
     // console.log('---------UPDATE REVIEW------', previousReview[review_id])
     const [cups, setCups] = useState(1);
@@ -20,7 +20,7 @@ const UpdateReview = (reviewId) => {
     const [errors, setErrors] = useState('');
     const numbers = [1, 2, 3, 4, 5];
     const [review, setReview] = useState(previousReview.review);
-    const [rating, setRating] = useState(previousReview.rating);
+    // const [rating, setRating] = useState(previousReview.rating);
 
     useEffect(() => {
         if (!cups || review.length < 3) {

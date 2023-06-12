@@ -83,14 +83,14 @@ export const fetchProduct = (id) => async (dispatch) => {
 }
 
 export const createNewProduct = (product) => async dispatch => {
-    console.log('PRODUCT-->:', product)
+    // console.log('PRODUCT-->:', product)
     const response = await fetch('/api/products/new', {
         method: 'POST',
         body: product
     })
     if (response.ok) {
         const newProduct = await response.json()
-        console.log('NEW PRODUCT-->', newProduct)
+        // console.log('NEW PRODUCT-->', newProduct)
         dispatch(actionCreateNewProduct(newProduct))
         return newProduct
     }
@@ -111,7 +111,7 @@ export const fetchUserProducts = () => async (dispatch) => {
 
     if (res.ok){
         const products = await res.json();
-        console.log("all products here!!!", products)
+        // console.log("all products here!!!", products)
         const normalizedProducts = normalizingUserProducts(products)
         dispatch(actionGetUserProducts(normalizedProducts))
         return normalizedProducts
@@ -156,30 +156,30 @@ const allProductsReducer = (state = initialState, action) => {
             return newState;
         }
         case GET_PRODUCT:{
-            console.log("STATEEEEEEEEEEEEEEEE", state )
+            // console.log("STATEEEEEEEEEEEEEEEE", state )
             const newState = { ...state, allProducts: {...state.allProducts} };
-            console.log('------ACTION-----', action)
-            console.log('-----NEWSTATE---', newState)
+            // console.log('------ACTION-----', action)
+            // console.log('-----NEWSTATE---', newState)
             newState.singleProduct = action.id
             return newState
         }
         case CREATE_NEW_PRODUCT:{
             const newState = { ...state, allProducts: {...state.allProducts} }
-            console.log('action ->', action)
-            console.log('NEWSTATE-->', newState)
+            // console.log('action ->', action)
+            // console.log('NEWSTATE-->', newState)
             newState.allProducts[action.product.id] = action.product
             return newState
         }
         case DELETE_PRODUCT:{
-            console.log('------ACTION-----', action)
+            // console.log('------ACTION-----', action)
             const newState = { ...state, allProducts: { ...state.allProducts }};
-            console.log('-----NEWSTATE---', newState)
+            // console.log('-----NEWSTATE---', newState)
             delete newState.allProducts[action.productId];
             return newState
         }
         case GET_USER_PRODUCTS:{
             const newState = {...state}
-            console.log('ACTION:', action)
+            // console.log('ACTION:', action)
             newState.userProducts = action.products
             return newState;
         }

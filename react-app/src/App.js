@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import SignupFormPage from "./components/SignupFormPage";
-import LoginFormPage from "./components/LoginFormPage";
+// import SignupFormPage from "./components/SignupFormPage";
+// import LoginFormPage from "./components/LoginFormPage";
 import GetSingleProduct from "./components/SingleProduct"
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
-import GetAllProducts from "./components/Products";
+// import GetAllProducts from "./components/Products";
 import EditProduct from './components/EditProduct'
 import SearchResults from "./components/SearchResults";
 import CreateNewProduct from "./components/CreateNewProduct";
 import ManageShop from './components/ManageShop'
-import ManageReviews from "./components/ManageReviews";
+// import ManageReviews from "./components/ManageReviews";
 import ShoppingCart from "./components/ShoppingCart";
 import { thunkGetAllProducts } from "./store/products";
 import ProductsPage from "./components/Products/ProductsPage";

@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import { createNewProduct, fetchProduct } from '../../store/products';
+import { createNewProduct } from '../../store/products';
 import './CreateNewProduct.css';
 import { thunkGetAllProducts } from '../../store/products';
 
@@ -32,8 +32,8 @@ const CreateNewProduct = () => {
         if (Object.keys(allErrors).length) {
             return setErrors(allErrors)
         }
-        console.log('Preview Image', preview_img)
-        console.log('Name', name)
+        // console.log('Preview Image', preview_img)
+        // console.log('Name', name)
 
         const newProduct = new FormData();
         newProduct.append('name', name)
@@ -41,9 +41,9 @@ const CreateNewProduct = () => {
         newProduct.append('price', price)
         newProduct.append('preview_img', preview_img)
 
-        console.log('HELLLO', newProduct)
+        // console.log('HELLLO', newProduct)
         const createdProduct = await dispatch(createNewProduct(newProduct))
-        console.log('CREATED_PRODUCT->', createdProduct)
+        // console.log('CREATED_PRODUCT->', createdProduct)
         dispatch(thunkGetAllProducts())
         if (createdProduct) {
             history.push(`/products/${createdProduct.id}`)

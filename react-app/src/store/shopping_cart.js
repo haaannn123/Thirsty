@@ -15,7 +15,7 @@ export const actionAddToCart = (product) => ({
 const normalizeCarts = (carts) => {
     let normalizedCarts = {};
     carts.carts.forEach(cart => {
-        console.log("BEFORE NORMALIZE CART", cart)
+        // console.log("BEFORE NORMALIZE CART", cart)
         normalizedCarts[cart.id] = cart
     });
 
@@ -30,7 +30,7 @@ export const getCartThunk = () => async dispatch => {
         const cart = await response.json()
         const normalizedCart = normalizeCarts(cart)
         await dispatch(actionGetUserCart(normalizedCart))
-        console.log('NORMALIZED CART:', normalizedCart)
+        // console.log('NORMALIZED CART:', normalizedCart)
         return normalizedCart
     }
 }
@@ -49,7 +49,7 @@ export const thunkAddToCart = (product) => async dispatch => {
         const cartProduct = await response.json();
         // const normalizedCartProduct = normalizeCarts(cartProduct)
         await dispatch(actionAddToCart(cartProduct))
-        await dispatch(getCartThunk)
+        await dispatch(getCartThunk())
         return cartProduct;
     }
 }
@@ -68,7 +68,7 @@ export const thunkUpdateCartItemQuantityInDb = (quantity, item) => async dispatc
         const cartProduct = await response.json();
         // const normalizedCartProduct = normalizeCarts(cartProduct)
         await dispatch(actionAddToCart(cartProduct))
-        await dispatch(getCartThunk)
+        await dispatch(getCartThunk())
         return cartProduct;
     }
 }
@@ -83,7 +83,7 @@ export const thunkDeleteItemFromCart = (item) => async dispatch => {
     })
 
     if(response.ok){
-        console.log("DELETE ITEM FROM CART RESPONSE")
+        // console.log("DELETE ITEM FROM CART RESPONSE")
 
         await dispatch(getCartThunk())
     }
@@ -99,7 +99,7 @@ export const thunkDeleteAllItemsFromCart = (userId) => async dispatch => {
     })
 
     if(response.ok){
-        console.log("DELETE ALL ITEMS FROM CART RESPONSE")
+        // console.log("DELETE ALL ITEMS FROM CART RESPONSE")
 
         await dispatch(getCartThunk())
     }
@@ -112,8 +112,8 @@ export default function cartReducer (state = initialState, action) {
     switch(action.type) {
         case GET_USER_CART:
             return { ...state, userCart: {...action.userId}}
-        case ADD_TO_CART:
-                console.log("ADD TO CART ACTION: ", action)
+            case ADD_TO_CART:
+                // console.log("ADD TO CART ACTION: ", action)
                 newState = { ...state }
                 newState.userCart[action.product.id] = action.product
                 return newState
