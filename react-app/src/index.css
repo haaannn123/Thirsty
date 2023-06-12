@@ -16,7 +16,7 @@ button {
     }
 }
 
-@media screen and (min-width: 427px){
+@media screen and (min-width: 429px){
     .mobile-text{
         display: none;
     }
