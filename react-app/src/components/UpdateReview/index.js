@@ -88,7 +88,7 @@ const UpdateReview = (reviewId) => {
                 <textarea
                     className="review-text-box"
                     type="text"
-                    rows="10"
+                    rows="7"
                     value={review}
                     placeholder="Leave your review here"
                     onChange={(e) => setReview(e.target.value)}
