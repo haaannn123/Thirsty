@@ -62,7 +62,7 @@ const Footer = () => {
             <h4 className="single-name">Han Nguyen</h4>
             <div className="links-wrapper">
               <a
-                href="https://www.linkedin.com/in/christian-oviedo-6a1586242/"
+                href="https://www.linkedin.com/in/han-nguyen-developer/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="linkedin-link"
