@@ -12,7 +12,7 @@ export const actionGetCurrUserShop = (shops) => {
 const normalizeAllShops = (shops) => {
     let normalizedShops = {};
     shops.shops.forEach(shop => {
-        console.log('each tiny little shop: ', shop)
+        // console.log('each tiny little shop: ', shop)
         normalizedShops[shop.id] = shop
     })
     return normalizedShops;
@@ -23,7 +23,7 @@ export const fetchCurrUserShops = () => async (dispatch) => {
 
     if (response.ok){
         const shops= await response.json();
-        console.log('SHOP HERE YOOO:',shops)
+        // console.log('SHOP HERE YOOO:',shops)
         const normalizedShops = normalizeAllShops(shops)
         dispatch(actionGetCurrUserShop(normalizedShops))
         return normalizedShops

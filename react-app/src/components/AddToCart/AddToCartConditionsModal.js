@@ -1,10 +1,10 @@
-import { useParams, useHistory } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
+// import { useParams, useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+// import { useEffect, useState } from 'react'
 // import { fetchProduct } from '../../store/single_product'
-import { getCartThunk, thunkAddToCart } from '../../store/shopping_cart'
+import { thunkAddToCart } from '../../store/shopping_cart'
 import { useModal } from "../../context/Modal"
-import OpenModalButton from "../OpenModalButton";
+// import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from '../LoginFormModal';
 import SignInOpenModalButton from '../SignInOpenModalButton';
 
@@ -21,7 +21,7 @@ const AddToCartConditions = ({user, userCartArray, product_id}) => {
     //     return
     // }
 
-    console.log("CART CONDITION PARAMS", userCartArray)
+    // console.log("CART CONDITION PARAMS", userCartArray)
     // let itemQuantityExceeded = false;
 
 
@@ -76,9 +76,9 @@ const AddToCartConditions = ({user, userCartArray, product_id}) => {
             if(userCartArray.length > 0){
                 userCartArray.forEach(item => {
                     // console.log("ITEM----------->>>", item.product_id, product_id)
-                    if(item.product_id == product_id){
+                    if(item.product_id === product_id){
                         // console.log("ITEM QUANTITY IN CART", item.quantity)
-                        if(item.quantity == 50){
+                        if(item.quantity === 50){
                             // window.alert("You cannot add more than 50 quantities of the same item to cart")
                             itemQuantityExceeded = true;
                             return
