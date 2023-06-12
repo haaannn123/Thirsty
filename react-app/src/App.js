@@ -16,7 +16,6 @@ import ShoppingCart from "./components/ShoppingCart";
 import { thunkGetAllProducts } from "./store/products";
 import ProductsPage from "./components/Products/ProductsPage";
 import AboutThirsty from "./components/AboutThirsty";
-import { filter } from "selenium-webdriver/lib/promise";
 import "./index.css"
 
 function App() {
