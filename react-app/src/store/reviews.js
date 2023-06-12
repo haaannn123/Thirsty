@@ -55,7 +55,7 @@ export const thunkGetUserReviews = (user_id) => async (dispatch) => {
     if (response.ok) {
         const reviews = await response.json()
         const normalizedReviews = normalizingAllReviews(reviews)
-        console.log('----RESPONSE---', normalizedReviews)
+        // console.log('----RESPONSE---', normalizedReviews)
         dispatch(actionGetUserReviews(normalizedReviews))
     }
 }
@@ -75,7 +75,7 @@ export const thunkGetProductReviews = (product_id) => async (dispatch) => {
 
 
 export const thunkCreateProductReview = (product_id, review) => async (dispatch) => {
-    console.log('--------THUNK REVIEW, PRODUCT_ID-------', product_id, review)
+    // console.log('--------THUNK REVIEW, PRODUCT_ID-------', product_id, review)
     const response = await fetch(`/api/reviews/new/product/${product_id}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -84,7 +84,7 @@ export const thunkCreateProductReview = (product_id, review) => async (dispatch)
 
     if (response.ok) {
         const new_review = await response.json()
-        console.log('--------RESPONSE THUNK-------', new_review)
+        // console.log('--------RESPONSE THUNK-------', new_review)
         dispatch(actionCreateProductReview(new_review))
     }
 }
@@ -146,10 +146,10 @@ const productReviewsReducer = (state = initialState, action) => {
 
         case UPDATE_USER_REVIEW:
             const updatedUserReviewState = {...state}
-            console.log('UPDATED REVIEW REDUCER', updatedUserReviewState)
+            // console.log('UPDATED REVIEW REDUCER', updatedUserReviewState)
             updatedUserReviewState.productReviews[action.updated_review.id] = action.updated_review
             updatedUserReviewState.userReviews[action.updated_review.id] = action.updated_review
-            console.log('UPDATED REVIEW REDUCER', updatedUserReviewState)
+            // console.log('UPDATED REVIEW REDUCER', updatedUserReviewState)
             return updatedUserReviewState
 
         default:

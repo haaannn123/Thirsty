@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom'
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
-import OpenModalButton from "../OpenModalButton";
+// import OpenModalButton from "../OpenModalButton";
 import "./SignupForm.css";
 
 function SignupFormModal() {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { thunkUpdateCartItemQuantityInDb, getCartThunk } from '../../store/shopping_cart';
 import { useDispatch } from 'react-redux';
 import "./ShoppingCart.css";

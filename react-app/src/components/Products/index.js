@@ -9,7 +9,7 @@ const GetAllProducts = () => {
   const dispatch = useDispatch();
   const allProducts = Object.values(useSelector((state) => state.products.allProducts));
   const sessionUser = useSelector((state) => state.session.user);
-  console.log('SESSIONUSERHERE!:', sessionUser)
+  // console.log('SESSIONUSERHERE!:', sessionUser)
 
   useEffect(() => {
     dispatch(thunkGetAllProducts());

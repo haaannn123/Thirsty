@@ -1,8 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { deleteProduct } from "../../store/products";
 import { useModal } from '../../context/Modal'
 import './DeleteProduct.css';
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 const DeleteProduct = ({ productId }) => {
     const dispatch = useDispatch();
