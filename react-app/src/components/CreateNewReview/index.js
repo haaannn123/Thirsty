@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { thunkCreateProductReview } from '../../store/reviews';
 import { useModal } from "../../context/Modal";

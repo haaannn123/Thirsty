@@ -15,7 +15,7 @@ const ShoppingCart = () => {
   const dispatch = useDispatch();
 
   const [isLoaded, setIsLoaded] = useState(false)
-  const [cartTotal, setCartTotal] = useState(0)
+  // const [cartTotal, setCartTotal] = useState(0)
   let total = 0
   let totalItems = 0
 
@@ -25,7 +25,7 @@ const ShoppingCart = () => {
   // console.log("PRODUCTS-->", products);
   const userCart = Object.values(useSelector((state) => state.userCart.userCart));
   // const userCartArr = Object.values(userCart);
-  console.log("USER CART ARRAY-->", userCart);
+  // console.log("USER CART ARRAY-->", userCart);
 
 
 
