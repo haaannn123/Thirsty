@@ -16,6 +16,8 @@ import ShoppingCart from "./components/ShoppingCart";
 import { thunkGetAllProducts } from "./store/products";
 import ProductsPage from "./components/Products/ProductsPage";
 import AboutThirsty from "./components/AboutThirsty";
+import "./index.css"
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -26,6 +28,8 @@ function App() {
 
   return (
     <>
+    <div className="mobile-text">THIS SITE WAS DESIGNED FOR DESKTOP VIEW</div>
+    <div className="all-content">
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
@@ -64,6 +68,7 @@ function App() {
           </Route>
         </Switch>
       )}
+    </div>
     </>
   );
 }
