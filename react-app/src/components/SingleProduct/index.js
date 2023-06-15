@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { fetchProduct } from "../../store/products";
 import { thunkGetProductReviews } from "../../store/reviews";
 import OpenLeaveAReviewButton from "../OpenLeaveAReviewModal";
+import OpenModalButton from "../OpenModalButton";
+import LoginFormModal from "../LoginFormModal";
 import CreateNewReview from "../CreateNewReview";
 import AddToCart from "../AddToCart";
 import UpdateReview from "../UpdateReview";
@@ -88,6 +90,27 @@ const GetSingleProduct = () => {
     }
   };
 
+  const renderBuyButtons = () => {
+    if (product.owner_id !== user.id) {
+      return (
+        <div className="c-product-purchase">
+          <div>
+            <button onClick={() => handleClick(count)} className="c-product-buynow">Buy it now</button>
+          </div>
+          <div>
+            <AddToCart quantity={count} />
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        <>
+          <button onClick={() => history.push('/shops/current')} className="c-product-addcart">Manage Product</button>
+        </>
+      )
+    }
+  };
+
   const options = [];
   for (let i = 1; i <= 50; i++) {
     options.push(
@@ -103,7 +126,7 @@ const GetSingleProduct = () => {
     } else{
         return numReviews + ' ratings'
     }
-  }
+  };
 
   const handleClick = (count) => {
 
@@ -174,14 +197,26 @@ const GetSingleProduct = () => {
             </div>
           </div>
 
-          <div className="c-product-purchase">
-            <div>
-              <button onClick={() => handleClick(count)} className="c-product-buynow">Buy it now</button>
+          {user ?
+            renderBuyButtons()
+            :
+            <div className="c-product-purchase">
+              <div>
+                <OpenModalButton
+                  buttonText="Buy it now"
+                  modalComponent={<LoginFormModal />}
+                  className="c-product-buynow"
+                />
+              </div>
+              <div>
+                <OpenModalButton
+                  buttonText="Add to cart"
+                  modalComponent={<LoginFormModal />}
+                  className="c-product-addcart"
+                />
+              </div>
             </div>
-            <div>
-              <AddToCart quantity={count}/>
-            </div>
-          </div>
+          }
         </div>
 
       </div>
