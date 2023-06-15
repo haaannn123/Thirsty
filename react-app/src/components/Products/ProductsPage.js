@@ -7,7 +7,9 @@ const ProductsPage = () => {
         <div className="color-strip"></div>
         <div class="color-strip-bottom"></div>
         <GetAllProducts />
-        <Footer />
+        <div style={{ position: 'absolute', left: '0', right: '0' }}>
+          <Footer />
+        </div>
       </div>
     );
   };

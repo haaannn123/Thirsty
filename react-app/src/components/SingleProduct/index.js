@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { fetchProduct } from "../../store/products";
 import { thunkGetProductReviews } from "../../store/reviews";
 import OpenLeaveAReviewButton from "../OpenLeaveAReviewModal";
+import OpenModalButton from "../OpenModalButton";
+import LoginFormModal from "../LoginFormModal";
 import CreateNewReview from "../CreateNewReview";
 import AddToCart from "../AddToCart";
 import UpdateReview from "../UpdateReview";
@@ -88,6 +90,27 @@ const GetSingleProduct = () => {
     }
   };
 
+  const renderBuyButtons = () => {
+    if (product.owner_id !== user.id) {
+      return (
+        <div className="c-product-purchase">
+          <div>
+            <button onClick={() => handleClick(count)} className="c-product-buynow">Buy it now</button>
+          </div>
+          <div>
+            <AddToCart quantity={count} />
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        <>
+          <button onClick={() => history.push('/shops/current')} className="c-product-addcart">Manage Product</button>
+        </>
+      )
+    }
+  };
+
   const options = [];
   for (let i = 1; i <= 50; i++) {
     options.push(
@@ -103,7 +126,49 @@ const GetSingleProduct = () => {
     } else{
         return numReviews + ' ratings'
     }
-  }
+  };
+
+  const handleClick = (count) => {
+
+    if (!user) {
+      window.alert("Please Log in or Sign Up to shop! :)")
+      return
+    }
+
+
+    // console.log("USER CART ARRAY-------------", userCartArray)
+
+    let itemQuantityExceeded = false;
+
+    if (userCartArray.length > 0) {
+      userCartArray.forEach(item => {
+        // console.log("ITEM----------->>>", item.product_id, product_id)
+        if (item.product_id === parseInt(product_id)) {
+          // console.log("ITEM QUANTITY IN CART", item.quantity)
+          if (item.quantity >= 50 || (item.quantity + parseInt(count)) > 50) {
+            window.alert("You cannot add more than 50 quantities of the same item to cart")
+            itemQuantityExceeded = true;
+            return
+
+          }
+        }
+
+      })
+    }
+
+    if (itemQuantityExceeded) {
+      return
+    };
+
+    const payload = {
+      user_id: user.id,
+      product_id: product_id,
+      quantity: parseInt(count)
+    }
+
+    dispatch(thunkAddToCart(payload))
+    history.push('/cart')
+  };
 
   const handleClick = (count) => {
 
@@ -174,14 +239,26 @@ const GetSingleProduct = () => {
             </div>
           </div>
 
-          <div className="c-product-purchase">
-            <div>
-              <button onClick={() => handleClick(count)} className="c-product-buynow">Buy it now</button>
+          {user ?
+            renderBuyButtons()
+            :
+            <div className="c-product-purchase">
+              <div>
+                <OpenModalButton
+                  buttonText="Buy it now"
+                  modalComponent={<LoginFormModal />}
+                  className="c-product-buynow"
+                />
+              </div>
+              <div>
+                <OpenModalButton
+                  buttonText="Add to cart"
+                  modalComponent={<LoginFormModal />}
+                  className="c-product-addcart"
+                />
+              </div>
             </div>
-            <div>
-              <AddToCart quantity={count}/>
-            </div>
-          </div>
+          }
         </div>
 
       </div>
