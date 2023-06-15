@@ -170,6 +170,48 @@ const GetSingleProduct = () => {
     history.push('/cart')
   };
 
+  const handleClick = (count) => {
+
+    if (!user) {
+      window.alert("Please Log in or Sign Up to shop! :)")
+      return
+    }
+
+
+    // console.log("USER CART ARRAY-------------", userCartArray)
+
+    let itemQuantityExceeded = false;
+
+    if (userCartArray.length > 0) {
+      userCartArray.forEach(item => {
+        // console.log("ITEM----------->>>", item.product_id, product_id)
+        if (item.product_id === parseInt(product_id)) {
+          // console.log("ITEM QUANTITY IN CART", item.quantity)
+          if (item.quantity >= 50 || (item.quantity + parseInt(count)) > 50) {
+            window.alert("You cannot add more than 50 quantities of the same item to cart")
+            itemQuantityExceeded = true;
+            return
+
+          }
+        }
+
+      })
+    }
+
+    if (itemQuantityExceeded) {
+      return
+    };
+
+    const payload = {
+      user_id: user.id,
+      product_id: product_id,
+      quantity: parseInt(count)
+    }
+
+    dispatch(thunkAddToCart(payload))
+    history.push('/cart')
+  };
+
   return (
     <div className="c-single-product">
 
