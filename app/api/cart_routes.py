@@ -5,7 +5,7 @@ from flask_login import login_required
 cart_routes = Blueprint('cart', __name__)
 
 @cart_routes.route('/')
-@login_required
+# @login_required
 def get_shopping_cart():
     owner_id = session.get('_user_id')
     carts = Shopping_Cart.query.filter_by(user_id=owner_id).all()
